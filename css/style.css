@@ -11,7 +11,6 @@ body {
     display: flex;
     justify-content: center;
     -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
 }
 
 .container {
@@ -21,7 +20,6 @@ body {
     background: #0b0b0b;
 }
 
-/* HERO SECTION - Оптимизировано для кнопки на 1-м экране */
 .hero-wrapper {
     position: relative;
     overflow: hidden;
@@ -56,7 +54,6 @@ body {
 .title {
     font-size: 32px;
     font-weight: 900;
-    letter-spacing: 1.5px;
     margin-bottom: 15px;
     text-transform: uppercase;
 }
@@ -96,7 +93,6 @@ body {
     color: #4f6450;
 }
 
-/* PRICING */
 .price-container {
     display: flex;
     align-items: baseline;
@@ -116,7 +112,6 @@ body {
 .new-price {
     font-size: 48px;
     font-weight: 900;
-    color: #ffffff;
 }
 
 .sub {
@@ -124,23 +119,18 @@ body {
     font-size: 11px;
     margin-bottom: 20px;
     text-transform: uppercase;
-    letter-spacing: 1px;
 }
 
-/* BUTTON */
 .button {
     width: 100%;
     padding: 18px;
     font-size: 17px;
     font-weight: 800;
-    letter-spacing: 1.5px;
     border: none;
     border-radius: 4px;
-    cursor: pointer;
     color: white;
     background: linear-gradient(90deg, #3e4f3f, #4f6450);
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(62, 79, 63, 0.3);
 }
 
 .divider {
@@ -148,10 +138,6 @@ body {
     background: #1c1c1c;
     margin: 25px 0;
 }
-
-/* GALLERY & REVIEWS */
-.gallery-title { font-size: 22px; font-weight: 900; margin-bottom: 5px; }
-.gallery-sub { color: #8a8a8a; font-size: 11px; margin-bottom: 15px; text-transform: uppercase; }
 
 .gallery-scroll {
     display: flex;
@@ -193,30 +179,19 @@ body {
     margin-bottom: 5px;
 }
 
-.reviewer-name {
-    font-size: 13px;
-    font-weight: 800;
-    color: #ffffff;
-}
+.reviewer-name { font-size: 13px; font-weight: 800; }
 
 .verified-badge {
     font-size: 10px;
     color: #4f6450;
-    font-weight: 700;
-    text-transform: uppercase;
     background: rgba(79, 100, 80, 0.1);
     padding: 2px 5px;
     border-radius: 3px;
 }
 
-.review {
-    font-size: 12px;
-    color: #9c9c9c;
-    line-height: 1.5;
-    font-style: italic;
-}
+.review { font-size: 12px; color: #9c9c9c; font-style: italic; }
 
-/* MODAL - ФИКС ДЛЯ МОБИЛЬНЫХ (СКРОЛЛ И ТЕМА) */
+/* MODAL FIX */
 .modal {
     display: none;
     position: fixed;
@@ -231,7 +206,7 @@ body {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.95);
+    background: rgba(0, 0, 0, 0.9);
 }
 
 .modal-content {
@@ -251,10 +226,5 @@ body {
     top: 10px; right: 15px;
     color: #666;
     font-size: 32px;
-    font-weight: bold;
     cursor: pointer;
-    z-index: 2002;
-    line-height: 1;
 }
-
-.close-btn:hover { color: #fff; }
