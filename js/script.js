@@ -1,23 +1,27 @@
-// Открытие окна оплаты
+/**
+ * Project Yaro - 10% Blueprint
+ * Скрипт для управления модальным окном оплаты Whop
+ */
+
 function buyProduct() {
     const modal = document.getElementById("checkoutModal");
-    modal.style.display = "flex";
-    // Блокируем скролл основной страницы
+    modal.style.display = "block";
+    // Блокируем скролл основной страницы, чтобы не дергалась
     document.body.style.overflow = "hidden";
 }
 
-// Закрытие окна оплаты
 function closeModal() {
     const modal = document.getElementById("checkoutModal");
     modal.style.display = "none";
-    // Возвращаем скролл
+    // Возвращаем скролл основной страницы
     document.body.style.overflow = "auto";
 }
 
-// Закрытие при клике на темный фон
+// Закрываем окно, если пользователь кликнул на темную область вокруг формы
 window.onclick = function(event) {
     const modal = document.getElementById("checkoutModal");
-    if (event.target === modal) {
+    const overlay = document.querySelector(".modal-overlay");
+    if (event.target === modal || event.target === overlay) {
         closeModal();
     }
 }
