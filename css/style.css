@@ -1,3 +1,4 @@
+/* БАЗОВЫЕ НАСТРОЙКИ */
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +12,7 @@ body {
     display: flex;
     justify-content: center;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
 .container {
@@ -20,6 +22,7 @@ body {
     background: #0b0b0b;
 }
 
+/* ГЛАВНОЕ ФОТО (HERO) */
 .hero-wrapper {
     position: relative;
     overflow: hidden;
@@ -31,6 +34,7 @@ body {
     display: block;
     object-fit: cover;
     object-position: top;
+    filter: grayscale(100%);
 }
 
 .hero-wrapper::after {
@@ -46,7 +50,6 @@ body {
 .content {
     padding: 0 20px 40px 20px;
     background: #0b0b0b;
-    margin-top: -5px;
     position: relative;
     z-index: 2;
 }
@@ -54,8 +57,25 @@ body {
 .title {
     font-size: 32px;
     font-weight: 900;
-    margin-bottom: 15px;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
     text-transform: uppercase;
+}
+
+/* ОБНОВЛЕННАЯ ПЛАШКА (ЦВЕТ КАК У КНОПКИ) */
+.format-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, #3e4f3f, #4f6450); /* Тот же градиент */
+    color: #ffffff;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    padding: 6px 14px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    border: none;
+    text-transform: uppercase;
+    box-shadow: 0 2px 10px rgba(62, 79, 63, 0.2);
 }
 
 .description-box {
@@ -93,6 +113,7 @@ body {
     color: #4f6450;
 }
 
+/* ЦЕНЫ */
 .price-container {
     display: flex;
     align-items: baseline;
@@ -105,7 +126,7 @@ body {
     font-size: 22px;
     color: #444;
     text-decoration: line-through;
-    text-decoration-color: #8b0000;
+    text-decoration-color: currentColor;
     font-weight: 700;
 }
 
@@ -119,18 +140,23 @@ body {
     font-size: 11px;
     margin-bottom: 20px;
     text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
+/* КНОПКА */
 .button {
     width: 100%;
     padding: 18px;
     font-size: 17px;
     font-weight: 800;
+    letter-spacing: 1.5px;
     border: none;
     border-radius: 4px;
+    cursor: pointer;
     color: white;
     background: linear-gradient(90deg, #3e4f3f, #4f6450);
     text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(62, 79, 63, 0.3);
 }
 
 .divider {
@@ -139,59 +165,143 @@ body {
     margin: 25px 0;
 }
 
+/* ГАЛЕРЕЯ (СЛАЙДЕР С ВИНЬЕТКОЙ) */
+.gallery-title { 
+    font-size: 22px; 
+    font-weight: 900; 
+    margin-bottom: 5px; 
+    text-transform: uppercase;
+}
+
+.gallery-sub { 
+    color: #8a8a8a; 
+    font-size: 11px; 
+    margin-bottom: 35px; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
 .gallery-scroll {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 15px;
-    padding-bottom: 20px;
+    gap: 12px;
+    padding-bottom: 30px;
     scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-left: 2px;
 }
 
 .gallery-scroll::-webkit-scrollbar { display: none; }
 
 .gallery-card {
-    flex: 0 0 85%;
-    scroll-snap-align: center;
+    flex: 0 0 46%; 
+    scroll-snap-align: start;
     text-align: left;
 }
 
 .gallery-item {
+    position: relative; /* Нужно для наложения виньетки */
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
     background: #141414;
     border: 1px solid #222;
-    aspect-ratio: 4/5;
-    margin-bottom: 12px;
+    aspect-ratio: 4/5; 
+    margin-bottom: 10px;
+}
+
+/* САМА ВИНЬЕТКА */
+.gallery-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Затемнение по краям */
+    background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7) 100%);
+    pointer-events: none; /* Чтобы виньетка не мешала кликам, если они будут */
 }
 
 .gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: grayscale(100%);
 }
 
 .review-header {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3px;
     margin-bottom: 5px;
 }
 
-.reviewer-name { font-size: 13px; font-weight: 800; }
-
-.verified-badge {
-    font-size: 10px;
-    color: #4f6450;
-    background: rgba(79, 100, 80, 0.1);
-    padding: 2px 5px;
-    border-radius: 3px;
+.reviewer-name {
+    font-size: 12px;
+    font-weight: 800;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100%;
 }
 
-.review { font-size: 12px; color: #9c9c9c; font-style: italic; }
+.verified-badge {
+    font-size: 8px;
+    color: #4f6450;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: rgba(79, 100, 80, 0.1);
+    padding: 1px 4px;
+    border-radius: 2px;
+}
 
-/* MODAL FIX */
+.review {
+    font-size: 10px;
+    color: #777;
+    line-height: 1.3;
+    font-style: italic;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ФУТЕР */
+footer {
+    background: #050505;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #1c1c1c;
+}
+
+.disclaimer {
+    color: #555;
+    font-size: 10px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer-links a {
+    color: #8a8a8a;
+    font-size: 11px;
+    text-decoration: none;
+    margin: 0 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.copyright {
+    color: #333;
+    font-size: 10px;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+/* МОДАЛКА ОПЛАТЫ */
 .modal {
     display: none;
     position: fixed;
@@ -199,14 +309,13 @@ body {
     width: 100%; height: 100%;
     z-index: 2000;
     overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
 }
 
 .modal-content {
@@ -215,7 +324,7 @@ body {
     margin: 20px auto;
     width: 95%;
     max-width: 400px;
-    padding: 40px 10px 15px 10px;
+    padding: 45px 10px 20px 10px;
     border-radius: 12px;
     border: 1px solid #333;
     z-index: 2001;
@@ -223,8 +332,8 @@ body {
 
 .close-btn {
     position: absolute;
-    top: 10px; right: 15px;
+    top: 12px; right: 18px;
     color: #666;
-    font-size: 32px;
+    font-size: 34px;
     cursor: pointer;
 }
