@@ -12,7 +12,7 @@ function closeModal() {
 
 window.onclick = function(event) {
     const modal = document.getElementById("checkoutModal");
-    if (event.target === modal || event.target.classList.contains('modal-overlay')) {
+    if (event.target.classList.contains('modal-overlay')) {
         closeModal();
     }
 }
