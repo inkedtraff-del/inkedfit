@@ -23,11 +23,13 @@
     t.src=v;s=b.getElementsByTagName(e)[0];
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', 'ТВОЙ_PIXEL_ID');
+    
+    // ВСТАВЬ СВОЙ ID ПИКСЕЛЯ СЮДА
+    fbq('init', '1728093011528704');
     fbq('track', 'PageView');
     </script>
     <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=ТВОЙ_PIXEL_ID&ev=PageView&noscript=1"
+    src="https://www.facebook.com/tr?id=1728093011528704&ev=PageView&noscript=1"
     /></noscript>
 
     <style>
@@ -58,7 +60,7 @@
             text-transform: uppercase;
         }
 
-        /* ОПИСАНИЕ И БУЛЛИТЫ (УВЕЛИЧЕН ЧИТАЕМЫЙ ШРИФТ И ЯРКИЙ БЕЛЫЙ ЦВЕТ) */
+        /* ОПИСАНИЕ И БУЛЛИТЫ */
         .description-box { text-align: left; background: #141414; padding: 18px; border-radius: 8px; border: 1px solid #222; margin-bottom: 25px; }
         .main-desc { color: #ffffff; font-size: 15px; line-height: 1.5; margin-bottom: 14px; font-weight: 400; }
         .features-list { list-style: none; }
@@ -87,7 +89,7 @@
 
         .divider { height: 1px; background: #1c1c1c; margin: 25px 0; }
 
-        /* ГАЛЕРЕЯ (СЛАЙДЕР 2 КАРТЫ + ВИНЬЕТКА) */
+        /* ГАЛЕРЕЯ */
         .gallery-title { font-size: 22px; font-weight: 900; text-transform: uppercase; }
         .gallery-sub { color: #8a8a8a; font-size: 11px; margin-bottom: 35px; text-transform: uppercase; }
         .gallery-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 30px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
@@ -142,7 +144,6 @@
         }
         .modal-header { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px; }
         .modal-header h3 { color: #fff; text-transform: uppercase; font-size: 20px; }
-        .modal-header p { color: #c5a059; font-weight: 900; font-size: 18px; margin-top: 5px; }
         .close-btn { position: absolute; top: 12px; right: 18px; color: #666; font-size: 34px; cursor: pointer; }
         .checkout-container { position: relative; min-height: 200px; }
         
@@ -173,7 +174,7 @@
             <ul class="features-list">
                 <li>Instant Download (PDF Format)</li>
                 <li><strong>12 Reusable Monthly Workouts</strong></li>
-                <li>Sample 7-Day Meal Plan</li>
+                <li>Sample 7-Day Precision Meal Plan</li>
                 <li>My Personal Supplement Guide (Protein, Creatine, Omega-3 & More)</li>
                 <li>Actionable Cardio & Recovery Hacks</li>
             </ul>
@@ -203,7 +204,7 @@
                     <span class="reviewer-name">Tariq M.</span>
                     <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-                <p class="review">"5 months of consistent work. The methodology is solid and easy to follow."</p>
+                <p class="review">"3 months of consistent work. The methodology is solid and easy to follow."</p>
             </div>
             
             <div class="gallery-card">
@@ -211,7 +212,7 @@
                 <div class="review-header">
                     <span class="reviewer-name">Faisal A.</span>
                 </div>
-                <p class="review">"Finally found a routine I actually enjoy. The 16-week transformation is real."</p>
+                <p class="review">"Finally found a routine I actually enjoy. The 12-week transformation is real."</p>
             </div>
             
             <div class="gallery-card">
@@ -220,7 +221,7 @@
                     <span class="reviewer-name">Omar K.</span>
                     <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-                <p class="review">"Intense but sustainable. Best I've felt in years after finishing the first 120 days."</p>
+                <p class="review">"Intense but sustainable. Best I've felt in years after finishing the first 90 days."</p>
             </div>
             
             <div class="gallery-card">
@@ -229,7 +230,7 @@
                     <span class="reviewer-name">Zaid H.</span>
                     <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-                <p class="review">"Not a quick fix, but a real blueprint. 5 months in and still hitting PRs."</p>
+                <p class="review">"Not a quick fix, but a real blueprint. 4 months in and still hitting PRs."</p>
             </div>
 
             <div class="gallery-card">
@@ -246,7 +247,7 @@
                     <span class="reviewer-name">Majed R.</span>
                     <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-                <p class="review">"Loved the training cycles. 6 months of discipline and the results speak for themselves."</p>
+                <p class="review">"Loved the training cycles. 3 months of discipline and the results speak for themselves."</p>
             </div>
 
             <div class="gallery-card">
@@ -263,7 +264,7 @@
                 <div class="review-header">
                     <span class="reviewer-name">Sultan B.</span>
                 </div>
-                <p class="review">"The macros breakdown is so precise. My physique changed entirely in 18 weeks."</p>
+                <p class="review">"The macros breakdown is so precise. My physique changed entirely in 14 weeks."</p>
             </div>
 
             <div class="gallery-card">
@@ -281,7 +282,7 @@
                     <span class="reviewer-name">Youssef T.</span>
                     <span class="verified-badge">✓ Verified Buyer</span>
                 </div>
-                <p class="review">"Trust the process. By the 6rd month, the mirror doesn't lie. Incredible protocol."</p>
+                <p class="review">"Trust the process. By the 3rd month, the mirror doesn't lie. Incredible protocol."</p>
             </div>
         </div>
 
@@ -311,12 +312,10 @@
         <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
         <div class="modal-header">
             <h3>10% Blueprint</h3>
-            
             <div class="price-container" style="margin-top: 10px; margin-bottom: 5px;">
                 <span class="old-price" style="font-size: 18px;">$70</span>
                 <span class="new-price" style="color: #c5a059; font-size: 32px;">$29</span>
             </div>
-            
             <p style="color: #8a8a8a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">
                 One-Time Payment • Instant Access
             </p>
@@ -351,6 +350,11 @@
         const modal = document.getElementById("checkoutModal");
         modal.style.display = "block";
         document.body.style.overflow = "hidden";
+        
+        // Отправляем событие InitiateCheckout в Facebook
+        if (typeof fbq === 'function') {
+            fbq('track', 'InitiateCheckout');
+        }
     }
 
     function openPolicyModal(event) {
@@ -366,7 +370,7 @@
         document.body.style.overflow = "auto";
     }
 
-    // Закрытие при клике на оверлей для любого модального окна
+    // Закрытие при клике на оверлей
     window.onclick = function(event) {
         if (event.target.classList.contains('modal-overlay')) {
             event.target.parentElement.style.display = "none";
