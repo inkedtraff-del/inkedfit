@@ -31,7 +31,17 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=1728093011528704&ev=PageView&noscript=1"
     /></noscript>
+    <script type='text/javascript'>
+    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
+    r.src=n;var u=t.getElementsByTagName(s)[0];
+    u.parentNode.insertBefore(r,u);})(window,document,
+    'https://sc-static.net/scevent.min.js');
 
+    snaptr('init', '920b42d0-60b6-4f8a-9f48-ab09eafba492');
+    snaptr('track', 'PAGE_VIEW');
+    </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
         body { background: #0b0b0b; color: white; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
@@ -354,6 +364,11 @@
         // Отправляем событие InitiateCheckout в Facebook
         if (typeof fbq === 'function') {
             fbq('track', 'InitiateCheckout');
+        }
+
+        // Отправляем событие START_CHECKOUT в Snapchat
+        if (typeof snaptr === 'function') {
+            snaptr('track', 'START_CHECKOUT');
         }
     }
 
