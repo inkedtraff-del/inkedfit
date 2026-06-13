@@ -13,11 +13,9 @@
 
     <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
 
+    <!-- ХАРДКОД ПИКСЕЛЕЙ (ФБ И СНАП) -->
     <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const snapPixelId = urlParams.get('px') || '9b4ddfdb-7f8b-443b-b9f4-7ee24c2270bc'; 
-    const fbPixelId = urlParams.get('fb') || '1728093011528704'; 
-
+    // 1. ИНИЦИАЛИЗАЦИЯ FACEBOOK
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -27,9 +25,11 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    fbq('init', fbPixelId);
+    // ВБИВАЙ СВОЙ ID FB ПИКСЕЛЯ СЮДА
+    fbq('init', '1728093011528704'); 
     fbq('track', 'PageView');
 
+    // 2. ИНИЦИАЛИЗАЦИЯ SNAPCHAT
     (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
     {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
     a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
@@ -37,7 +37,8 @@
     u.parentNode.insertBefore(r,u);})(window,document,
     'https://sc-static.net/scevent.min.js');
 
-    snaptr('init', snapPixelId);
+    // ВБИВАЙ СВОЙ ID SNAP ПИКСЕЛЯ СЮДА
+    snaptr('init', '9b4ddfdb-7f8b-443b-b9f4-7ee24c2270bc');
     snaptr('track', 'PAGE_VIEW');
     </script>
     
@@ -65,7 +66,6 @@
             margin-bottom: 20px; text-transform: uppercase; box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
         }
 
-        /* ОБНОВЛЕННОЕ ОПИСАНИЕ (ЦЕНТР И ЖИРНЫЙ ЗОЛОТОЙ ШРИФТ) */
         .description-box { text-align: center; background: #141414; padding: 22px 18px; border-radius: 8px; border: 1px solid #222; margin-bottom: 25px; }
         .main-desc { color: #e0e0e0; font-size: 14px; line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
         .main-desc strong { color: #c5a059; font-weight: 800; }
@@ -79,7 +79,6 @@
         .old-price { font-size: 22px; color: #555; text-decoration: line-through; text-decoration-color: #888; font-weight: 700; }
         .new-price { font-size: 52px; font-weight: 900; color: #fff; }
         
-        /* ПУЛЬСИРУЮЩАЯ ПЛАШКА */
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
         .urgency-tag { 
             display: inline-block; background: rgba(197, 160, 89, 0.05); color: #c5a059; 
@@ -100,7 +99,6 @@
         .trust-badge svg { color: #c5a059; }
         .divider { height: 1px; background: #1c1c1c; margin: 30px 0; }
 
-        /* FAQ БЛОК */
         .faq-section { text-align: left; background: #0b0b0b; padding: 20px 0; margin-bottom: 20px; }
         .faq-title { font-size: 18px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
         .faq-item { margin-bottom: 15px; border-bottom: 1px solid #1c1c1c; padding-bottom: 10px; }
@@ -335,8 +333,15 @@
         document.getElementById("checkoutModal").style.display = "block";
         document.body.style.overflow = "hidden";
         
-        if (typeof fbq === 'function') { fbq('track', 'InitiateCheckout'); }
-        if (typeof snaptr === 'function') { snaptr('track', 'START_CHECKOUT'); }
+        if (typeof fbq === 'function') { 
+            fbq('track', 'InitiateCheckout'); 
+        }
+        
+        // ЗДЕСЬ ДОБАВЛЕНО СОБЫТИЕ ADD_CART ДЛЯ СНАПА
+        if (typeof snaptr === 'function') { 
+            snaptr('track', 'ADD_CART');
+            snaptr('track', 'START_CHECKOUT'); 
+        }
     }
 
     window.addEventListener('message', (event) => {
