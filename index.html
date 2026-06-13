@@ -329,19 +329,11 @@
 </div>
 
 <script>
-    function buyProduct() {
+  function buyProduct() {
+        // Просто открываем виджет Whop. 
+        // Скрипт Whop сам отправит Add Cart и Start Checkout в пиксели ФБ и Снапа!
         document.getElementById("checkoutModal").style.display = "block";
         document.body.style.overflow = "hidden";
-        
-        if (typeof fbq === 'function') { 
-            fbq('track', 'InitiateCheckout'); 
-        }
-        
-        // ЗДЕСЬ ДОБАВЛЕНО СОБЫТИЕ ADD_CART ДЛЯ СНАПА
-        if (typeof snaptr === 'function') { 
-            snaptr('track', 'ADD_CART');
-            snaptr('track', 'START_CHECKOUT'); 
-        }
     }
 
     window.addEventListener('message', (event) => {
