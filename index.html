@@ -25,7 +25,6 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    // ВБИВАЙ СВОЙ ID FB ПИКСЕЛЯ СЮДА
     fbq('init', '1728093011528704'); 
     fbq('track', 'PageView');
 
@@ -37,8 +36,7 @@
     u.parentNode.insertBefore(r,u);})(window,document,
     'https://sc-static.net/scevent.min.js');
 
-    // ВБИВАЙ СВОЙ ID SNAP ПИКСЕЛЯ СЮДА
-    snaptr('init', '3f14197a-6b8b-4a8a-9c11-a6ec835e264b');
+    snaptr('init', '6c621ea4-c93b-4091-a152-e05e8a7c8cb7');
     snaptr('track', 'PAGE_VIEW');
     </script>
     
@@ -75,9 +73,28 @@
         .features-list li { color: #ffffff; font-size: 13px; padding-left: 18px; position: relative; margin-bottom: 12px; line-height: 1.5; font-weight: 700; }
         .features-list li::before { content: ""; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; background: #c5a059; border-radius: 50%; }
 
-        .price-container { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-top: 10px; }
-        .old-price { font-size: 22px; color: #555; text-decoration: line-through; text-decoration-color: #888; font-weight: 700; }
-        .new-price { font-size: 52px; font-weight: 900; color: #fff; }
+        .price-container { 
+            display: flex; 
+            align-items: baseline; 
+            justify-content: center; 
+            gap: 10px; 
+            margin-top: 10px; 
+            flex-wrap: nowrap; 
+        }
+        .old-price { 
+            font-size: 18px; 
+            color: #555; 
+            text-decoration: line-through; 
+            text-decoration-color: #888; 
+            font-weight: 700; 
+            white-space: nowrap; 
+        }
+        .new-price { 
+            font-size: 38px; 
+            font-weight: 900; 
+            color: #fff; 
+            white-space: nowrap; 
+        }
         
         @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
         .urgency-tag { 
@@ -169,11 +186,11 @@
             </div>
 
             <div class="price-container">
-                <span class="old-price">$89.00</span>
-                <span class="new-price">$27.00</span>
+                <span class="old-price">RM 165.00</span>
+                <span class="new-price">RM 50.00</span>
             </div>
             
-            <div class="urgency-tag">⚡ FLASH OFFER: 22 downloads left before price returns to $89</div>
+            <div class="urgency-tag">⚡ FLASH OFFER: 22 downloads left before price returns to RM 165</div>
             <p class="sub">One-time payment. Lifetime access.</p>
             
             <button class="button" onclick="buyProduct()">INITIATE PROTOCOL</button>
@@ -296,15 +313,16 @@
         <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
         <div class="modal-header">
             <h3>10% Blueprint</h3>
-            <div class="price-container" style="margin-top: 10px; margin-bottom: 5px;">
-                <span class="old-price" style="font-size: 18px;">$89.00</span>
-                <span class="new-price" style="color: #c5a059; font-size: 32px;">$27.00</span>
+            <div class="price-container" style="margin-top: 10px; margin-bottom: 5px; flex-wrap: nowrap;">
+                <span class="old-price" style="font-size: 16px;">RM 165.00</span>
+                <span class="new-price" style="color: #c5a059; font-size: 28px;">RM 50.00</span>
             </div>
             <p style="color: #8a8a8a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">One-Time Payment • Instant Access</p>
         </div>
         <div class="checkout-container">
+            <!-- ЗАМЕНЕН ИДЕНТИФИКАТОР И АТРИБУТ НА PRODUCT-ID -->
             <div 
-                data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" 
+                data-whop-checkout-product-id="prod_o6WqEuKSq2tif" 
                 data-whop-checkout-theme="dark"
                 data-whop-checkout-theme-accent-color="#c5a059">
             </div>
@@ -330,8 +348,6 @@
 
 <script>
   function buyProduct() {
-        // Просто открываем виджет Whop. 
-        // Скрипт Whop сам отправит Add Cart и Start Checkout в пиксели ФБ и Снапа!
         document.getElementById("checkoutModal").style.display = "block";
         document.body.style.overflow = "hidden";
     }
@@ -345,10 +361,10 @@
             window.scrollTo(0, 0);
 
             if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {value: 27.00, currency: 'USD'});
+                fbq('track', 'Purchase', {value: 50.00, currency: 'MYR'});
             }
             if (typeof snaptr === 'function') {
-                snaptr('track', 'PURCHASE', { 'currency': 'USD', 'price': 27.00 });
+                snaptr('track', 'PURCHASE', { 'currency': 'MYR', 'price': 50.00 });
             }
         }
     });
