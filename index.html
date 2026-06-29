@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>10% Blueprint | Inked Fit</title>
+    <title>10% Blueprint | Black Side Training</title>
     
     <link rel="preconnect" href="https://js.whop.com">
     <link rel="dns-prefetch" href="https://js.whop.com">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
-    <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+    <script async defer src="https://js.whop.com"></script>
 
-    <!-- ХАРДКОД ПИКСЕЛЕЙ (ФБ И СНАП) -->
+    <!-- Facebook Pixel Code -->
     <script>
-    // 1. ИНИЦИАЛИЗАЦИЯ FACEBOOK
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
     n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -25,10 +25,16 @@
     s.parentNode.insertBefore(t,s)}(window, document,'script',
     'https://connect.facebook.net/en_US/fbevents.js');
     
-    fbq('init', '1728093011528704'); 
+    fbq('init', 'ID_PIXEL');
     fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=ID_PIXEL&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
 
-    // 2. ИНИЦИАЛИЗАЦИЯ SNAPCHAT
+    <!-- Snap Pixel Code -->
+    <script type='text/javascript'>
     (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
     {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
     a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
@@ -36,358 +42,816 @@
     u.parentNode.insertBefore(r,u);})(window,document,
     'https://sc-static.net/scevent.min.js');
 
-    snaptr('init', '7bf26a27-1cd8-4308-b684-66e4facb144a');
+    snaptr('init', 'INSERT_SNAP_PIXEL_ID');
     snaptr('track', 'PAGE_VIEW');
     </script>
-    
-    <noscript>
-        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1728093011528704&ev=PageView&noscript=1"/>
-    </noscript>
+    <!-- End Snap Pixel Code -->
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
-        body { background: #0b0b0b; color: white; display: flex; justify-content: center; -webkit-font-smoothing: antialiased; overflow-x: hidden; min-height: 100vh; }
-        .container { max-width: 420px; width: 100%; text-align: center; }
-
-        .hero-wrapper { position: relative; overflow: hidden; max-height: 400px; }
-        .hero { width: 100%; display: block; object-fit: cover; filter: grayscale(100%); }
-        .hero-wrapper::after { content: ""; position: absolute; left: 0; bottom: 0; width: 100%; height: 80px; background: linear-gradient(to bottom, rgba(11,11,11,0) 0%, #0b0b0b 100%); }
-
-        .content { padding: 0 20px 40px 20px; position: relative; z-index: 2; }
-        .title { font-size: 34px; font-weight: 900; text-transform: uppercase; margin-bottom: 5px; letter-spacing: 1px; }
-        
-        .social-proof { color: #8a8a8a; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; }
-
-        .format-badge {
-            display: inline-block; background: #141414; color: #fff; border: 1px solid #c5a059;
-            font-size: 11px; font-weight: 800; letter-spacing: 2px; padding: 6px 14px; border-radius: 4px;
-            margin-bottom: 20px; text-transform: uppercase; box-shadow: 0 0 10px rgba(197, 160, 89, 0.1);
+        :root {
+            --bg-dark: #121212;
+            --bg-darker: #080808;
+            --yellow: #FFD600;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --card-gray: #1C1C1E;
         }
 
-        .description-box { text-align: center; background: #141414; padding: 22px 18px; border-radius: 8px; border: 1px solid #222; margin-bottom: 25px; }
-        .main-desc { color: #e0e0e0; font-size: 14px; line-height: 1.6; margin-bottom: 20px; font-weight: 400; }
-        .main-desc strong { color: #c5a059; font-weight: 800; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         
-        .features-container { display: inline-block; text-align: left; }
-        .features-list { list-style: none; }
-        .features-list li { color: #ffffff; font-size: 13px; padding-left: 18px; position: relative; margin-bottom: 12px; line-height: 1.5; font-weight: 700; }
-        .features-list li::before { content: ""; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; background: #c5a059; border-radius: 50%; }
-
-        .price-container { 
-            display: flex; 
-            align-items: baseline; 
-            justify-content: center; 
-            gap: 10px; 
-            margin-top: 10px; 
-            flex-wrap: nowrap; 
-        }
-        .old-price { 
-            font-size: 18px; 
-            color: #555; 
-            text-decoration: line-through; 
-            text-decoration-color: #888; 
-            font-weight: 700; 
-            white-space: nowrap; 
-        }
-        .new-price { 
-            font-size: 38px; 
-            font-weight: 900; 
-            color: #fff; 
-            white-space: nowrap; 
-        }
-        
-        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
-        .urgency-tag { 
-            display: inline-block; background: rgba(197, 160, 89, 0.05); color: #c5a059; 
-            padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: 800; 
-            margin: 15px 0; border: 1px solid #333; text-transform: uppercase; 
-            letter-spacing: 1px; animation: pulse 2s infinite; 
-        }
-        
-        .sub { color: #8a8a8a; font-size: 11px; margin-bottom: 20px; text-transform: uppercase; font-weight: 700; }
-
-        .button {
-            width: 100%; padding: 20px; font-size: 18px; font-weight: 900; border: none; border-radius: 6px; color: #0b0b0b;
-            background: linear-gradient(90deg, #c5a059, #e0c38c, #c5a059); background-size: 200% auto; text-transform: uppercase; cursor: pointer;
-            box-shadow: 0 4px 20px rgba(197, 160, 89, 0.3); display: block; text-decoration: none; transition: 0.3s;
+        body { 
+            background: var(--bg-darker); 
+            color: var(--text-white); 
+            font-family: 'Inter', sans-serif; 
+            -webkit-font-smoothing: antialiased; 
+            overflow-x: hidden; 
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .trust-badge { display: flex; align-items: center; justify-content: center; gap: 6px; color: #8a8a8a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-top: 15px; font-weight: 700; }
-        .trust-badge svg { color: #c5a059; }
-        .divider { height: 1px; background: #1c1c1c; margin: 30px 0; }
+        h1, h2, h3, .heading-font {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
 
-        .faq-section { text-align: left; background: #0b0b0b; padding: 20px 0; margin-bottom: 20px; }
-        .faq-title { font-size: 18px; font-weight: 900; color: #fff; text-transform: uppercase; margin-bottom: 15px; text-align: center; }
-        .faq-item { margin-bottom: 15px; border-bottom: 1px solid #1c1c1c; padding-bottom: 10px; }
-        .faq-q { color: #c5a059; font-size: 13px; font-weight: 800; margin-bottom: 4px; text-transform: uppercase; }
-        .faq-a { color: #aaa; font-size: 12px; line-height: 1.5; font-weight: 400; }
+        .container { 
+            max-width: 480px; 
+            width: 100%;
+            margin: 0 auto; 
+            background: var(--bg-darker); 
+            overflow: hidden; 
+            text-align: center;
+        }
 
-        .gallery-title { font-size: 22px; font-weight: 900; text-transform: uppercase; }
-        .gallery-sub { color: #8a8a8a; font-size: 11px; margin-bottom: 35px; text-transform: uppercase; }
-        .gallery-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; padding-bottom: 30px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-        .gallery-scroll::-webkit-scrollbar { display: none; }
-        .gallery-card { flex: 0 0 46%; scroll-snap-align: start; text-align: left; }
-        .gallery-item { position: relative; border-radius: 8px; overflow: hidden; background: #141414; border: 1px solid #222; aspect-ratio: 4/5; margin-bottom: 10px; }
-        .gallery-item::after { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle, transparent 40%, rgba(0,0,0,0.7) 100%); pointer-events: none; }
-        .gallery-card:first-child .gallery-item::after { background: radial-gradient(circle, transparent 60%, rgba(0,0,0,0.4) 100%); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); }
-        .review-header { display: flex; flex-direction: column; gap: 3px; margin-bottom: 5px; }
-        .reviewer-name { font-size: 13px; font-weight: 800; color: #fff; }
-        .verified-badge { font-size: 8px; color: #c5a059; font-weight: 700; background: rgba(197, 160, 89, 0.1); padding: 2px 6px; border-radius: 3px; width: max-content; text-transform: uppercase; }
-        .review { font-size: 11px; color: #aaa; font-style: italic; line-height: 1.5; }
+        /* HERO */
+        .hero { position: relative; width: 100%; aspect-ratio: 4/5; }
+        .hero img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%); display: block; }
+        .hero-overlay {
+            position: absolute; bottom: 0; left: 0; width: 100%; height: 60%;
+            background: linear-gradient(to top, var(--bg-darker) 10%, transparent);
+            display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;
+        }
+        .hero-title { font-size: 48px; font-weight: 900; line-height: 1; margin-bottom: 5px; }
+        .hero-title span { color: var(--yellow); }
+        .hero-sub { font-size: 16px; font-weight: 600; color: #ddd; text-transform: uppercase; letter-spacing: 1px; }
 
-        footer { background: #050505; padding: 40px 20px; border-top: 1px solid #1c1c1c; margin-top: auto; }
-        .disclaimer { color: #555; font-size: 10px; line-height: 1.6; margin-bottom: 20px; text-align: center; }
-        .footer-links a { color: #8a8a8a; font-size: 11px; text-decoration: none; margin: 0 10px; font-weight: 700; cursor: pointer; text-transform: uppercase; }
-        .copyright { color: #333; font-size: 10px; text-transform: uppercase; margin-top: 20px; text-align: center; }
+        /* INTRO TEXT BLOCK */
+        .intro-block { padding: 30px 20px 10px; text-align: center; }
+        .intro-subtitle { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; color: var(--yellow); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .intro-text { font-size: 15px; color: #d0d0d0; line-height: 1.6; font-weight: 500; }
 
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; overflow-y: auto; -webkit-overflow-scrolling: touch; }
-        .modal-overlay { position: fixed; top:0; left:0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); }
-        .modal-content { position: relative; background: #141414; margin: 40px auto 60px auto; width: 95%; max-width: 400px; padding: 45px 20px 30px 20px; border-radius: 12px; border: 1px solid #333; z-index: 2001; }
-        .modal-header { text-align: center; margin-bottom: 20px; border-bottom: 1px solid #222; padding-bottom: 15px; }
-        .modal-header h3 { color: #fff; text-transform: uppercase; font-size: 20px; }
-        .close-btn { position: absolute; top: 12px; right: 18px; color: #666; font-size: 34px; cursor: pointer; }
+        /* YELLOW PRICING CARD */
+        .pricing-section { padding: 25px 20px 40px; }
+        .price-card {
+            background: var(--yellow); border-radius: 24px; padding: 40px 25px 35px; 
+            position: relative; overflow: hidden; color: #000;
+            display: flex; flex-direction: column; align-items: center; text-align: center;
+        }
+        .ribbon {
+            position: absolute; top: 32px; right: -50px; width: 200px;
+            background: #000; color: var(--yellow);
+            font-family: 'Oswald', sans-serif; font-size: 26px; font-weight: 900;
+            padding: 8px 0; transform: rotate(45deg); text-transform: uppercase;
+            text-align: center; line-height: 1; letter-spacing: -0.5px;
+        }
         
-        #success-section { display: none; width: 100%; align-items: center; justify-content: center; padding: 40px 0; }
-        .success-card { max-width: 400px; width: 90%; background: #141414; padding: 50px 25px; border-radius: 12px; border: 1px solid #333; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.9); margin: 0 auto; }
-        .success-title { font-size: 24px; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 15px; }
-        .success-text { color: #ccc; font-size: 14px; line-height: 1.6; margin-bottom: 35px; text-align: center; }
+        .plan-name { font-size: 16px; font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 5px; margin-top: 10px; }
+        .price-block { display: flex; align-items: baseline; justify-content: center; gap: 5px; margin-bottom: 2px; }
+        .price-currency { font-size: 32px; font-weight: 900; font-family: 'Oswald', sans-serif; }
+        .price-amount { font-size: 64px; font-weight: 900; line-height: 1; font-family: 'Oswald', sans-serif; letter-spacing: -2px; }
+        .price-was { font-size: 15px; font-weight: 700; text-decoration: line-through; color: rgba(0,0,0,0.5); margin-bottom: 15px; display: block; }
         
-        .policy-text { color: #ffffff; font-size: 14px; line-height: 1.6; text-align: left; margin-bottom: 25px; }
-        .policy-text p { margin-bottom: 12px; }
-        .policy-text strong { color: #c5a059; }
-        .back-btn { background: #222; color: #fff; border: 1px solid #333; padding: 12px 24px; font-size: 14px; font-weight: 700; text-transform: uppercase; border-radius: 4px; cursor: pointer; width: 100%; transition: background 0.2s; }
+        .daily-price {
+            font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 800; color: #000;
+            background: rgba(0,0,0,0.06); padding: 8px 16px; border-radius: 6px;
+            margin-bottom: 25px; text-transform: uppercase; letter-spacing: 0.5px;
+        }
+
+        .btn-black { background: #000; color: #fff; width: 100%; padding: 20px; border-radius: 12px; font-size: 18px; font-weight: 900; font-family: 'Oswald', sans-serif; text-transform: uppercase; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 15px; }
+        .btn-white { background: #fff; color: #000; width: 100%; padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 900; border: none; cursor: pointer; font-family: 'Oswald', sans-serif; text-transform: uppercase; }
+        .btn-yellow { background: var(--yellow); color: #000; width: 100%; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 900; font-family: 'Oswald', sans-serif; text-transform: uppercase; border: none; cursor: pointer; display: flex; justify-content: center; align-items: center; gap: 8px; margin-bottom: 30px; }
+
+        /* RISK FREE GUARANTEE */
+        .guarantee-box {
+            background: linear-gradient(180deg, #2A2500 0%, #111111 100%);
+            border-radius: 24px; padding: 35px 25px; border: 1px solid #332d00; margin: 0 20px 40px; text-align: left;
+        }
+        .g-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; }
+        .g-title-block h3 { font-size: 32px; font-weight: 900; color: #fff; line-height: 1.1; }
+        .g-icon { width: 50px; height: 50px; border: 1px solid var(--yellow); border-radius: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .g-icon svg { stroke: var(--yellow); width: 24px; height: 24px; }
+        .g-desc { font-size: 15px; color: #ccc; line-height: 1.5; margin-bottom: 25px; }
+        .g-pill { border: 1px solid rgba(255, 214, 0, 0.4); border-radius: 20px; padding: 10px 16px; display: inline-flex; align-items: center; font-size: 13px; font-weight: 800; color: var(--yellow); margin-bottom: 12px; background: rgba(0,0,0,0.2); width: fit-content; text-transform: uppercase; letter-spacing: 0.5px; }
+        .g-btn { background: var(--yellow); color: #000; width: 100%; padding: 18px; border-radius: 12px; font-size: 16px; font-weight: 900; font-family: 'Inter', sans-serif; text-transform: uppercase; border: none; margin-top: 15px; cursor: pointer; text-align: center; }
+
+        /* MARQUEE */
+        .marquee-wrapper { background: var(--yellow); color: #000; padding: 12px 0; overflow: hidden; white-space: nowrap; position: relative; display: flex; align-items: center; }
+        .marquee-content { display: flex; gap: 30px; font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 18px; animation: marquee 10s linear infinite; }
+        .marquee-item { display: flex; align-items: center; gap: 30px; text-transform: uppercase; }
+        .marquee-dot { width: 6px; height: 6px; background: rgba(0,0,0,0.4); border-radius: 50%; }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* TRANSFORMATIONS & SLIDER */
+        .trans-header { text-align: center; margin-bottom: 25px; padding: 40px 20px 0; }
+        .trans-sub { font-size: 12px; color: var(--yellow); font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 10px; }
+        .trans-title { font-size: 36px; font-weight: 900; line-height: 1.1; }
+        .trans-title span { color: var(--yellow); }
+        .trans-desc { font-size: 14px; color: var(--text-gray); margin-top: 15px; font-weight: 500; }
+        
+        .slider-wrapper { padding: 0 0 40px 20px; }
+        .slider-track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 15px; padding-bottom: 20px; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+        .slider-track::-webkit-scrollbar { display: none; }
+        
+        .slider-card { flex: 0 0 88%; scroll-snap-align: center; background: var(--card-gray); border-radius: 16px; overflow: hidden; text-align: left; border: 1px solid #2a2a2a; }
+        .ba-images { display: flex; width: 100%; height: 240px; position: relative; }
+        .ba-img { width: 50%; height: 100%; object-fit: cover; }
+        .tag-before, .tag-after { position: absolute; bottom: 10px; padding: 4px 10px; font-family: 'Oswald', sans-serif; font-size: 14px; font-weight: 700; border-radius: 4px; }
+        .tag-before { left: 10px; background: #000; color: #fff; }
+        .tag-after { right: 10px; background: var(--yellow); color: #000; }
+        
+        .ba-info { padding: 20px; }
+        .ba-name-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .ba-name { font-size: 18px; font-weight: 800; color: #fff; }
+        .verified-badge { background: rgba(255, 214, 0, 0.1); color: var(--yellow); border: 1px solid rgba(255, 214, 0, 0.3); font-size: 10px; font-weight: 800; padding: 4px 8px; border-radius: 4px; text-transform: uppercase; }
+        .ba-result { font-family: 'Oswald', sans-serif; font-size: 22px; font-weight: 700; margin: 10px 0; color: #fff; text-transform: uppercase; }
+        .ba-review { font-size: 14px; color: #ccc; line-height: 1.5; border-left: 2px solid var(--yellow); padding-left: 12px; }
+
+        /* WHITE SECTION */
+        .white-section { background: #FFFFFF; color: #000; padding: 50px 20px; text-align: center; }
+        .white-section-title { font-size: 32px; font-weight: 900; line-height: 1.1; margin-bottom: 15px; }
+        .white-section-desc { font-size: 15px; font-weight: 600; color: #444; margin-bottom: 30px; line-height: 1.5; }
+        .feature-card { background: #F5F5F7; border-radius: 20px; padding: 25px; text-align: left; margin-bottom: 20px; }
+        .feature-img-placeholder { width: 100%; height: 200px; background: #e0e0e0; border-radius: 12px; margin-bottom: 20px; overflow: hidden; }
+        .feature-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        .feature-title { font-size: 22px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
+        .feature-fear { font-size: 11px; color: #666; font-weight: 800; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 1px; }
+        .feature-text { font-size: 15px; color: #333; line-height: 1.5; font-weight: 500; }
+
+        /* COMPARISON TABLE (GRID FIX) */
+        .comparison-section { padding: 40px 20px; text-align: center; }
+        .compare-table { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            border-radius: 12px; 
+            overflow: hidden; 
+            border: 1px solid #333; 
+            text-align: left; 
+        }
+        
+        .c-head-l { background: var(--yellow); color: #000; font-family: 'Oswald', sans-serif; font-weight: 800; font-size: 14px; padding: 15px; letter-spacing: 1px; border-right: 1px solid #332d00; }
+        .c-head-r { background: #222; color: #888; font-family: 'Oswald', sans-serif; font-weight: 800; font-size: 14px; padding: 15px; letter-spacing: 1px; }
+        
+        .c-cell-l { background: #1a1a10; padding: 16px 15px; color: var(--yellow); font-size: 13px; font-weight: 600; border-bottom: 1px solid #332d00; border-right: 1px solid #332d00; display: flex; align-items: center; gap: 10px; }
+        .c-cell-r { background: #111; padding: 16px 15px; color: #aaa; font-size: 13px; font-weight: 500; border-bottom: 1px solid #222; display: flex; align-items: center; gap: 10px; }
+        
+        /* Remove bottom borders for last row */
+        .c-cell-l.last, .c-cell-r.last { border-bottom: none; }
+
+        .icon-svg { width: 14px; height: 14px; fill: none; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .icon-check { stroke: var(--yellow); }
+        .icon-cross { stroke: #ff4444; }
+
+        /* FAQ */
+        .faq-section { padding: 40px 20px; text-align: left; }
+        .faq-title { font-size: 32px; text-align: center; margin-bottom: 25px; }
+        .faq-item { background: #1C1C1E; border-radius: 16px; padding: 20px; margin-bottom: 12px; cursor: pointer; transition: background 0.3s; }
+        .faq-header { display: flex; justify-content: space-between; align-items: center; gap: 15px; }
+        .faq-question { font-size: 16px; font-weight: 700; color: #fff; line-height: 1.4; }
+        .faq-btn { width: 36px; height: 36px; border-radius: 50%; background: #2C2C2E; display: flex; justify-content: center; align-items: center; flex-shrink: 0; transition: transform 0.3s; }
+        .faq-btn svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 3; }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 14px; color: #A0A0A0; line-height: 1.6; }
+        .faq-answer-inner { padding-top: 15px; }
+        .faq-item.active .faq-btn { transform: rotate(180deg); }
+        .faq-item.active .faq-answer { max-height: 200px; }
+
+        /* MODALS (CHECKOUT & EXIT INTENT) */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; overflow-y: auto; background: rgba(0,0,0,0.95); backdrop-filter: blur(5px); text-align: left; }
+        .modal-content { background: var(--card-gray); margin: 40px auto; width: 95%; max-width: 420px; padding: 30px 20px; border-radius: 20px; position: relative; }
+        .close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 30px; cursor: pointer; }
+        .checkout-container { min-height: 200px; margin-top: 20px; }
+
+        /* STICKY BOTTOM BUTTON */
+        .sticky-bottom {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(8px);
+            padding: 15px 20px; z-index: 1000;
+            border-top: 1px solid #222;
+            transform: translateY(100%); transition: transform 0.3s ease-in-out;
+            display: flex; justify-content: center;
+        }
+        .sticky-bottom.visible { transform: translateY(0); }
+        .sticky-btn {
+            background: var(--yellow); color: #000; width: 100%; max-width: 440px;
+            padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 900;
+            font-family: 'Oswald', sans-serif; text-transform: uppercase; border: none;
+            box-shadow: 0 4px 15px rgba(255, 214, 0, 0.2); cursor: pointer;
+        }
+
+        /* EXIT POPUP SPECIFIC */
+        #exitPopup .modal-content { text-align: center; border: 2px solid var(--yellow); margin-top: 20vh; }
+        .exit-title { color: var(--yellow); font-size: 36px; margin-bottom: 10px; }
+        .exit-text { color: #fff; font-size: 16px; margin-bottom: 25px; line-height: 1.5; }
+        .btn-exit { background: var(--yellow); color: #000; width: 100%; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 900; font-family: 'Oswald', sans-serif; text-transform: uppercase; border: none; cursor: pointer; margin-bottom: 15px; }
+        .btn-decline { background: transparent; color: #888; border: none; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: underline; }
+
+        footer { padding: 0 20px 80px; text-align: center; border-top: 1px solid #1C1C1E; margin-top: 20px; } /* 80px padding bottom to clear sticky button */
+        .copyright { color: #666; font-size: 11px; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
+<!-- STICKY BUTTON -->
+<div class="sticky-bottom" id="stickyBtn">
+    <button class="sticky-btn" onclick="buyProduct()">GET 60% OFF NOW</button>
+</div>
+
 <div class="container">
 
-    <div id="landing-section">
-        <div class="hero-wrapper">
-            <img src="assets/hero.jpg" alt="10% Blueprint Hero" class="hero">
+    <!-- HERO -->
+    <div class="hero">
+        <img src="assets/hero.jpg" alt="10% Blueprint">
+        <div class="hero-overlay">
+            <h1 class="hero-title">10% <span>BLUEPRINT</span></h1>
+            <p class="hero-sub">The ultimate V-Taper protocol</p>
         </div>
+    </div>
 
-        <div class="content">
-            <h1 class="title">10% BLUEPRINT</h1>
-            <div class="social-proof">JOIN 2,500+ ATHLETES WORLDWIDE</div>
-            <div class="format-badge">PREMIUM DIGITAL PROTOCOL</div>
+    <!-- INTRO BLOCK -->
+    <div class="intro-block">
+        <p class="intro-subtitle">Designed for all fitness levels.</p>
+        <p class="intro-text">A 4-week training cycle utilizing my body recomposition system to burn fat and build muscle. Includes a complete 7-day meal plan to master your nutrition and a comprehensive breakdown of all essential supplements.</p>
+    </div>
 
-            <div class="description-box">
-                <p class="main-desc">A comprehensive <strong>body recomposition</strong> program engineered for all fitness levels — from <strong>absolute beginners to advanced athletes</strong>. Delivered instantly to your device.</p>
-                <div class="features-container">
-                    <ul class="features-list">
-                        <li>Complete 12-Workout Protocol Matrix</li>
-                        <li>7-Day Precision Nutritional Map</li>
-                        <li>Advanced Supplementation Masterclass</li>
-                        <li>Tactical Cardio & Neural Recovery</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="price-container">
-                <span class="old-price">RM 165.00</span>
-                <span class="new-price">RM 50.00</span>
-            </div>
+    <!-- PRICING YELLOW CARD -->
+    <div class="pricing-section">
+        <div class="price-card">
+            <div class="ribbon">-60%</div>
             
-            <div class="urgency-tag">⚡ FLASH OFFER: 22 downloads left before price returns to RM 165</div>
-            <p class="sub">One-time payment. Lifetime access.</p>
+            <div class="plan-name">LIFETIME ACCESS</div>
+            <div class="price-block">
+                <span class="price-currency">$</span>
+                <span class="price-amount">27</span>
+            </div>
+            <span class="price-was">Was $79</span>
             
-            <button class="button" onclick="buyProduct()">INITIATE PROTOCOL</button>
-            <div class="trust-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>Guaranteed Safe • Apple Pay</span>
-            </div>
-
-            <div class="divider"></div>
-
-            <h2 class="gallery-title">THE RESULTS</h2>
-            <p class="gallery-sub">Swipe to see the protocol in action</p>
+            <div class="daily-price">EQUATES TO JUST $0.87 / DAY</div>
             
-            <div class="gallery-scroll">
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/1.webp" alt="Result 1"></div>
-                    <div class="review-header"><span class="reviewer-name">Tariq M.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"3 months of consistent work. The methodology is solid and easy to follow."</p>
+            <button class="btn-black" onclick="buyProduct()">
+                GET STARTED 
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            </button>
+            <button class="btn-white" onclick="document.getElementById('faq').scrollIntoView({behavior: 'smooth'})">
+                READ FAQ
+            </button>
+        </div>
+    </div>
+
+    <!-- RISK FREE GUARANTEE -->
+    <div class="guarantee-box">
+        <div class="g-header">
+            <div class="g-title-block">
+                <div style="font-size: 11px; color: var(--yellow); font-weight: 800; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase;">Guarantee</div>
+                <h3 class="heading-font">TRY IT RISK-FREE.<br>PROVEN RESULTS.</h3>
+            </div>
+            <div class="g-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            </div>
+        </div>
+        <p class="g-desc">Follow the system, stay consistent. If you commit to the protocol, the aesthetic V-taper physique is inevitable.</p>
+        
+        <div class="g-pill">12-WEEK STRUCTURED PLAN</div>
+        <br>
+        <div class="g-pill">INSTANT DIGITAL DELIVERY</div>
+        <br>
+        <div class="g-pill">SAFE CHECKOUT VIA WHOP</div>
+        
+        <button class="g-btn" onclick="buyProduct()">GET 60% OFF</button>
+    </div>
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrapper">
+        <div class="marquee-content">
+            <div class="marquee-item">90,000+ MEMBERS <div class="marquee-dot"></div></div>
+            <div class="marquee-item">4-8 WEEKS TO RESULTS <div class="marquee-dot"></div></div>
+            <div class="marquee-item">PROVEN PROTOCOL <div class="marquee-dot"></div></div>
+            <div class="marquee-item">90,000+ MEMBERS <div class="marquee-dot"></div></div>
+            <div class="marquee-item">4-8 WEEKS TO RESULTS <div class="marquee-dot"></div></div>
+            <div class="marquee-item">PROVEN PROTOCOL <div class="marquee-dot"></div></div>
+        </div>
+    </div>
+
+    <!-- TRANSFORMATIONS SLIDER -->
+    <div class="trans-header">
+        <div class="trans-sub">Real Transformations</div>
+        <h2 class="trans-title">PEOPLE WHO ALREADY <span>TRANSFORMED</span> THEIR BODIES</h2>
+        <p class="trans-desc">Swipe to see the protocol in action. Join thousands of members getting shredded every day.</p>
+    </div>
+
+    <div class="slider-wrapper">
+        <div class="slider-track">
+            <!-- Card 1 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before1.jpg" alt="Before" class="ba-img">
+                    <img src="assets/after1.jpg" alt="After" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
                 </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/2.webp" alt="Result 2" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Ryan C.</span></div>
-                    <p class="review">"Finally found a routine I actually enjoy. The 12-week transformation is real."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/3.webp" alt="Result 3" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Omar K.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Intense but sustainable. Best I've felt in years after finishing the first 90 days."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/4.webp" alt="Result 4" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Marcus B.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Not a quick fix, but a real blueprint. 4 months in and still hitting PRs."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/5.webp" alt="Result 5" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Khalid S.</span></div>
-                    <p class="review">"The process is addictive. The definition comes naturally with this structure."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/6.webp" alt="Result 6" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Nathan S.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Loved the training cycles. 3 months of discipline and the results speak for themselves."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/7.webp" alt="Result 7" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Ali Y.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Dropped the stubborn fat completely. Best investment I've made in my training."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/8.webp" alt="Result 8" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Sultan B.</span></div>
-                    <p class="review">"The macros breakdown is so precise. My physique changed entirely in 14 weeks."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/9.webp" alt="Result 9" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Karim N.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Exactly what I needed to break my plateau. The heavy definition is finally showing."</p>
-                </div>
-                <div class="gallery-card">
-                    <div class="gallery-item"><img src="assets/10.webp" alt="Result 10" loading="lazy"></div>
-                    <div class="review-header"><span class="reviewer-name">Youssef T.</span><span class="verified-badge">VERIFIED BUYER</span></div>
-                    <p class="review">"Trust the process. By the 3rd month, the mirror doesn't lie. Incredible protocol."</p>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Tariq M.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">DROPPED 12 KG IN 8 WEEKS</div>
+                    <p class="ba-review">"This protocol turned me into a warrior. No fluff, just exact sets and reps to get that aesthetic V-taper look. This is a part of my life now."</p>
                 </div>
             </div>
-
-            <div class="divider"></div>
-
-            <div class="faq-section">
-                <h2 class="faq-title">QUICK INTEL</h2>
-                <div class="faq-item">
-                    <div class="faq-q">Is this a monthly subscription?</div>
-                    <div class="faq-a">No. It's a strict one-time payment for lifetime access.</div>
+            <!-- Card 2 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before2.jpg" alt="Before" class="ba-img">
+                    <img src="assets/after2.jpg" alt="After" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
                 </div>
-                <div class="faq-item">
-                    <div class="faq-q">Do I need gym access?</div>
-                    <div class="faq-a">Yes. The matrix requires standard gym equipment (barbells, dumbbells, cables).</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-q">When will I receive it?</div>
-                    <div class="faq-a">Instantly. The protocol is unlocked and downloaded immediately after checkout.</div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Faisal A.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">ACHIEVED 10% BODY FAT</div>
+                    <p class="ba-review">"Followed the nutrition guide and the workout cycle. Finally found a routine I actually enjoy. The transformation is real."</p>
                 </div>
             </div>
-
-            <button class="button bottom-btn" onclick="buyProduct()">INITIATE PROTOCOL</button>
-            <div class="trust-badge">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                <span>Guaranteed Safe • Apple Pay</span>
+            <!-- Card 3 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before3.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after3.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Omar K.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">VISIBLE ABS IN 6 WEEKS</div>
+                    <p class="ba-review">"Intense but sustainable. Best I've felt in years after finishing the first cycle. The definition comes naturally."</p>
+                </div>
+            </div>
+            <!-- Card 4 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before4.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after4.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Zaid H.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">GAINED DENSE MUSCLE</div>
+                    <p class="ba-review">"Not a quick fix, but a real blueprint. The training blocks are perfectly structured for progressive overload."</p>
+                </div>
+            </div>
+            <!-- Card 5 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before5.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after5.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Khalid S.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">REMOVED STUBBORN FAT</div>
+                    <p class="ba-review">"The macros breakdown is so precise. My physique changed entirely. Dropped the stubborn fat completely."</p>
+                </div>
+            </div>
+            <!-- Card 6 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before6.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after6.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Majed R.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">SHREDDED & STRONG</div>
+                    <p class="ba-review">"Loved the training cycles. 3 months of discipline and the results speak for themselves. Best investment."</p>
+                </div>
+            </div>
+            <!-- Card 7 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before7.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after7.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Ali Y.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">BROKE MY PLATEAU</div>
+                    <p class="ba-review">"Exactly what I needed to break my plateau. The heavy definition is finally showing without losing size."</p>
+                </div>
+            </div>
+            <!-- Card 8 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before8.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after8.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Sultan B.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">V-TAPER REVEALED</div>
+                    <p class="ba-review">"Trust the process. By the 3rd month, the mirror doesn't lie. Incredible protocol for aesthetic goals."</p>
+                </div>
+            </div>
+            <!-- Card 9 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before9.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after9.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Karim N.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">COMPLETELY RECOMPOSED</div>
+                    <p class="ba-review">"The process is addictive. The system is so well structured that success is basically guaranteed."</p>
+                </div>
+            </div>
+            <!-- Card 10 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before10.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after10.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Youssef T.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">LOST 15 LBS OF FAT</div>
+                    <p class="ba-review">"Simple, brutal, and effective. The supplement guide alone saved me hours of research."</p>
+                </div>
+            </div>
+            <!-- Card 11 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before11.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after11.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Hassan W.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">LEAN AND VASCULAR</div>
+                    <p class="ba-review">"Finally achieved the vascularity I've been chasing. The nutrition protocol makes it incredibly simple to stick to."</p>
+                </div>
+            </div>
+            <!-- Card 12 -->
+            <div class="slider-card">
+                <div class="ba-images">
+                    <img src="assets/before12.jpg" alt="Before" loading="lazy" class="ba-img">
+                    <img src="assets/after12.jpg" alt="After" loading="lazy" class="ba-img">
+                    <div class="tag-before">BEFORE</div>
+                    <div class="tag-after">AFTER</div>
+                </div>
+                <div class="ba-info">
+                    <div class="ba-name-row">
+                        <span class="ba-name">Nabil F.</span>
+                        <span class="verified-badge">VERIFIED</span>
+                    </div>
+                    <div class="ba-result">TOTAL TRANSFORMATION</div>
+                    <p class="ba-review">"From skinny-fat to completely shredded. The 12-week progression is an absolute game changer. Highly recommend."</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- СТРАНИЦА УСПЕХА -->
-    <div id="success-section">
-        <div class="success-card">
-            <h1 class="success-title" style="color: #c5a059;">ACCESS SECURED</h1>
-            <p class="success-text">The protocol is ready. Download your complete 10% Blueprint below.</p>
-            <a href="assets/10-percent-blueprint.pdf" class="button" download>ACCESS PROTOCOL</a>
-            <p class="sub" style="margin-top: 20px;">A backup link has been sent to your email.</p>
+    <!-- WHITE SECTION -->
+    <div class="white-section">
+        <h2 class="white-section-title heading-font">EVERYTHING TO BUILD YOUR DREAM BODY</h2>
+        <p class="white-section-desc">Every session has sets, reps, and exact rest times. No gym floor confusion — just open the PDF and follow the blueprint.</p>
+        
+        <div class="feature-card">
+            <div class="feature-img-placeholder">
+                <img src="assets/mockup1.jpg" alt="Platform Preview">
+            </div>
+            <div class="feature-fear">FEAR: "I'LL GET LOST OR CONFUSED."</div>
+            <h3 class="feature-title">Everything in One Guide</h3>
+            <p class="feature-text">Track your progress, workouts, weights, and nutrition instructions in one perfectly structured PDF blueprint.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-img-placeholder">
+                <img src="assets/mockup2.jpg" alt="Nutrition Preview">
+            </div>
+            <div class="feature-fear">FEAR: "DIETING IS TOO COMPLICATED."</div>
+            <h3 class="feature-title">Precision Meal Plans</h3>
+            <p class="feature-text">Exact macros, grocery lists, and a sample 7-day meal plan that guarantees fat loss while preserving muscle mass.</p>
         </div>
     </div>
 
+    <!-- COMPARISON TABLE SECTION (GRID FIX) -->
+    <div class="comparison-section">
+        <h2 class="trans-title heading-font" style="font-size: 36px; margin-bottom: 10px;">WHY PEOPLE DON'T SEE <span>RESULTS?</span></h2>
+        <p class="trans-desc" style="margin-bottom: 30px;">Every workout builds on the last. You always progress — not spin in place.</p>
+        
+        <button class="btn-yellow" onclick="buyProduct()">
+            GET 60% OFF — CHOOSE PLAN
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </button>
+
+        <div class="compare-table">
+            <!-- Headers -->
+            <div class="c-head-l">10% BLUEPRINT</div>
+            <div class="c-head-r">OTHER</div>
+            
+            <!-- Row 1 -->
+            <div class="c-cell-l">
+                <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                Structured progression
+            </div>
+            <div class="c-cell-r">
+                <svg class="icon-svg icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                Random workouts
+            </div>
+            
+            <!-- Row 2 -->
+            <div class="c-cell-l">
+                <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                Exact macros & meals
+            </div>
+            <div class="c-cell-r">
+                <svg class="icon-svg icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                Guessing diets
+            </div>
+            
+            <!-- Row 3 -->
+            <div class="c-cell-l">
+                <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                V-Taper focused
+            </div>
+            <div class="c-cell-r">
+                <svg class="icon-svg icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                Generic routines
+            </div>
+            
+            <!-- Row 4 -->
+            <div class="c-cell-l">
+                <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                Step-by-step system
+            </div>
+            <div class="c-cell-r">
+                <svg class="icon-svg icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                No direction
+            </div>
+            
+            <!-- Row 5 (Last) -->
+            <div class="c-cell-l last">
+                <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
+                One-time $27 fee
+            </div>
+            <div class="c-cell-r last">
+                <svg class="icon-svg icon-cross" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg> 
+                Expensive monthly fees
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ -->
+    <div id="faq" class="faq-section">
+        <h2 class="faq-title heading-font">FAQ</h2>
+        
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">Do I need a gym or any equipment?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes, standard gym equipment is required to properly follow the hypertrophy protocols using barbells, dumbbells, and cables.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">What if it doesn't work for me?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">If you follow the sets, reps, and nutrition guide consistently, results are inevitable. It is a proven scientific blueprint.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">What if I don't know what to do in the gym?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">The guide explains exactly what to do. Every session has prescribed sets, reps, and rest times to remove all guesswork.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">Do I need to follow a strict diet?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">You will receive a sample 7-day meal plan and macro framework. You have flexibility, but tracking is necessary for the 10% body fat goal.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">What if an exercise feels too hard?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">The protocol is scalable. You adjust the weight based on your current strength levels while maintaining the prescribed rep ranges.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">What if I lose motivation?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Motivation fades, but discipline builds physiques. This system provides a clear structure so you just have to show up and execute.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">How is this different from other workout guides?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">It focuses purely on achieving an aesthetic V-taper. No unnecessary volume, just high-impact movements for a dense, defined look.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">Will I actually see results in 8 weeks?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. If your nutrition is dialed in according to the guide, your body composition will drastically change by week eight.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">Is this a recurring subscription?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">No. You make a single payment of $27 and receive lifetime access to the digital PDF files.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">How do I access the PDF after purchase?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Immediately after completing the checkout, you will receive a direct download link and an email backup for lifetime access.</div></div>
+        </div>
+
+        <div class="faq-item" onclick="toggleFaq(this)">
+            <div class="faq-header">
+                <span class="faq-question">Is this suitable for beginners?</span>
+                <div class="faq-btn">
+                    <svg viewBox="0 0 24 24" fill="none"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+            </div>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. While the training is intense, the principles of progressive overload apply to all levels. Beginners often see the fastest visual changes.</div></div>
+        </div>
+    </div>
+    
     <footer>
-        <p class="disclaimer">
-            <strong>Disclaimer:</strong> The 10% Blueprint is a digital fitness program. Consult a physician before starting any diet or exercise program. Results depend on individual effort and consistency over time.
-        </p>
-        <div class="footer-links">
-            <a onclick="openPolicyModal(event)">Refund Policy</a>
-            <a href="#">Privacy</a>
-        </div>
-        <p class="copyright">© 2026 Inked Fit. All rights reserved.</p>
+        <p class="copyright">© 2026 Black Side Training. All rights reserved.</p>
     </footer>
 
 </div>
 
-<!-- МОДАЛКА WHOP ЧЕКАУТА -->
+<!-- Checkout Modal Whop -->
 <div id="checkoutModal" class="modal">
-    <div class="modal-overlay" onclick="closeModal('checkoutModal')"></div>
-    <div class="modal-content" style="padding-top: 45px; padding-left: 10px; padding-right: 10px;">
+    <div class="modal-content">
         <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
-        <div class="modal-header">
-            <h3>10% Blueprint</h3>
-            <div class="price-container" style="margin-top: 10px; margin-bottom: 5px; flex-wrap: nowrap;">
-                <span class="old-price" style="font-size: 16px;">RM 165.00</span>
-                <span class="new-price" style="color: #c5a059; font-size: 28px;">RM 50.00</span>
-            </div>
-            <p style="color: #8a8a8a; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">One-Time Payment • Instant Access</p>
-        </div>
-        
-        <!-- ВЕРНУЛ ПРАВИЛЬНЫЙ АТРИБУТ С НОВЫМ ПЛАНОМ -->
+        <h3 class="heading-font" style="font-size: 24px; text-align: center; margin-bottom: 20px; color: #fff;">COMPLETE PURCHASE</h3>
         <div class="checkout-container">
             <div 
-                data-whop-checkout-plan-id="plan_jg0tNy2n99JWM" 
+                data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" 
                 data-whop-checkout-theme="dark"
-                data-whop-checkout-theme-accent-color="#c5a059">
+                data-whop-checkout-theme-accent-color="#FFD600">
             </div>
         </div>
-        
     </div>
 </div>
 
-<!-- МОДАЛКА ПОЛИТИКИ ВОЗВРАТОВ -->
-<div id="policyModal" class="modal">
-    <div class="modal-overlay" onclick="closeModal('policyModal')"></div>
+<!-- Exit Intent Modal -->
+<div id="exitPopup" class="modal">
     <div class="modal-content">
-        <div class="modal-header">
-            <h3>Refund Policy</h3>
-        </div>
-        <div class="policy-text">
-            <p>Due to the immediate access and digital nature of the 10% Blueprint program, <strong>all sales are final</strong>.</p>
-            <p>Once the purchase is complete and the digital protocol is delivered, we do not offer refunds, returns, or exchanges under any circumstances.</p>
-            <p>By completing your purchase, you acknowledge and agree to this policy.</p>
-        </div>
-        <button class="back-btn" onclick="closeModal('policyModal')">← Back</button>
+        <span class="close-btn" onclick="closeModal('exitPopup')">&times;</span>
+        <h3 class="heading-font exit-title">WAIT!</h3>
+        <p class="exit-text">Don't leave empty-handed. Get the 10% Blueprint now and start your aesthetic transformation today.</p>
+        <button class="btn-exit" onclick="closeModal('exitPopup'); buyProduct();">I WANT MY BLUEPRINT</button>
+        <button class="btn-decline" onclick="closeModal('exitPopup')">No thanks, I don't want to get shredded</button>
     </div>
 </div>
 
 <script>
-  function buyProduct() {
-        document.getElementById("checkoutModal").style.display = "block";
+    // 1. Управление модалками и Чекаутом
+    function buyProduct() {
+        const modal = document.getElementById("checkoutModal");
+        modal.style.display = "block";
         document.body.style.overflow = "hidden";
-    }
-
-    window.addEventListener('message', (event) => {
-        if (event.data && event.data.action === 'whop:checkout:success') {
-            closeModal('checkoutModal');
-            
-            document.getElementById('landing-section').style.display = 'none';
-            document.getElementById('success-section').style.display = 'flex';
-            window.scrollTo(0, 0);
-
-            if (typeof fbq === 'function') {
-                fbq('track', 'Purchase', {value: 50.00, currency: 'MYR'});
-            }
-            if (typeof snaptr === 'function') {
-                snaptr('track', 'PURCHASE', { 'currency': 'MYR', 'price': 50.00 });
-            }
-        }
-    });
-
-    function openPolicyModal(event) {
-        event.preventDefault();
-        document.getElementById("policyModal").style.display = "block";
-        document.body.style.overflow = "hidden";
+        
+        // Отбиваем пиксели
+        if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
+        if (typeof snaptr === 'function') snaptr('track', 'START_CHECKOUT');
     }
 
     function closeModal(modalId) {
-        document.getElementById(modalId).style.display = "none";
+        const modal = document.getElementById(modalId);
+        modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
 
+    // Закрытие по клику вне окна
     window.onclick = function(event) {
-        if (event.target.classList.contains('modal-overlay')) {
-            event.target.parentElement.style.display = "none";
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = "none";
             document.body.style.overflow = "auto";
         }
     }
+
+    // 2. Аккордеон FAQ
+    function toggleFaq(element) {
+        const allItems = document.querySelectorAll('.faq-item');
+        allItems.forEach(item => {
+            if (item !== element && item.classList.contains('active')) {
+                item.classList.remove('active');
+            }
+        });
+        element.classList.toggle('active');
+    }
+
+    // 3. Sticky Button логика (показываем после скролла 400px)
+    window.addEventListener('scroll', function() {
+        const stickyBtn = document.getElementById('stickyBtn');
+        if (window.scrollY > 400) {
+            stickyBtn.classList.add('visible');
+        } else {
+            stickyBtn.classList.remove('visible');
+        }
+    });
+
+    // 4. Exit Intent логика (отслеживаем движение мыши вверх)
+    let exitIntentShown = false;
+    document.addEventListener('mouseleave', function(e) {
+        // Если курсор уходит за верхнюю границу окна браузера
+        if (e.clientY < 0 && !exitIntentShown) {
+            document.getElementById('exitPopup').style.display = 'block';
+            document.body.style.overflow = "hidden";
+            exitIntentShown = true;
+        }
+    });
 </script>
 </body>
 </html>
