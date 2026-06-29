@@ -5,16 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>10% Blueprint | Black Side Training</title>
     
-    <link rel="preconnect" href="https://js.whop.com">
-    <link rel="dns-prefetch" href="https://js.whop.com">
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
-    <script async defer src="https://js.whop.com"></script>
-
-    <!-- Facebook Pixel Code -->
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -31,9 +25,6 @@
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=ID_PIXEL&ev=PageView&noscript=1"
     /></noscript>
-    <!-- End Facebook Pixel Code -->
-
-    <!-- Snap Pixel Code -->
     <script type='text/javascript'>
     (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
     {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
@@ -45,8 +36,6 @@
     snaptr('init', 'INSERT_SNAP_PIXEL_ID');
     snaptr('track', 'PAGE_VIEW');
     </script>
-    <!-- End Snap Pixel Code -->
-
     <style>
         :root {
             --bg-dark: #121212;
@@ -225,12 +214,11 @@
         .faq-item.active .faq-btn { transform: rotate(180deg); }
         .faq-item.active .faq-answer { max-height: 200px; }
 
-        /* MODALS (CHECKOUT & EXIT INTENT) */
+        /* MODALS (EXIT INTENT ONLY) */
         .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2000; overflow-y: auto; background: rgba(0,0,0,0.95); backdrop-filter: blur(5px); text-align: left; }
         .modal-content { background: var(--card-gray); margin: 40px auto; width: 95%; max-width: 420px; padding: 30px 20px; border-radius: 20px; position: relative; }
         .close-btn { position: absolute; top: 15px; right: 20px; color: #888; font-size: 30px; cursor: pointer; }
-        .checkout-container { min-height: 200px; margin-top: 20px; }
-
+        
         /* STICKY BOTTOM BUTTON */
         .sticky-bottom {
             position: fixed; bottom: 0; left: 0; width: 100%;
@@ -255,20 +243,18 @@
         .btn-exit { background: var(--yellow); color: #000; width: 100%; padding: 18px; border-radius: 12px; font-size: 18px; font-weight: 900; font-family: 'Oswald', sans-serif; text-transform: uppercase; border: none; cursor: pointer; margin-bottom: 15px; }
         .btn-decline { background: transparent; color: #888; border: none; font-size: 12px; text-transform: uppercase; cursor: pointer; text-decoration: underline; }
 
-        footer { padding: 0 20px 80px; text-align: center; border-top: 1px solid #1C1C1E; margin-top: 20px; } /* 80px padding bottom to clear sticky button */
+        footer { padding: 0 20px 80px; text-align: center; border-top: 1px solid #1C1C1E; margin-top: 20px; }
         .copyright { color: #666; font-size: 11px; margin-top: 30px; text-transform: uppercase; letter-spacing: 1px; }
     </style>
 </head>
 <body>
 
-<!-- STICKY BUTTON -->
 <div class="sticky-bottom" id="stickyBtn">
     <button class="sticky-btn" onclick="buyProduct()">GET 60% OFF NOW</button>
 </div>
 
 <div class="container">
 
-    <!-- HERO -->
     <div class="hero">
         <img src="assets/hero.jpg" alt="10% Blueprint">
         <div class="hero-overlay">
@@ -277,13 +263,11 @@
         </div>
     </div>
 
-    <!-- INTRO BLOCK -->
     <div class="intro-block">
         <p class="intro-subtitle">Designed for all fitness levels.</p>
         <p class="intro-text">A 4-week training cycle utilizing my body recomposition system to burn fat and build muscle. Includes a complete 7-day meal plan to master your nutrition and a comprehensive breakdown of all essential supplements.</p>
     </div>
 
-    <!-- PRICING YELLOW CARD -->
     <div class="pricing-section">
         <div class="price-card">
             <div class="ribbon">-60%</div>
@@ -307,7 +291,6 @@
         </div>
     </div>
 
-    <!-- RISK FREE GUARANTEE -->
     <div class="guarantee-box">
         <div class="g-header">
             <div class="g-title-block">
@@ -329,7 +312,6 @@
         <button class="g-btn" onclick="buyProduct()">GET 60% OFF</button>
     </div>
 
-    <!-- MARQUEE -->
     <div class="marquee-wrapper">
         <div class="marquee-content">
             <div class="marquee-item">90,000+ MEMBERS <div class="marquee-dot"></div></div>
@@ -341,7 +323,6 @@
         </div>
     </div>
 
-    <!-- TRANSFORMATIONS SLIDER -->
     <div class="trans-header">
         <div class="trans-sub">Real Transformations</div>
         <h2 class="trans-title">PEOPLE WHO ALREADY <span>TRANSFORMED</span> THEIR BODIES</h2>
@@ -350,7 +331,6 @@
 
     <div class="slider-wrapper">
         <div class="slider-track">
-            <!-- Card 1 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before1.jpg" alt="Before" class="ba-img">
@@ -367,7 +347,6 @@
                     <p class="ba-review">"This protocol turned me into a warrior. No fluff, just exact sets and reps to get that aesthetic V-taper look. This is a part of my life now."</p>
                 </div>
             </div>
-            <!-- Card 2 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before2.jpg" alt="Before" class="ba-img">
@@ -384,7 +363,6 @@
                     <p class="ba-review">"Followed the nutrition guide and the workout cycle. Finally found a routine I actually enjoy. The transformation is real."</p>
                 </div>
             </div>
-            <!-- Card 3 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before3.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -401,7 +379,6 @@
                     <p class="ba-review">"Intense but sustainable. Best I've felt in years after finishing the first cycle. The definition comes naturally."</p>
                 </div>
             </div>
-            <!-- Card 4 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before4.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -418,7 +395,6 @@
                     <p class="ba-review">"Not a quick fix, but a real blueprint. The training blocks are perfectly structured for progressive overload."</p>
                 </div>
             </div>
-            <!-- Card 5 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before5.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -435,7 +411,6 @@
                     <p class="ba-review">"The macros breakdown is so precise. My physique changed entirely. Dropped the stubborn fat completely."</p>
                 </div>
             </div>
-            <!-- Card 6 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before6.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -452,7 +427,6 @@
                     <p class="ba-review">"Loved the training cycles. 3 months of discipline and the results speak for themselves. Best investment."</p>
                 </div>
             </div>
-            <!-- Card 7 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before7.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -469,7 +443,6 @@
                     <p class="ba-review">"Exactly what I needed to break my plateau. The heavy definition is finally showing without losing size."</p>
                 </div>
             </div>
-            <!-- Card 8 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before8.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -486,7 +459,6 @@
                     <p class="ba-review">"Trust the process. By the 3rd month, the mirror doesn't lie. Incredible protocol for aesthetic goals."</p>
                 </div>
             </div>
-            <!-- Card 9 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before9.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -503,7 +475,6 @@
                     <p class="ba-review">"The process is addictive. The system is so well structured that success is basically guaranteed."</p>
                 </div>
             </div>
-            <!-- Card 10 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before10.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -520,7 +491,6 @@
                     <p class="ba-review">"Simple, brutal, and effective. The supplement guide alone saved me hours of research."</p>
                 </div>
             </div>
-            <!-- Card 11 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before11.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -537,7 +507,6 @@
                     <p class="ba-review">"Finally achieved the vascularity I've been chasing. The nutrition protocol makes it incredibly simple to stick to."</p>
                 </div>
             </div>
-            <!-- Card 12 -->
             <div class="slider-card">
                 <div class="ba-images">
                     <img src="assets/before12.jpg" alt="Before" loading="lazy" class="ba-img">
@@ -557,7 +526,6 @@
         </div>
     </div>
 
-    <!-- WHITE SECTION -->
     <div class="white-section">
         <h2 class="white-section-title heading-font">EVERYTHING TO BUILD YOUR DREAM BODY</h2>
         <p class="white-section-desc">Every session has sets, reps, and exact rest times. No gym floor confusion — just open the PDF and follow the blueprint.</p>
@@ -581,7 +549,6 @@
         </div>
     </div>
 
-    <!-- COMPARISON TABLE SECTION (GRID FIX) -->
     <div class="comparison-section">
         <h2 class="trans-title heading-font" style="font-size: 36px; margin-bottom: 10px;">WHY PEOPLE DON'T SEE <span>RESULTS?</span></h2>
         <p class="trans-desc" style="margin-bottom: 30px;">Every workout builds on the last. You always progress — not spin in place.</p>
@@ -592,11 +559,9 @@
         </button>
 
         <div class="compare-table">
-            <!-- Headers -->
             <div class="c-head-l">10% BLUEPRINT</div>
             <div class="c-head-r">OTHER</div>
             
-            <!-- Row 1 -->
             <div class="c-cell-l">
                 <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                 Structured progression
@@ -606,7 +571,6 @@
                 Random workouts
             </div>
             
-            <!-- Row 2 -->
             <div class="c-cell-l">
                 <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                 Exact macros & meals
@@ -616,7 +580,6 @@
                 Guessing diets
             </div>
             
-            <!-- Row 3 -->
             <div class="c-cell-l">
                 <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                 V-Taper focused
@@ -626,7 +589,6 @@
                 Generic routines
             </div>
             
-            <!-- Row 4 -->
             <div class="c-cell-l">
                 <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                 Step-by-step system
@@ -636,7 +598,6 @@
                 No direction
             </div>
             
-            <!-- Row 5 (Last) -->
             <div class="c-cell-l last">
                 <svg class="icon-svg icon-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> 
                 One-time $27 fee
@@ -648,7 +609,6 @@
         </div>
     </div>
 
-    <!-- FAQ -->
     <div id="faq" class="faq-section">
         <h2 class="faq-title heading-font">FAQ</h2>
         
@@ -769,22 +729,6 @@
 
 </div>
 
-<!-- Checkout Modal Whop -->
-<div id="checkoutModal" class="modal">
-    <div class="modal-content">
-        <span class="close-btn" onclick="closeModal('checkoutModal')">&times;</span>
-        <h3 class="heading-font" style="font-size: 24px; text-align: center; margin-bottom: 20px; color: #fff;">COMPLETE PURCHASE</h3>
-        <div class="checkout-container">
-            <div 
-                data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" 
-                data-whop-checkout-theme="dark"
-                data-whop-checkout-theme-accent-color="#FFD600">
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Exit Intent Modal -->
 <div id="exitPopup" class="modal">
     <div class="modal-content">
         <span class="close-btn" onclick="closeModal('exitPopup')">&times;</span>
@@ -796,24 +740,25 @@
 </div>
 
 <script>
-    // 1. Управление модалками и Чекаутом
+    // 1. Главная логика чекаута (Прямой редирект + Пиксели)
     function buyProduct() {
-        const modal = document.getElementById("checkoutModal");
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-        
         // Отбиваем пиксели
         if (typeof fbq === 'function') fbq('track', 'InitiateCheckout');
         if (typeof snaptr === 'function') snaptr('track', 'START_CHECKOUT');
+        
+        // Даем 250 мс, чтобы данные гарантированно ушли в рекламные сети, и перекидываем лида
+        setTimeout(function() {
+            window.location.href = "https://whop.com/checkout/plan_mAkmG309DbNgZ";
+        }, 250);
     }
 
+    // 2. Управление попапами
     function closeModal(modalId) {
         const modal = document.getElementById(modalId);
         modal.style.display = "none";
         document.body.style.overflow = "auto";
     }
 
-    // Закрытие по клику вне окна
     window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
             event.target.style.display = "none";
@@ -821,7 +766,7 @@
         }
     }
 
-    // 2. Аккордеон FAQ
+    // 3. Аккордеон FAQ
     function toggleFaq(element) {
         const allItems = document.querySelectorAll('.faq-item');
         allItems.forEach(item => {
@@ -832,7 +777,7 @@
         element.classList.toggle('active');
     }
 
-    // 3. Sticky Button логика (показываем после скролла 400px)
+    // 4. Sticky Button логика (показываем после скролла 400px)
     window.addEventListener('scroll', function() {
         const stickyBtn = document.getElementById('stickyBtn');
         if (window.scrollY > 400) {
@@ -842,7 +787,7 @@
         }
     });
 
-    // 4. Exit Intent логика (отслеживаем движение мыши вверх)
+    // 5. Exit Intent логика (отслеживаем движение мыши вверх)
     let exitIntentShown = false;
     document.addEventListener('mouseleave', function(e) {
         // Если курсор уходит за верхнюю границу окна браузера
