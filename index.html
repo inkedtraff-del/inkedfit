@@ -787,14 +787,26 @@
         }
     });
 
-    // 5. Exit Intent логика (отслеживаем движение мыши вверх)
+    // 5. Exit Intent логика (ТОЛЬКО МОБИЛКИ - перехват свайпа "Назад")
     let exitIntentShown = false;
-    document.addEventListener('mouseleave', function(e) {
-        // Если курсор уходит за верхнюю границу окна браузера
-        if (e.clientY < 0 && !exitIntentShown) {
+
+    function triggerExitPopup() {
+        if (!exitIntentShown) {
             document.getElementById('exitPopup').style.display = 'block';
             document.body.style.overflow = "hidden";
             exitIntentShown = true;
+        }
+    }
+
+    // Создаем фейковую запись в истории браузера при загрузке
+    window.history.pushState({page: 1}, "", "");
+
+    window.addEventListener('popstate', function(event) {
+        if (!exitIntentShown) {
+            // Показываем попап
+            triggerExitPopup();
+            // Снова пушим запись, чтобы юзер остался на странице
+            window.history.pushState({page: 1}, "", "");
         }
     });
 </script>
