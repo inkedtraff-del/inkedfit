@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Access Granted | Inked Fit</title>
+    <title>Access Granted | Black Side Training</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
 
     <script>
     !function(f,b,e,v,n,t,s)
@@ -41,73 +41,125 @@
     });
     </script>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif; }
-        body { background: #0b0b0b; color: white; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; -webkit-font-smoothing: antialiased; }
+        :root {
+            --bg-darker: #080808;
+            --yellow: #FFD600;
+            --text-white: #FFFFFF;
+            --text-gray: #A0A0A0;
+            --card-gray: #1C1C1E;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background: var(--bg-darker); 
+            color: var(--text-white); 
+            font-family: 'Inter', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            min-height: 100vh; 
+            -webkit-font-smoothing: antialiased; 
+        }
         
         .success-card {
             max-width: 400px; 
             width: 90%; 
-            background: #141414; 
+            background: var(--card-gray); 
             padding: 50px 25px; 
-            border-radius: 12px; 
+            border-radius: 20px; 
             border: 1px solid #333; 
             text-align: center; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.9);
         }
 
-        .checkmark {
-            font-size: 50px; 
-            color: #c5a059;
-            margin-bottom: 20px;
+        .icon-wrapper {
+            width: 64px;
+            height: 64px;
+            border: 2px solid var(--yellow);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            background: rgba(255, 214, 0, 0.05);
+        }
+
+        .icon-wrapper svg {
+            stroke: var(--yellow);
+            width: 32px;
+            height: 32px;
         }
 
         .success-title {
-            font-size: 24px; 
+            font-family: 'Oswald', sans-serif;
+            font-size: 32px; 
             font-weight: 900; 
             text-transform: uppercase; 
-            color: #fff; 
-            margin-bottom: 15px;
+            color: var(--text-white); 
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
         }
 
         .success-text {
-            color: #ffffff;
+            color: #ccc;
             font-size: 15px; 
             line-height: 1.6; 
             margin-bottom: 35px;
+            font-weight: 500;
         }
 
         .button {
-            display: block;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
             width: 100%; 
-            padding: 18px; 
-            font-size: 17px; 
+            padding: 20px; 
+            font-size: 18px; 
             font-weight: 900; 
+            font-family: 'Oswald', sans-serif;
             border: none; 
-            border-radius: 4px; 
-            color: #0b0b0b;
-            background: linear-gradient(90deg, #c5a059, #8b6b32); 
+            border-radius: 12px; 
+            color: #000;
+            background: var(--yellow); 
             text-transform: uppercase; 
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.2);
             text-decoration: none;
+            transition: transform 0.1s ease;
+        }
+
+        .button:active {
+            transform: scale(0.98);
         }
 
         .backup-text {
             margin-top: 30px; 
             font-size: 11px; 
-            color: #8a8a8a; 
+            color: var(--text-gray); 
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            font-weight: 700;
         }
     </style>
 </head>
 <body>
     <div class="success-card">
-        <div class="checkmark">✓</div>
+        <div class="icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
         <h1 class="success-title">PURCHASE SECURED</h1>
-        <p class="success-text">The protocol is ready. Download your 10% Blueprint PDF guide below.</p>
+        <p class="success-text">The protocol is ready. Download your 10% Blueprint guide below.</p>
         
-        <a href="assets/10-percent-blueprint.pdf" class="button" download>DOWNLOAD PDF</a>
+        <a href="assets/10-percent-blueprint.pdf" class="button" download>
+            DOWNLOAD
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+        </a>
         
         <p class="backup-text">A backup copy has been sent to your email.</p>
     </div>
