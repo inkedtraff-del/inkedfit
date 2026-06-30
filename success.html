@@ -3,151 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Purchase Secured - Inked Fit Elite</title>
+    <title>Purchase Secured - 10% Blueprint</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root { 
-            --yellow: #fcd34d; 
-            --black: #0b0b0b; 
-            --dark-bg: #141414; 
-            --white: #ffffff; 
-            --gray: #262626; 
-            --text-m: #9ca3af; 
-        }
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
+        :root {
+            --yellow: #FFCC00;
+            --black: #0b0b0b;
+            --pure-black: #000000;
+            --white: #ffffff;
+            --text-gray: #d1d5db;
         }
 
         body {
-            background: #111111;
+            background-color: var(--black);
             color: var(--white);
             font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 50px 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            box-sizing: border-box;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Твой дизайн карточки */
-        .success-card {
-            background: var(--dark-bg);
-            border: 1px solid var(--gray);
-            border-top: 4px solid var(--yellow);
-            border-radius: 12px;
-            padding: 50px 40px;
+        /* HEADER SECTION */
+        .header-group {
             text-align: center;
-            max-width: 450px;
-            width: 100%;
-            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            margin-bottom: 40px;
+        }
+        
+        .header-group h1 {
+            font-family: 'Oswald', sans-serif;
+            font-size: 64px;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+            letter-spacing: -1px;
+        }
+        
+        .header-group h1 .white { color: var(--white); }
+        .header-group h1 .yellow { color: var(--yellow); }
+        
+        .header-group .sub-logo {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text-gray);
+            margin-top: 5px;
+            text-transform: uppercase;
         }
 
-        .icon-wrapper {
-            background: rgba(252, 211, 77, 0.1);
-            color: var(--yellow);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0 auto 25px auto;
-        }
-
-        .icon-wrapper svg {
-            width: 40px;
-            height: 40px;
-        }
-
+        /* INTRO TEXT */
         .success-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 32px;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
+            color: var(--yellow);
+            font-size: 24px;
             text-transform: uppercase;
-            color: var(--white);
+            letter-spacing: 1px;
+            margin: 0 0 15px 0;
+            text-align: center;
         }
-
-        .success-text {
-            color: var(--text-m);
+        
+        .success-desc {
+            color: var(--text-gray);
             font-size: 16px;
             line-height: 1.6;
-            margin-bottom: 35px;
+            text-align: center;
+            max-width: 480px;
+            margin: 0 0 50px 0;
         }
 
-        .button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            background: var(--yellow);
-            color: var(--black);
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 700;
-            padding: 16px 30px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 4px 15px rgba(252, 211, 77, 0.2);
+        /* YELLOW CARD */
+        .yellow-card {
+            background-color: var(--yellow);
+            border-radius: 24px;
             width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
         }
 
-        .button:hover {
+        /* CARD CONTENT */
+        .card-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--pure-black);
+            letter-spacing: 1px;
+            margin: 0 0 10px 0;
+        }
+
+        .card-main-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: var(--pure-black);
+            line-height: 1;
+            margin: 0 0 25px 0;
+            text-transform: uppercase;
+        }
+
+        /* YELLOW PILL */
+        .pill {
+            background-color: rgba(0, 0, 0, 0.08);
+            color: var(--pure-black);
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 800;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 35px;
+            letter-spacing: 0.5px;
+        }
+
+        /* BLACK BUTTON */
+        .btn {
+            background-color: var(--pure-black);
+            color: var(--white);
+            font-family: 'Oswald', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            box-sizing: border-box;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+        
+        .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(252, 211, 77, 0.4);
+            background-color: #1a1a1a;
         }
 
         .backup-text {
-            margin-top: 25px;
-            font-size: 13px;
             color: #6b7280;
+            font-size: 14px;
+            margin-top: 30px;
+            text-align: center;
         }
 
         @media (max-width: 480px) {
-            .success-card {
-                padding: 40px 20px;
-            }
-            .success-title {
-                font-size: 28px;
-            }
+            .header-group h1 { font-size: 52px; }
+            .yellow-card { padding: 40px 20px; }
+            .card-main-text { font-size: 48px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="success-card">
-        <!-- Твоя иконка галочки -->
-        <div class="icon-wrapper">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-        </div>
+    <div class="header-group">
+        <h1><span class="white">10%</span> <span class="yellow">BLUEPRINT</span></h1>
+        <div class="sub-logo">THE ULTIMATE V-TAPER PROTOCOL</div>
+    </div>
+
+    <h2 class="success-title">PURCHASE SECURED.</h2>
+    <p class="success-desc">Your payment was successful. You now have lifetime access to the complete body recomposition system and nutrition matrix.</p>
+
+    <div class="yellow-card">
+        <p class="card-label">LIFETIME ACCESS</p>
+        <h3 class="card-main-text">UNLOCKED</h3>
         
-        <h1 class="success-title">PURCHASE SECURED</h1>
-        <p class="success-text">The protocol is ready. Click below to open and install your 10% Blueprint app.</p>
+        <div class="pill">INSTANT PDF DOWNLOAD</div>
         
-        <!-- Ссылка на твой сайт Vercel вместо скачивания PDF -->
-        <a href="https://manplan.vercel.app/" class="button">
-            OPEN APP
-            <!-- Иконка стрелки для перехода в приложение -->
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14"></path>
-                <path d="M12 5l7 7-7 7"></path>
+        <a href="assets/10-percent-blueprint.pdf" class="btn" download>
+            DOWNLOAD NOW
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
             </svg>
         </a>
-        
-        <!-- Твой текст -->
-        <p class="backup-text">A backup copy has been sent to your email.</p>
     </div>
+
+    <p class="backup-text">A backup copy has been sent to your email.</p>
 
 </body>
 </html>
