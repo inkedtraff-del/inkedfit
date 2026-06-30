@@ -2,166 +2,152 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Access Granted | Black Side Training</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Secured - Inked Fit Elite</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700;900&family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
-
-    <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1728093011528704');
-    fbq('track', 'PageView');
-    fbq('track', 'Purchase', {value: 50.00, currency: 'MYR'});
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1728093011528704&ev=PageView&noscript=1"
-    /></noscript>
-    <script type='text/javascript'>
-    (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-    {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-    a.queue=[];var s='script';r=t.createElement(s);r.async=!0;
-    r.src=n;var u=t.getElementsByTagName(s)[0];
-    u.parentNode.insertBefore(r,u);})(window,document,
-    'https://sc-static.net/scevent.min.js');
-
-    snaptr('init', '7bf26a27-1cd8-4308-b684-66e4facb144a');
-    snaptr('track', 'PAGE_VIEW');
-    snaptr('track', 'PURCHASE', {
-      'currency': 'MYR',
-      'price': 50.00      
-    });
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-darker: #080808;
-            --yellow: #FFD600;
-            --text-white: #FFFFFF;
-            --text-gray: #A0A0A0;
-            --card-gray: #1C1C1E;
+        :root { 
+            --yellow: #fcd34d; 
+            --black: #0b0b0b; 
+            --dark-bg: #141414; 
+            --white: #ffffff; 
+            --gray: #262626; 
+            --text-m: #9ca3af; 
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background: var(--bg-darker); 
-            color: var(--text-white); 
-            font-family: 'Inter', sans-serif; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            min-height: 100vh; 
-            -webkit-font-smoothing: antialiased; 
+        body {
+            background: #111111;
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
         }
-        
+
+        /* Твой дизайн карточки */
         .success-card {
-            max-width: 400px; 
-            width: 90%; 
-            background: var(--card-gray); 
-            padding: 50px 25px; 
-            border-radius: 20px; 
-            border: 1px solid #333; 
-            text-align: center; 
+            background: var(--dark-bg);
+            border: 1px solid var(--gray);
+            border-top: 4px solid var(--yellow);
+            border-radius: 12px;
+            padding: 50px 40px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
         }
 
         .icon-wrapper {
-            width: 64px;
-            height: 64px;
-            border: 2px solid var(--yellow);
-            border-radius: 16px;
+            background: rgba(252, 211, 77, 0.1);
+            color: var(--yellow);
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             display: flex;
-            align-items: center;
             justify-content: center;
-            margin: 0 auto 20px;
-            background: rgba(255, 214, 0, 0.05);
+            align-items: center;
+            margin: 0 auto 25px auto;
         }
 
         .icon-wrapper svg {
-            stroke: var(--yellow);
-            width: 32px;
-            height: 32px;
+            width: 40px;
+            height: 40px;
         }
 
         .success-title {
             font-family: 'Oswald', sans-serif;
-            font-size: 32px; 
-            font-weight: 900; 
-            text-transform: uppercase; 
-            color: var(--text-white); 
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
+            font-size: 32px;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--white);
         }
 
         .success-text {
-            color: #ccc;
-            font-size: 15px; 
-            line-height: 1.6; 
+            color: var(--text-m);
+            font-size: 16px;
+            line-height: 1.6;
             margin-bottom: 35px;
-            font-weight: 500;
         }
 
         .button {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 10px;
-            width: 100%; 
-            padding: 20px; 
-            font-size: 18px; 
-            font-weight: 900; 
-            font-family: 'Oswald', sans-serif;
-            border: none; 
-            border-radius: 12px; 
-            color: #000;
-            background: var(--yellow); 
-            text-transform: uppercase; 
-            cursor: pointer;
+            justify-content: center;
+            gap: 12px;
+            background: var(--yellow);
+            color: var(--black);
             text-decoration: none;
-            transition: transform 0.1s ease;
+            font-family: 'Oswald', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            padding: 16px 30px;
+            border-radius: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 15px rgba(252, 211, 77, 0.2);
+            width: 100%;
         }
 
-        .button:active {
-            transform: scale(0.98);
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(252, 211, 77, 0.4);
         }
 
         .backup-text {
-            margin-top: 30px; 
-            font-size: 11px; 
-            color: var(--text-gray); 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 700;
+            margin-top: 25px;
+            font-size: 13px;
+            color: #6b7280;
+        }
+
+        @media (max-width: 480px) {
+            .success-card {
+                padding: 40px 20px;
+            }
+            .success-title {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="success-card">
+        <!-- Твоя иконка галочки -->
         <div class="icon-wrapper">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
         </div>
-        <h1 class="success-title">PURCHASE SECURED</h1>
-        <p class="success-text">The protocol is ready. Download your 10% Blueprint guide below.</p>
         
-        <a href="assets/10-percent-blueprint.pdf" class="button" download>
-            DOWNLOAD
+        <h1 class="success-title">PURCHASE SECURED</h1>
+        <p class="success-text">The protocol is ready. Click below to open and install your 10% Blueprint app.</p>
+        
+        <!-- Ссылка на твой сайт Vercel вместо скачивания PDF -->
+        <a href="https://manplan.vercel.app/" class="button">
+            OPEN APP
+            <!-- Иконка стрелки для перехода в приложение -->
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                <polyline points="7 10 12 15 17 10"></polyline>
-                <line x1="12" y1="15" x2="12" y2="3"></line>
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
             </svg>
         </a>
         
+        <!-- Твой текст -->
         <p class="backup-text">A backup copy has been sent to your email.</p>
     </div>
+
 </body>
 </html>
