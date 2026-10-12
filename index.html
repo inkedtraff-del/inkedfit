@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ronin — Five cycles. One complete body.</title>
+  <meta name="description" content="Five 4-week gym cycles, one complete body. A new cycle drops every month.">
+
+  <!-- Theme is set before first paint so there is no flash -->
+  <script>
+    (function () {
+      var t;
+      try { t = localStorage.getItem('ronin-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') {
+        t = window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+    // Image slots: try every common format, so hero-dark.avif / .webp / .jpg / .jpeg / .png all work.
+    window.slot = function (img) {
+      var exts = ['avif', 'webp', 'jpg', 'jpeg', 'png', 'JPG', 'JPEG', 'PNG'];
+      var i = (+img.getAttribute('data-try') || 0) + 1;
+      if (i >= exts.length) { img.remove(); return; }
+      img.setAttribute('data-try', i);
+      img.src = img.getAttribute('src').replace(/\.[A-Za-z0-9]+$/, '.' + exts[i]);
+    };
+  </script>
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#E3E0D8" media="(prefers-color-scheme: light)">
+
+  <link rel="preload" href="assets/fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <!-- Link preview for Instagram, iMessage, WhatsApp: assets/images/og.jpg (1200x630, must be JPG) -->
+  <meta property="og:title" content="Ronin — Five cycles. One complete body.">
+  <meta property="og:description" content="A new 4-week gym cycle every month.">
+  <meta property="og:image" content="assets/images/og.jpg">
+</head>
+<body>
+
+<a class="skip" href="#path">Skip to the program</a>
+
+<header class="topbar">
+  <a class="topbar__mark" href="#top" aria-label="Ronin, back to top">Ronin</a>
+  <button class="theme-toggle" type="button" aria-label="Switch theme">
+    <span class="theme-toggle__glyph" lang="ja" aria-hidden="true">墨</span>
+    <span class="theme-toggle__label">Ink</span>
+  </button>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__media">
+      <!-- Photos load automatically from assets/images. If a file is missing, the placeholder shows instead. -->
+      <div class="ph ph--hero" data-label="Hero photo: your back, vertical, empty space above the shoulders"></div>
+      <img class="hero__img hero__img--dark" src="assets/images/hero-dark.avif" alt="Tattooed back with a Japanese demon, dark backdrop" width="1080" height="1620" fetchpriority="high" decoding="async" onerror="slot(this)">
+      <img class="hero__img hero__img--light" src="assets/images/hero-light.avif" alt="Tattooed back with a Japanese demon, light backdrop" width="1080" height="1620" decoding="async" onerror="slot(this)">
+    </div>
+    <div class="hero__shade" aria-hidden="true"></div>
+
+    <div class="hero__center">
+      <h1 class="wordmark" aria-label="Ronin" data-brand-wordmark>
+        <span style="--i:0">R</span><span style="--i:1">o</span><span style="--i:2">n</span><span style="--i:3">i</span><span style="--i:4">n</span>
+      </h1>
+      <p class="hero__lede">Five cycles. One complete&nbsp;body.</p>
+    </div>
+
+    <div class="hero__actions">
+      <p class="hero__product" data-current="line">Cycle I: Demon Back. Training, meal plan, sleep and supplements in one PDF.</p>
+      <a class="btn btn--accent" data-checkout-current href="#offer" data-current="cta">Get Demon Back for $27</a>
+      <a class="btn btn--ghost" href="#system">See what&rsquo;s inside</a>
+    </div>
+  </section>
+
+  <!-- ============ THIS MONTH'S DROP ============ -->
+  <section class="offer" id="offer" aria-labelledby="offer-title">
+    <div class="wrap">
+      <article class="offer__card">
+        <div class="offer__top">
+          <span class="pill" data-status="open">New this month</span>
+          <span class="offer__cycle" data-current="cycle">Cycle I, Earth</span>
+        </div>
+        <h2 class="offer__title" id="offer-title" data-current="title">Demon Back</h2>
+        <p class="offer__what" data-current="what">Four weeks to a wider, thicker back. Training, meal plan, calories, food list, sleep and supplements.</p>
+
+        <p class="offer__label">You get</p>
+        <ul class="offer__includes" data-current="includes">
+          <li><span>Cycle I, Demon Back</span><em>New</em></li>
+        </ul>
+
+        <div class="offer__price">
+          <span class="offer__amount" data-current="price">$27</span>
+          <span class="offer__terms">One payment. Instant PDF download.<br>Yours to keep.</span>
+        </div>
+
+        <a class="btn btn--accent btn--wide btn--lg" data-checkout-current href="#" data-current="cta">Get Demon Back for $27</a>
+
+        <a class="offer__more" href="#system">
+          See everything inside
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </a>
+
+        <p class="offer__next" data-current="next"></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ============ THE SYSTEM (what every cycle contains) ============ -->
+  <section class="system" id="system" aria-labelledby="system-title">
+    <div class="wrap">
+      <h2 class="display" id="system-title">Not just workouts</h2>
+      <p class="lead">Every cycle is a complete system for four weeks. Training is one part. The rest is what most programs leave out.</p>
+
+      <ul class="contents">
+        <li class="module">
+          <h3 class="module__name">Training</h3>
+          <p class="module__text">Four weeks, five gym sessions a week. Every exercise, set, rep and rest period written out, with the weight to aim for.</p>
+        </li>
+        <li class="module">
+          <h3 class="module__name">Meal plan</h3>
+          <p class="module__text">A full day of eating for the whole cycle. What to eat, when, and how much, built around your training days.</p>
+        </li>
+        <li class="module">
+          <h3 class="module__name">Calories, done right</h3>
+          <p class="module__text">Work out your own number step by step, then adjust it to build muscle or to lean out. No guessing, no apps required.</p>
+        </li>
+        <li class="module">
+          <h3 class="module__name">The food list</h3>
+          <p class="module__text">The foods I actually buy, ranked. Your shopping list for the month, ready to screenshot.</p>
+        </li>
+        <li class="module">
+          <h3 class="module__name">Sleep</h3>
+          <p class="module__text">The routine that lets you recover from five hard sessions a week. Where most of the growing actually happens.</p>
+        </li>
+        <li class="module">
+          <h3 class="module__name">Supplements</h3>
+          <p class="module__text">What is worth your money, what is a waste, and exactly how I take the few that work.</p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Screenshots of PDF pages: assets/images/pdf-1.avif ... pdf-4.jpg -->
+    <div class="gallery" tabindex="0" aria-label="Pages from a cycle plan">
+      <figure class="device"><div class="ph ph--page" data-label="PDF page: a training day"><img src="assets/images/pdf-1.avif" alt="PDF page: a training day" loading="lazy" decoding="async" onerror="slot(this)"></div><figcaption>A training day</figcaption></figure>
+      <figure class="device"><div class="ph ph--page" data-label="PDF page: meal plan"><img src="assets/images/pdf-2.avif" alt="PDF page: meal plan" loading="lazy" decoding="async" onerror="slot(this)"></div><figcaption>The meal plan</figcaption></figure>
+      <figure class="device"><div class="ph ph--page" data-label="PDF page: calorie calculator"><img src="assets/images/pdf-3.avif" alt="PDF page: calorie calculator" loading="lazy" decoding="async" onerror="slot(this)"></div><figcaption>Your calorie number</figcaption></figure>
+      <figure class="device"><div class="ph ph--page" data-label="PDF page: food list"><img src="assets/images/pdf-4.avif" alt="PDF page: food list" loading="lazy" decoding="async" onerror="slot(this)"></div><figcaption>The food list</figcaption></figure>
+    </div>
+
+    <div class="wrap">
+      <p class="system__format">One PDF per cycle. Open it on your phone between sets. No app, no login.</p>
+
+      <div class="fit">
+        <div class="fit__col">
+          <h3>For you if</h3>
+          <p>You want a body that looks built and works hard. You can train in a gym four or five days a week. You follow a plan without someone watching.</p>
+        </div>
+        <div class="fit__col fit__col--no">
+          <h3>Not for you if</h3>
+          <p>You want a fifteen-minute home workout. You need daily motivation to show up.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE SAYING ============ -->
+  <section class="saying" aria-label="Philosophy">
+    <div class="wrap">
+      <figure class="saying__fig">
+        <span class="saying__trunk" aria-hidden="true"></span>
+        <blockquote class="saying__quote">
+          <p>For a tree to grow tall and strong toward the sky, its roots must reach down into&nbsp;hell.</p>
+        </blockquote>
+        <figcaption class="saying__by" data-brand-name>Ronin</figcaption>
+        <span class="saying__roots" aria-hidden="true"></span>
+      </figure>
+
+
+    </div>
+  </section>
+
+  <!-- ============ THE FIVE RINGS (phases) ============ -->
+  <section class="rings" id="path" aria-labelledby="rings-title">
+    <div class="wrap">
+      <h2 class="display" id="rings-title">The Five Rings</h2>
+      <p class="lead">
+        In 1645 the ronin Miyamoto Musashi wrote the <em>Book of Five Rings</em>: Earth, Water, Fire, Wind and Void.
+        Here every ring is a 4-week cycle that builds one part of the body. A new one drops each month.
+        Buy any month and every earlier ring comes with it.
+      </p>
+    </div>
+
+    <div class="player" data-ring="earth">
+      <div class="player__stage" aria-hidden="true">
+        <div class="player__glow"></div>
+        <svg class="enso" viewBox="0 0 200 200" focusable="false">
+          <defs>
+            <filter id="brush" x="-10%" y="-10%" width="120%" height="120%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.75" numOctaves="2" seed="11" result="n"/>
+              <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4"/>
+            </filter>
+            <mask id="enso-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="200" height="200">
+              <path class="enso__reveal" pathLength="1" fill="none" stroke="#fff" stroke-width="44" stroke-linecap="round"/>
+            </mask>
+          </defs>
+          <g mask="url(#enso-mask)">
+            <g class="enso__g" filter="url(#brush)"></g>
+          </g>
+        </svg>
+        <span class="player__kanji" lang="ja">地</span>
+      </div>
+
+      <div class="wrap">
+        <div class="player__head">
+          <button class="player__nav" type="button" data-dir="-1" aria-label="Previous ring">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <div class="player__title" aria-live="polite">
+            <p class="player__phase">Cycle I, Earth</p>
+            <h3 class="player__name">Demon Back</h3>
+            <span class="pill" data-status="open">New this month</span>
+          </div>
+          <button class="player__nav" type="button" data-dir="1" aria-label="Next ring">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <p class="player__desc">Width and thickness. Pull-ups, rows and heavy pulls built to spread your lats and carve the upper back.</p>
+
+        <dl class="chips">
+          <div class="chip"><dt>Length</dt><dd data-field="length">4 weeks</dd></div>
+          <div class="chip"><dt>Sessions</dt><dd data-field="sessions">5 a week</dd></div>
+          <div class="chip"><dt>Drops</dt><dd data-field="date">Oct 1</dd></div>
+        </dl>
+
+        <div class="player__dots" role="tablist" aria-label="Choose a ring"></div>
+
+        <a class="btn btn--accent btn--wide player__action" href="#">Get Demon Back for $27</a>
+        <p class="player__note" hidden></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS (hidden until you have real ones) ============ -->
+  <!-- Remove the `hidden` attribute once you have 3+ real results. Never fake these. -->
+  <section class="proof" aria-labelledby="proof-title" hidden>
+    <div class="wrap">
+      <h2 class="display" id="proof-title">Walked it</h2>
+      <figure class="quote">
+        <blockquote>Real result goes here, in the client&rsquo;s own words.</blockquote>
+        <figcaption>Name, city</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ FREE GUIDE ============ -->
+  <section class="guide" id="guide" aria-labelledby="guide-title">
+    <div class="wrap">
+      <div class="guide__cover ph ph--cover" data-label="Guide cover mockup"><img src="assets/images/guide-cover.avif" alt="Supplement Truth guide cover" loading="lazy" decoding="async" onerror="slot(this)"></div>
+      <h2 class="display" id="guide-title">Supplement Truth</h2>
+      <p class="lead">The free guide. What I actually take, what the research supports, and what&rsquo;s a waste of your money.</p>
+
+      <form class="form" data-endpoint="subscribe" data-list="guide" novalidate>
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" autocomplete="email" inputmode="email" placeholder="you@example.com" required>
+        </label>
+        <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn--accent btn--wide" type="submit">Get the free guide</button>
+        <p class="form__fine">Instant download. After that, only new drops. Unsubscribe anytime.</p>
+        <p class="form__status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ 1:1 COACHING ============ -->
+  <section class="coach" id="coaching" aria-labelledby="coach-title">
+    <div class="wrap">
+      <h2 class="display" id="coach-title">The Ronin Path</h2>
+      <p class="lead">One-to-one coaching, entirely by message. Ten athletes at a time.</p>
+
+      <dl class="rules">
+        <div class="rule"><dt>No calls</dt><dd>No scheduled Zooms, no check-in theater. You message when it matters.</dd></div>
+        <div class="rule"><dt>Daily contact</dt><dd>I&rsquo;m in your messages every day and reply within 24 hours.</dd></div>
+        <div class="rule"><dt>A plan that moves</dt><dd>You report training, sleep and how you feel. I rewrite the next week around it.</dd></div>
+      </dl>
+
+      <div class="spots" aria-live="polite">
+        <div class="spots__marks" aria-hidden="true"></div>
+        <p class="spots__text"><strong>3 of 10</strong> spots open</p>
+        <p class="spots__price"></p>
+      </div>
+
+      <button class="btn btn--solid btn--wide coach__open" type="button" aria-expanded="false" aria-controls="apply">Apply for a spot</button>
+
+      <div class="apply" id="apply" hidden>
+        <form class="form" data-endpoint="apply" novalidate>
+          <label class="field">
+            <span class="field__label">Name</span>
+            <input type="text" name="name" autocomplete="name" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Email</span>
+            <input type="email" name="email" autocomplete="email" inputmode="email" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Instagram</span>
+            <input type="text" name="instagram" placeholder="@yourhandle" autocapitalize="off" spellcheck="false" required>
+          </label>
+          <label class="field">
+            <span class="field__label">Main goal</span>
+            <select name="goal" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Get stronger</option>
+              <option>Run further</option>
+              <option>Both, hybrid</option>
+              <option>Get fight-ready</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">How long have you trained?</span>
+            <select name="experience" required>
+              <option value="" selected disabled>Choose one</option>
+              <option>Under 1 year</option>
+              <option>1 to 3 years</option>
+              <option>3+ years</option>
+            </select>
+          </label>
+          <label class="field">
+            <span class="field__label">What&rsquo;s holding you back right now? <i>Optional</i></span>
+            <textarea name="note" rows="3" maxlength="600"></textarea>
+          </label>
+          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn--solid btn--wide" type="submit">Send application</button>
+          <p class="form__fine">I review every profile myself and reply within 48 hours.</p>
+          <p class="form__status" role="status"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <h2 class="display" id="faq-title">Questions</h2>
+
+      <details>
+        <summary>Is this for beginners?</summary>
+        <p>If you can train four or five days a week in a gym, yes. Every exercise tells you how to pick the right weight for your level.</p>
+      </details>
+      <details>
+        <summary>What equipment do I need?</summary>
+        <p>A standard gym: barbell, dumbbells, cables and a pull-up bar.</p>
+      </details>
+      <details>
+        <summary>How do I get the plan?</summary>
+        <p>Checkout runs through Whop. The PDF is ready to download the moment your payment goes through.</p>
+      </details>
+      <details>
+        <summary>Does it work for cutting, or only for building muscle?</summary>
+        <p>Both. The calorie section shows you how to set your number for building muscle or for leaning out. The training stays the same.</p>
+      </details>
+      <details>
+        <summary>When does the next cycle drop?</summary>
+        <p data-current="faq-next">A new cycle drops at the start of every month. Join the drop list and you&rsquo;ll know the day it lands.</p>
+      </details>
+      <details>
+        <summary>I found you late. Did I miss the earlier cycles?</summary>
+        <p>No. Whenever you buy, you get the current cycle plus every cycle released before it, for the same price.</p>
+      </details>
+      <details>
+        <summary>How does coaching work without calls?</summary>
+        <p>Everything happens in messages. You send your training, sleep and how you feel. I reply every day and adjust your plan each week.</p>
+      </details>
+      <details>
+        <summary>Can I get a refund?</summary>
+        <p>Yes, within 14 days. Email me and you&rsquo;ll get your money back.</p>
+      </details>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <svg class="seal" viewBox="0 0 64 64" role="img" aria-label="Seal reading ronin">
+      <rect x="2" y="2" width="60" height="60" rx="5"/>
+      <text x="32" y="29" text-anchor="middle" lang="ja">浪</text>
+      <text x="32" y="54" text-anchor="middle" lang="ja">人</text>
+    </svg>
+    <p class="footer__line">No master but the work.</p>
+    <nav class="footer__nav" aria-label="Footer">
+      <a href="https://instagram.com/YOUR_HANDLE" rel="noopener">Instagram</a>
+      <a href="mailto:hello@YOURDOMAIN.com">Email</a>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </nav>
+    <p class="footer__copy">&copy; <span data-year>2026</span> Ronin</p>
+  </div>
+</footer>
+
+<!-- Sticky buy bar (mobile) -->
+<div class="buybar" aria-hidden="true">
+  <div class="buybar__info">
+    <span class="buybar__name" data-current="short">Demon Back</span>
+    <span class="buybar__price" data-current="price">$27</span>
+  </div>
+  <a class="btn btn--accent btn--sm" data-checkout-current href="#offer" tabindex="-1">Get it</a>
+</div>
+
+<!-- Drop-list sheet -->
+<dialog class="sheet" aria-labelledby="sheet-title">
+  <form class="form" data-endpoint="subscribe" data-list="waitlist" novalidate>
+    <span class="sheet__grip" aria-hidden="true"></span>
+    <h3 class="sheet__title" id="sheet-title">Get it first</h3>
+    <p class="sheet__text">One email the day it drops. Nothing else.</p>
+    <label class="field">
+      <span class="field__label">Email</span>
+      <input type="email" name="email" autocomplete="email" inputmode="email" required>
+    </label>
+    <input type="hidden" name="ring" value="">
+    <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn btn--solid btn--wide" type="submit">Notify me</button>
+    <button class="sheet__close" type="button" value="close">Not now</button>
+    <p class="form__status" role="status"></p>
+  </form>
+</dialog>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,8 +1,12 @@
 {
-    "rewrites": [
-      {
-        "source": "/.well-known/apple-developer-merchantid-domain-association",
-        "destination": "https://whop.com/.well-known/apple-platform-integrator/apple-developer-merchantid-domain-association"
-      }
-    ]
-  }
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+    }
+  ]
+}
