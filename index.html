@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Hybrid Athlete System | Hybrid Athlete Project</title>
+  <meta name="description" content="A 10-week hybrid training system: 3 gym days and 2 runs a week, every set written out, meal plans and a calorie calculator. One payment, instant PDF.">
 
   <!-- Theme before first paint: no flash -->
   <script>
@@ -16,11 +17,7 @@
   <meta name="theme-color" content="#000000">
 
   <link rel="preconnect" href="https://js.whop.com">
-  <link rel="preconnect" href="https://whop.com" crossorigin>
-  <link rel="preload" as="script" href="https://js.whop.com/static/checkout/loader.js">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
   <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
   <!-- Meta Pixel -->
@@ -31,26 +28,18 @@
   if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
   n.queue=[];t=b.createElement(e);t.async=!0;
   t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  var go=function(){s.parentNode.insertBefore(t,s)};
+  if(document.readyState==='complete')setTimeout(go,1200);else addEventListener('load',function(){setTimeout(go,1200)})}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
   fbq('init', '1663042858575283');
   fbq('track', 'PageView');
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1663042858575283&ev=PageView&noscript=1"/></noscript>
 
-  <!-- Snap Pixel -->
-  <script>
-  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
-  {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
-  a.queue=[];var s='script';var r=t.createElement(s);r.async=!0;
-  r.src=n;var u=t.getElementsByTagName(s)[0];
-  u.parentNode.insertBefore(r,u);})(window,document,
-  'https://sc-static.net/scevent.min.js');
-  snaptr('init', 'INSERT_SNAP_PIXEL_ID');
-  snaptr('track', 'PAGE_VIEW');
-  </script>
 
   <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+    @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/cormorant-italic.woff2") format("woff2"); font-style: italic; font-weight: 400; font-display: swap; }
     /* ================= TOKENS ================= */
     :root {
       --bg: #000000;
@@ -499,11 +488,11 @@
   </button>
 </header>
 
-<div class="container">
+<main class="container">
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <img class="img--dark" src="assets/hero.webp" alt="Hybrid Athlete System" fetchpriority="high">
+    <img class="img--dark" src="assets/hero.webp" width="1080" height="1458" alt="Hybrid Athlete System" fetchpriority="high" decoding="async">
     <img class="img--light" src="assets/hero-light.webp" alt="Hybrid Athlete System" loading="lazy" onerror="this.remove()">
     <div class="hero__shade"></div>
     <div class="hero__text">
@@ -557,31 +546,31 @@
     <div class="slider" data-slider>
       <div class="track">
         <article class="slide"><div class="phase">
-          <img src="assets/phase-1.jpg" alt="Phase 1" loading="lazy">
+          <img src="assets/phase-1.webp" width="820" height="1100" alt="Phase 1" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 1, Weeks 1–2</span><span class="phase__num">01</span></div>
           <div class="phase__body"><h3 class="phase__title">Discipline and testosterone</h3><p class="phase__text">Build the base and the habits. Heavy compound lifts, easy running, and the sleep that makes both work.</p></div>
         </div></article>
         <article class="slide"><div class="phase">
-          <img src="assets/phase-2.jpg" alt="Phase 2" loading="lazy">
+          <img src="assets/phase-2.webp" width="820" height="1100" alt="Phase 2" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 2, Weeks 3–4</span><span class="phase__num">02</span></div>
           <div class="phase__body"><h3 class="phase__title">Running and arms</h3><p class="phase__text">Running volume goes up, leg volume comes down a notch, and arms get their own work every session.</p></div>
         </div></article>
         <article class="slide"><div class="phase">
-          <img src="assets/phase-3.jpg" alt="Phase 3" loading="lazy">
+          <img src="assets/phase-3.webp" width="820" height="1100" alt="Phase 3" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 3, Weeks 5–6</span><span class="phase__num">03</span></div>
           <div class="phase__body"><h3 class="phase__title">The dark zone and deadlift</h3><p class="phase__text">The hardest two weeks. Heavy deadlifts, strict sleep, strict food. This is where discipline gets tested.</p></div>
         </div></article>
         <article class="slide"><div class="phase">
-          <img src="assets/phase-4.jpg" alt="Phase 4" loading="lazy">
+          <img src="assets/phase-4.webp" width="820" height="1100" alt="Phase 4" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 4, Weeks 7–8</span><span class="phase__num">04</span></div>
           <div class="phase__body"><h3 class="phase__title">Hybrid conditioning</h3><p class="phase__text">Strength stays heavy, rests get shorter and every session ends with a conditioning finisher.</p></div>
         </div></article>
         <article class="slide"><div class="phase">
-          <img src="assets/phase-5.jpg" alt="Phase 5" loading="lazy">
+          <img src="assets/phase-5.webp" width="820" height="1100" alt="Phase 5" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 5, Weeks 9–10</span><span class="phase__num">05</span></div>
           <div class="phase__body"><h3 class="phase__title">The top athlete</h3><p class="phase__text">Week 9 peaks your strength. Week 10 tests every lift and your 5K against the numbers from Week 1.</p></div>
@@ -604,13 +593,13 @@
     </div>
     <div class="slider" data-slider>
       <div class="track">
-        <article class="slide slide--page"><img src="assets/inside-1.jpg" alt="Cover" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-2.jpg" alt="Phase 1, Gym A" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-3.jpg" alt="Ten-week running plan" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-4.jpg" alt="Calorie calculator" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-5.jpg" alt="Meal plan, 2,700 calories" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-6.jpg" alt="Food list" loading="lazy"></article>
-        <article class="slide slide--page"><img src="assets/inside-7.jpg" alt="Supplements: worth it" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-1.webp" width="620" height="1339" alt="Cover" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-2.webp" width="620" height="1339" alt="Phase 1, Gym A" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-3.webp" width="620" height="1339" alt="Ten-week running plan" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-4.webp" width="620" height="1339" alt="Calorie calculator" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-5.webp" width="620" height="1339" alt="Meal plan, 2,700 calories" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-6.webp" width="620" height="1339" alt="Food list" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-7.webp" width="620" height="1339" alt="Supplements: worth it" loading="lazy"></article>
       </div>
       <div class="slider__nav"><div class="dots"></div><div class="arrows">
         <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -629,8 +618,8 @@
       <div class="track">
         <article class="slide">
           <div class="ba">
-            <img src="assets/before1.webp" alt="John M., before" loading="lazy">
-            <img src="assets/after1.webp" alt="John M., after" loading="lazy">
+            <img src="assets/before1.webp" width="400" height="600" alt="John M., before" loading="lazy" decoding="async">
+            <img src="assets/after1.webp" width="400" height="600" alt="John M., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -641,8 +630,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before6.webp" alt="James R., before" loading="lazy">
-            <img src="assets/after6.webp" alt="James R., after" loading="lazy">
+            <img src="assets/before6.webp" width="400" height="600" alt="James R., before" loading="lazy" decoding="async">
+            <img src="assets/after6.webp" width="400" height="600" alt="James R., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -653,8 +642,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before7.webp" alt="William Y., before" loading="lazy">
-            <img src="assets/after7.webp" alt="William Y., after" loading="lazy">
+            <img src="assets/before7.webp" width="400" height="600" alt="William Y., before" loading="lazy" decoding="async">
+            <img src="assets/after7.webp" width="400" height="600" alt="William Y., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -665,8 +654,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before8.webp" alt="Joseph B., before" loading="lazy">
-            <img src="assets/after8.webp" alt="Joseph B., after" loading="lazy">
+            <img src="assets/before8.webp" width="400" height="600" alt="Joseph B., before" loading="lazy" decoding="async">
+            <img src="assets/after8.webp" width="400" height="600" alt="Joseph B., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -677,8 +666,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before9.webp" alt="John N., before" loading="lazy">
-            <img src="assets/after9.webp" alt="John N., after" loading="lazy">
+            <img src="assets/before9.webp" width="400" height="600" alt="John N., before" loading="lazy" decoding="async">
+            <img src="assets/after9.webp" width="400" height="600" alt="John N., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -689,8 +678,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before10.webp" alt="Michael T., before" loading="lazy">
-            <img src="assets/after10.webp" alt="Michael T., after" loading="lazy">
+            <img src="assets/before10.webp" width="400" height="600" alt="Michael T., before" loading="lazy" decoding="async">
+            <img src="assets/after10.webp" width="400" height="600" alt="Michael T., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -701,8 +690,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before11.webp" alt="David W., before" loading="lazy">
-            <img src="assets/after11.webp" alt="David W., after" loading="lazy">
+            <img src="assets/before11.webp" width="400" height="600" alt="David W., before" loading="lazy" decoding="async">
+            <img src="assets/after11.webp" width="400" height="600" alt="David W., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -713,8 +702,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before12.webp" alt="Mason F., before" loading="lazy">
-            <img src="assets/after12.webp" alt="Mason F., after" loading="lazy">
+            <img src="assets/before12.webp" width="400" height="600" alt="Mason F., before" loading="lazy" decoding="async">
+            <img src="assets/after12.webp" width="400" height="600" alt="Mason F., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -725,8 +714,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before2.webp" alt="Faisal A., before" loading="lazy">
-            <img src="assets/after2.webp" alt="Faisal A., after" loading="lazy">
+            <img src="assets/before2.webp" width="400" height="600" alt="Faisal A., before" loading="lazy" decoding="async">
+            <img src="assets/after2.webp" width="400" height="600" alt="Faisal A., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -737,8 +726,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before3.webp" alt="Omar K., before" loading="lazy">
-            <img src="assets/after3.webp" alt="Omar K., after" loading="lazy">
+            <img src="assets/before3.webp" width="400" height="600" alt="Omar K., before" loading="lazy" decoding="async">
+            <img src="assets/after3.webp" width="400" height="600" alt="Omar K., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -749,8 +738,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before4.webp" alt="Zaid H., before" loading="lazy">
-            <img src="assets/after4.webp" alt="Zaid H., after" loading="lazy">
+            <img src="assets/before4.webp" width="400" height="600" alt="Zaid H., before" loading="lazy" decoding="async">
+            <img src="assets/after4.webp" width="400" height="600" alt="Zaid H., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -761,8 +750,8 @@
         </article>
         <article class="slide">
           <div class="ba">
-            <img src="assets/before5.webp" alt="Khalid S., before" loading="lazy">
-            <img src="assets/after5.webp" alt="Khalid S., after" loading="lazy">
+            <img src="assets/before5.webp" width="400" height="600" alt="Khalid S., before" loading="lazy" decoding="async">
+            <img src="assets/after5.webp" width="400" height="600" alt="Khalid S., after" loading="lazy" decoding="async">
             <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
           </div>
           <div class="ba__info">
@@ -853,13 +842,13 @@
     <details><summary>What if an exercise feels too hard?</summary><p>Every exercise scales. Adjust the weight to your current strength while keeping the prescribed rep range.</p></details>
   </section>
 
-</div>
+</main>
 
 <footer>
   <div class="policy">
     <h3>Refund policy</h3>
     <p>Digital files are delivered immediately after payment. Payments are processed securely by Whop. For any order question or refund request, email support below.</p>
-    <p>Support: <a href="mailto:hybridathletehq@gmail.com">hybridathletehq@gmail.com</a></p>
+    <p>Support: <a href="mailto:inkedtraff@gmail.com">inkedtraff@gmail.com</a></p>
   </div>
   <p class="copy">© <span id="year">2026</span> Hybrid Athlete Project. All rights reserved.</p>
 </footer>
@@ -869,13 +858,13 @@
   <button class="btn" type="button" data-buy>Get access</button>
 </div>
 
-<div class="paywrap" id="payWrap" aria-hidden="true">
+<div class="paywrap" id="payWrap" aria-hidden="true" inert>
   <div class="paywrap__bg" data-pay-close></div>
   <div class="sheet paysheet" id="paySheet" role="dialog" aria-modal="true" aria-labelledby="pay-title">
   <span class="sheet__grip" aria-hidden="true"></span>
   <button class="paysheet__x" type="button" aria-label="Close checkout" data-pay-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <div class="paysheet__head" tabindex="-1" autofocus style="outline:none">
-    <img class="paysheet__img" src="assets/inside-1.jpg" alt="">
+    <img class="paysheet__img" src="assets/inside-1.webp" width="620" height="1339" alt="">
     <div>
       <h3 class="paysheet__title" id="pay-title">Hybrid Athlete System</h3>
       <p class="paysheet__sub">Lifetime access, PDF. One payment.</p>
@@ -1034,12 +1023,22 @@
   })();
 
   /* ================= CHECKOUT (Whop embedded, inside the bottom sheet) ================= */
+  // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
+  // scrolls to the protocol, touches a buy button, or after 6 s on the page.
+  let whopLoaded = false;
+  function loadWhop() {
+    if (whopLoaded) return; whopLoaded = true;
+    const sc = document.createElement('script'); sc.src = 'https://js.whop.com/static/checkout/loader.js'; sc.async = true;
+    document.body.appendChild(sc);
+  }
+  addEventListener('load', () => setTimeout(loadWhop, 6000));
+  addEventListener('scroll', function onS() { if (scrollY > 900) { loadWhop(); removeEventListener('scroll', onS); } }, { passive: true });
+  ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => { if (e.target.closest && e.target.closest('[data-buy]')) loadWhop(); }, { passive: true }));
   let purchased = false;
   window.onWhopComplete = function () {
     if (purchased) return; purchased = true;
     const id = [...arguments].map(String).find(x => /^(pay|rcpt|receipt|mem|R-|plan_)/i.test(x) || x.length > 12) || '';
     if (typeof fbq === 'function') fbq('track', 'Purchase', { value: CONFIG.price, currency: 'USD' }, id ? { eventID: id } : undefined);
-    if (typeof snaptr === 'function') snaptr('track', 'PURCHASE', { price: CONFIG.price, currency: 'USD' });
     try { localStorage.setItem('ha-purchase-tracked', String(Date.now())); } catch (e) {}
     const sheet = $('#paySheet');
     $('.checkout-container', sheet).hidden = true;
@@ -1050,12 +1049,13 @@
     const w = $('#payWrap');
     w.classList.toggle('is-open', open);
     w.setAttribute('aria-hidden', String(!open));
+    w.inert = !open;
     document.documentElement.style.overflow = open ? 'hidden' : '';
     if (open) setTimeout(() => $('.paysheet__x').focus({ preventScroll: true }), 300);
   }
   function openCheckout() {
+    loadWhop();
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
-    if (typeof snaptr === 'function') snaptr('track', 'START_CHECKOUT');
     if ($('#exitSheet').open) $('#exitSheet').close();
     paySheet(true);
   }
@@ -1071,7 +1071,6 @@
     a.href = CONFIG.freeUrl;
     a.addEventListener('click', () => {
       if (typeof fbq === 'function') fbq('track', 'Lead');
-      if (typeof snaptr === 'function') snaptr('track', 'SIGN_UP');
     });
   });
 
@@ -1089,6 +1088,5 @@
     });
   })();
 </script>
-<script defer src="https://js.whop.com/static/checkout/loader.js"></script>
 </body>
 </html>
