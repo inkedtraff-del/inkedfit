@@ -15,6 +15,9 @@
   </script>
   <meta name="theme-color" content="#000000">
 
+  <link rel="preconnect" href="https://js.whop.com">
+  <link rel="preconnect" href="https://whop.com" crossorigin>
+  <link rel="preload" as="script" href="https://js.whop.com/static/checkout/loader.js">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
@@ -30,10 +33,10 @@
   t.src=v;s=b.getElementsByTagName(e)[0];
   s.parentNode.insertBefore(t,s)}(window, document,'script',
   'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '974420555696388');
+  fbq('init', '1663042858575283');
   fbq('track', 'PageView');
   </script>
-  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=974420555696388&ev=PageView&noscript=1"/></noscript>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1663042858575283&ev=PageView&noscript=1"/></noscript>
 
   <!-- Snap Pixel -->
   <script>
@@ -448,7 +451,14 @@
     @media (min-width: 640px) { .sheet { margin: auto; border-radius: 28px; } }
 
     /* ================= PAY SHEET ================= */
-    .paysheet { max-height: 94svh; overflow-y: auto; padding-top: 10px; }
+    .paywrap { position: fixed; inset: 0; z-index: 70; pointer-events: none; }
+    .paywrap__bg { position: absolute; inset: 0; background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); opacity: 0; transition: opacity .4s var(--ease); }
+    .paysheet { position: absolute; left: 50%; bottom: 0; width: 100%; max-width: 480px; margin: 0; max-height: 94svh; overflow-y: auto; padding-top: 10px;
+      transform: translate(-50%, 105%); transition: transform .55s var(--ease); }
+    .paywrap.is-open { pointer-events: auto; }
+    .paywrap.is-open .paywrap__bg { opacity: 1; }
+    .paywrap.is-open .paysheet { transform: translate(-50%, 0); }
+    @media (min-width: 640px) { .paysheet { border-radius: 28px 28px 0 0; } }
     .paysheet__x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; display: grid; place-items: center; }
     .paysheet__x svg { width: 16px; height: 16px; stroke: var(--fg); stroke-width: 1.8; fill: none; }
     .paysheet__head { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 6px 0 16px; margin-right: 44px; border-bottom: 1px solid var(--line); }
@@ -859,7 +869,9 @@
   <button class="btn" type="button" data-buy>Get access</button>
 </div>
 
-<dialog class="sheet paysheet" id="paySheet" aria-labelledby="pay-title">
+<div class="paywrap" id="payWrap" aria-hidden="true">
+  <div class="paywrap__bg" data-pay-close></div>
+  <div class="sheet paysheet" id="paySheet" role="dialog" aria-modal="true" aria-labelledby="pay-title">
   <span class="sheet__grip" aria-hidden="true"></span>
   <button class="paysheet__x" type="button" aria-label="Close checkout" data-pay-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   <div class="paysheet__head" tabindex="-1" autofocus style="outline:none">
@@ -883,7 +895,8 @@
     <a class="btn" id="payDownload" href="assets/guide/Hybrid-Athlete-System.pdf" download>Download the PDF <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
   </div>
   <p class="paysheet__fine">Instant download after payment. Secure checkout by Whop.</p>
-</dialog>
+</div>
+</div>
 
 <dialog class="sheet" id="exitSheet" aria-labelledby="exit-title">
   <span class="sheet__grip" aria-hidden="true"></span>
@@ -1031,21 +1044,24 @@
     const sheet = $('#paySheet');
     $('.checkout-container', sheet).hidden = true;
     $('.paydone', sheet).hidden = false;
-    if (!sheet.open) sheet.showModal();
+    paySheet(true);
   };
+  function paySheet(open) {
+    const w = $('#payWrap');
+    w.classList.toggle('is-open', open);
+    w.setAttribute('aria-hidden', String(!open));
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    if (open) setTimeout(() => $('.paysheet__x').focus({ preventScroll: true }), 300);
+  }
   function openCheckout() {
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
     if (typeof snaptr === 'function') snaptr('track', 'START_CHECKOUT');
-    const sheet = $('#paySheet');
     if ($('#exitSheet').open) $('#exitSheet').close();
-    if (!sheet.open) sheet.showModal();
+    paySheet(true);
   }
   $$('[data-buy]').forEach(b => b.addEventListener('click', openCheckout));
-  (function () {
-    const sheet = $('#paySheet');
-    $('[data-pay-close]').addEventListener('click', () => sheet.close());
-    sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
-  })();
+  $$('[data-pay-close]').forEach(b => b.addEventListener('click', () => paySheet(false)));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#payWrap').classList.contains('is-open')) paySheet(false); });
   const toPricing = () => { $('#exitSheet').open && $('#exitSheet').close(); $('#pricing').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
   $$('[data-scroll-pricing]').forEach(b => b.addEventListener('click', toPricing));
   $$('[data-scroll-free]').forEach(b => b.addEventListener('click', () => { $('#exitSheet').close(); $('#free').scrollIntoView({ behavior: 'smooth' }); }));
