@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hybrid Athlete System | Hybrid Athlete Project</title>
+
+  <!-- Theme before first paint: no flash -->
+  <script>
+    (function () {
+      var t; try { t = localStorage.getItem('ha-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+  <meta name="theme-color" content="#000000">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Cormorant+Garamond:ital,wght@1,400&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '974420555696388');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=974420555696388&ev=PageView&noscript=1"/></noscript>
+
+  <!-- Snap Pixel -->
+  <script>
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+  {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];var s='script';var r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  u.parentNode.insertBefore(r,u);})(window,document,
+  'https://sc-static.net/scevent.min.js');
+  snaptr('init', 'INSERT_SNAP_PIXEL_ID');
+  snaptr('track', 'PAGE_VIEW');
+  </script>
+
+  <style>
+    /* ================= TOKENS ================= */
+    :root {
+      --bg: #000000;
+      --raised: #121212;
+      --fg: #ECE8E1;
+      --fg-2: rgba(236,232,225,.66);
+      --fg-3: rgba(236,232,225,.38);
+      --line: rgba(236,232,225,.14);
+      --surface: rgba(236,232,225,.05);
+      --accent: #A8433A;           /* oxblood, from the Ronin palette */
+      --on-accent: #F3EFE8;
+      --hero-fg: #F3EFE8;
+      --bg-photo-opacity: .32;
+      --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --ease: cubic-bezier(.2,.7,0,1);
+      --ease-io: cubic-bezier(.65,0,.35,1);
+      --r: 24px;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #E3E0D8;
+      --raised: #EDEBE5;
+      --fg: #0A0A0A;
+      --fg-2: rgba(10,10,10,.66);
+      --fg-3: rgba(10,10,10,.4);
+      --line: rgba(10,10,10,.14);
+      --surface: rgba(10,10,10,.045);
+      --hero-fg: #0A0A0A;
+      --bg-photo-opacity: .07;
+      color-scheme: light;
+    }
+
+    /* ================= BASE ================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color .5s var(--ease);
+    }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    .main-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: url('assets/background.webp') center / cover no-repeat;
+      opacity: var(--bg-photo-opacity);
+      filter: grayscale(1);
+      transition: opacity .6s var(--ease);
+    }
+    :root[data-theme="light"] .main-bg {
+      background-image: url('assets/background-light.webp'), url('assets/background.webp');
+      background-size: cover, cover; background-position: center, center;
+    }
+    /* film grain */
+    .grain {
+      position: fixed; inset: -50%; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+
+    .container { position: relative; z-index: 2; width: 100%; max-width: 480px; margin: 0 auto; }
+    .pad { padding: 0 22px; }
+    .sec { margin-bottom: 64px; }
+
+    .kicker { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+    .display {
+      font-stretch: 72%; font-weight: 680; text-transform: uppercase;
+      font-size: clamp(40px, 12vw, 52px); line-height: .9; letter-spacing: -.005em;
+    }
+    .lead { color: var(--fg-2); margin-top: 14px; }
+
+    /* ================= TOP BAR + THEME ================= */
+    .topbar {
+      position: fixed; inset: 0 0 auto; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: calc(14px + env(safe-area-inset-top, 0px)) 20px 14px;
+      --tb: #F3EFE8; color: var(--tb);
+      transition: background-color .4s var(--ease), color .4s;
+    }
+    .topbar.is-solid {
+      --tb: var(--fg);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    }
+    .topbar__mark { font-stretch: 125%; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; opacity: 0; transition: opacity .4s; }
+    .topbar.is-solid .topbar__mark { opacity: 1; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 6px 14px 6px 6px; border-radius: 999px; background: transparent;
+      border: 1px solid color-mix(in srgb, currentColor 30%, transparent); font-size: 14px;
+    }
+    .theme-toggle__glyph {
+      display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--tb); color: var(--bg);
+      transition: transform .6s var(--ease);
+    }
+    .theme-toggle__glyph svg { width: 18px; height: 18px; }
+    .theme-toggle__glyph circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .theme-toggle__glyph path { fill: currentColor; }
+    :root[data-theme="light"] .theme-toggle__glyph svg { transform: rotate(180deg); }
+    .topbar:not(.is-solid) .theme-toggle__glyph { color: #0A0A0A; }
+    .theme-toggle:active .theme-toggle__glyph { transform: rotate(-90deg) scale(.9); }
+
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+    ::view-transition-new(root) { animation: reveal .8s var(--ease-io); }
+    @keyframes reveal {
+      from { clip-path: circle(0 at var(--vt-x, 90%) var(--vt-y, 5%)); }
+      to   { clip-path: circle(150% at var(--vt-x, 90%) var(--vt-y, 5%)); }
+    }
+
+    /* ================= BUTTONS ================= */
+    .btn {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; min-height: 60px; padding: 0 26px;
+      border-radius: 999px; border: 1px solid var(--fg);
+      background: var(--fg); color: var(--bg);
+      font-size: 17px; font-weight: 600; letter-spacing: .01em; text-decoration: none;
+      transition: transform .3s var(--ease), color .45s var(--ease);
+    }
+    .btn::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: color-mix(in srgb, var(--bg) 14%, transparent);
+      transform: translateY(101%); transition: transform .55s var(--ease);
+    }
+    .btn:active { transform: scale(.975); }
+    @media (hover: hover) { .btn:hover::before { transform: none; } }
+    .btn--ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+    .btn--ghost::before { background: var(--surface); }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
+
+    /* ================= HERO ================= */
+    .hero { position: relative; width: 100%; aspect-ratio: 4 / 5.4; margin-bottom: 40px; overflow: hidden; }
+    .hero img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: contrast(1.08) brightness(.85);
+      animation: settle 9s var(--ease) both;
+    }
+    /* dark photo in Ink, light photo in Paper. No light file yet: the dark one stays. */
+    .img--light { display: none; }
+    :root[data-theme="light"] .img--light { display: block; }
+    :root[data-theme="light"] :is(.hero, .phase):has(.img--light) .img--dark { display: none; }
+    @keyframes settle { from { transform: scale(1.08); } to { transform: none; } }
+    .hero__shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, transparent 18%, transparent 45%, color-mix(in srgb, var(--bg) 70%, transparent) 72%, var(--bg) 100%);
+    }
+    :root[data-theme="light"] .hero:has(.img--light) .hero__shade {
+      background: linear-gradient(to bottom, rgba(227,224,216,.5) 0%, transparent 18%, transparent 45%, color-mix(in srgb, var(--bg) 70%, transparent) 72%, var(--bg) 100%);
+    }
+    :root[data-theme="light"]:has(.hero .img--light) .topbar:not(.is-solid) { --tb: #0A0A0A; }
+    :root[data-theme="light"]:has(.hero .img--light) .topbar:not(.is-solid) .theme-toggle__glyph { color: #E3E0D8; }
+    .hero__text { position: absolute; left: 22px; right: 22px; bottom: 6px; color: var(--hero-fg); }
+    :root[data-theme="dark"] .hero__text { color: #F3EFE8; }
+    .hero__title {
+      font-stretch: 72%; font-weight: 700; text-transform: uppercase;
+      font-size: clamp(54px, 16vw, 72px); line-height: .86; letter-spacing: -.01em;
+    }
+    .hero__title span { display: block; animation: rise 1.2s var(--ease) both; }
+    .hero__title span:nth-child(2) { animation-delay: .12s; }
+    .hero__sub {
+      display: inline-block; margin-top: 16px; padding: 6px 14px; border-radius: 999px;
+      background: var(--accent); color: var(--on-accent);
+      font-size: 13px; font-weight: 600; animation: rise 1.2s var(--ease) .3s both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+    /* ================= INTRO (quote) ================= */
+    .intro__q {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(28px, 8vw, 36px); line-height: 1.12; margin-bottom: 16px;
+    }
+    .intro__text { color: var(--fg-2); }
+
+    /* ================= TRUST STRIP ================= */
+    .strip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .strip div { padding: 14px 6px; text-align: center; font-size: 12.5px; color: var(--fg-2); line-height: 1.3; }
+    .strip div + div { border-left: 1px solid var(--line); }
+    .strip b { display: block; font-stretch: 72%; font-weight: 680; font-size: 22px; color: var(--fg); text-transform: uppercase; }
+
+    /* ================= CARDS ================= */
+    .card {
+      position: relative; border-radius: var(--r); border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--raised) 86%, transparent);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      padding: 28px 22px 22px; overflow: hidden;
+    }
+    .card--accent::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--accent); }
+    .tag {
+      display: inline-block; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+      background: var(--accent); color: var(--on-accent); font-size: 12.5px; font-weight: 600;
+    }
+    .card__title { font-stretch: 72%; font-weight: 680; text-transform: uppercase; font-size: 34px; line-height: .92; margin-bottom: 12px; }
+    .card__text { color: var(--fg-2); font-size: 15px; margin-bottom: 20px; }
+
+    /* free guide form */
+    .field {
+      width: 100%; min-height: 56px; padding: 0 20px; margin-bottom: 10px;
+      border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
+      font: inherit; font-size: 16px; color: var(--fg); -webkit-appearance: none;
+    }
+    .field:focus { outline: none; border-color: var(--fg); }
+    .field::placeholder { color: var(--fg-3); }
+    .field[aria-invalid="true"] { border-color: #C0574A; }
+    .fine { margin-top: 10px; font-size: 12.5px; color: var(--fg-3); text-align: center; }
+    .status { margin-top: 10px; font-size: 14.5px; text-align: center; min-height: 1.2em; }
+    .status[data-tone="error"] { color: #C0574A; }
+    .form.is-done .field, .form.is-done button[type="submit"], .form.is-done .fine { display: none; }
+    .form.is-done .status { margin: 0 0 10px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+
+    /* ================= MARQUEE ================= */
+    .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; }
+    .marquee__track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+    .marquee__item {
+      display: flex; align-items: center; gap: 22px; padding-right: 22px;
+      font-stretch: 72%; font-weight: 680; font-size: 24px; text-transform: uppercase; white-space: nowrap;
+    }
+    .marquee__item i { flex: none; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    /* ================= SECTION HEAD ================= */
+    .head { padding: 0 22px 22px; }
+
+    /* ================= SLIDERS ================= */
+    .slider { position: relative; }
+    .track {
+      display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 4px 22px 18px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      scroll-padding-inline: 22px;
+    }
+    .track::-webkit-scrollbar { display: none; }
+    .slide {
+      flex: 0 0 86%; scroll-snap-align: start;
+      border-radius: var(--r); border: 1px solid var(--line); overflow: hidden;
+      background: var(--raised); position: relative;
+      transform: scale(.965); opacity: .55;
+      transition: transform .6s var(--ease), opacity .6s var(--ease), border-color .6s;
+    }
+    .slide.is-active { transform: none; opacity: 1; border-color: color-mix(in srgb, var(--fg) 30%, transparent); }
+
+    .slider__nav { display: flex; align-items: center; justify-content: space-between; padding: 0 22px; }
+    .dots { display: flex; gap: 6px; }
+    .dots button { width: 7px; height: 7px; border-radius: 99px; border: 0; background: var(--fg-3); transition: width .4s var(--ease), background .4s; }
+    .dots button[aria-current="true"] { width: 24px; background: var(--fg); }
+    .arrows { display: flex; gap: 8px; }
+    .arrows button {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent;
+      display: grid; place-items: center; transition: border-color .3s, opacity .3s;
+    }
+    .arrows button:disabled { opacity: .3; }
+    .arrows svg { width: 18px; height: 18px; fill: none; stroke: var(--fg); stroke-width: 1.6; }
+
+    /* phase slides */
+    .phase { height: 500px; }
+    .phase img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) grayscale(.15); transition: transform 1.2s var(--ease); }
+    .slide.is-active .phase img { transform: scale(1.04); }
+    .phase__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 38%, transparent 70%); }
+    .phase__top { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; }
+    .phase__tag { padding: 5px 12px; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid rgba(243,239,232,.25); color: #F3EFE8; font-size: 12.5px; font-weight: 600; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .phase__num {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--accent); color: #F3EFE8; font-stretch: 72%; font-weight: 700; font-size: 18px;
+    }
+    .phase__body { position: absolute; left: 20px; right: 20px; bottom: 20px; color: #F3EFE8; }
+    .phase__title { font-stretch: 72%; font-weight: 680; text-transform: uppercase; font-size: 30px; line-height: .95; margin-bottom: 10px; }
+    .phase__text { font-size: 14.5px; line-height: 1.5; color: rgba(243,239,232,.78); }
+
+    .slide--page { flex-basis: 64%; border-radius: 26px; }
+    .slide--page img { width: 100%; height: auto; display: block; }
+    /* review slides (only for real clients) */
+    .ba { display: grid; grid-template-columns: 1fr 1fr; height: 300px; position: relative; }
+    .ba img { width: 100%; height: 100%; object-fit: cover; }
+    .ba__tag { position: absolute; bottom: 12px; padding: 4px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .ba__tag--before { left: 12px; background: rgba(0,0,0,.6); color: #F3EFE8; }
+    .ba__tag--after { right: 12px; background: var(--accent); color: #F3EFE8; }
+    .ba__info { padding: 20px; }
+    .ba__verified { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; font-weight: 500; color: var(--fg-2); vertical-align: 1px; }
+    .dots--many button { width: 6px; height: 6px; }
+    .dots--many button[aria-current="true"] { width: 18px; }
+    .results-note { padding: 14px 22px 0; font-size: 12.5px; color: var(--fg-3); }
+    .ba__name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .ba__result { font-stretch: 72%; font-weight: 680; font-size: 26px; line-height: 1; text-transform: uppercase; margin-bottom: 10px; }
+    .ba img { filter: grayscale(.4) sepia(.18) contrast(.94) brightness(1.02); }
+    .ba__review { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.3; color: var(--fg-2); }
+
+    /* ================= PRICING ================= */
+    .deadline {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 18px; margin-bottom: 12px; border-radius: 18px; border: 1px solid var(--line);
+    }
+    .deadline p { font-size: 13.5px; color: var(--fg-2); }
+    .deadline b { font-stretch: 72%; font-weight: 680; font-size: 28px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+    .price { display: flex; align-items: flex-start; gap: 4px; margin: 6px 0 20px; }
+    .price__cur { font-stretch: 72%; font-weight: 680; font-size: 34px; line-height: 1.1; }
+    .price__amt { font-stretch: 72%; font-weight: 700; font-size: 92px; line-height: .85; letter-spacing: -.01em; }
+    .price__note { align-self: flex-end; margin: 0 0 6px 10px; font-size: 13px; color: var(--fg-2); line-height: 1.35; }
+    .includes { list-style: none; margin: 0 0 22px; border-top: 1px solid var(--line); }
+    .includes li { display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .includes li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translateY(-1px); }
+    .secure { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 12.5px; color: var(--fg-3); }
+    .secure svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    /* ================= CALCULATOR ================= */
+    .calc-row { margin-bottom: 26px; }
+    .calc-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+    .calc-head span { font-size: 14px; color: var(--fg-2); }
+    .calc-head b { font-stretch: 72%; font-weight: 680; font-size: 26px; font-variant-numeric: tabular-nums; }
+    .range {
+      --p: 50%;
+      width: 100%; height: 6px; border-radius: 99px; -webkit-appearance: none; appearance: none; outline: none;
+      background: linear-gradient(to right, var(--fg) 0 var(--p), var(--line) var(--p) 100%);
+    }
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--fg); box-shadow: 0 0 0 5px color-mix(in srgb, var(--fg) 10%, transparent);
+      transition: transform .3s var(--ease);
+    }
+    .range:active::-webkit-slider-thumb { transform: scale(1.15); }
+    .range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg); }
+    .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 22px; }
+    .seg button {
+      min-height: 52px; padding: 8px 12px; border-radius: 16px; border: 1px solid var(--line);
+      background: transparent; font-size: 13.5px; font-weight: 500; color: var(--fg-2); line-height: 1.25;
+      transition: background .35s var(--ease), color .35s, border-color .35s;
+    }
+    .seg button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+    .results { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    .results div { padding: 16px 4px 4px; }
+    .results div + div { border-left: 1px solid var(--line); padding-left: 16px; }
+    .results span { display: block; font-size: 13px; color: var(--fg-2); margin-bottom: 4px; }
+    .results b { font-stretch: 72%; font-weight: 700; font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .results small { font-size: 13px; color: var(--fg-3); margin-left: 4px; }
+    .results div:last-child b { color: var(--accent); }
+
+    /* ================= FAQ ================= */
+    .faq details { border-top: 1px solid var(--line); }
+    .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      position: relative; list-style: none; padding: 20px 44px 20px 0;
+      font-size: 17px; font-weight: 600; line-height: 1.35; cursor: pointer;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before, .faq summary::after {
+      content: ""; position: absolute; right: 6px; top: 50%; width: 14px; height: 1.5px; background: var(--fg);
+      transition: transform .4s var(--ease);
+    }
+    .faq summary::after { transform: rotate(90deg); }
+    .faq details[open] summary::after { transform: rotate(0); }
+    .faq p { padding: 0 0 20px; color: var(--fg-2); }
+
+    /* ================= FOOTER ================= */
+    footer { position: relative; z-index: 2; max-width: 480px; margin: 0 auto; padding: 8px 22px calc(120px + env(safe-area-inset-bottom, 0px)); }
+    .policy { border-radius: var(--r); border: 1px solid var(--line); padding: 22px; margin-bottom: 22px; }
+    .policy h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .policy p { color: var(--fg-2); font-size: 14.5px; }
+    .policy p + p { margin-top: 10px; }
+    .copy { font-size: 12.5px; color: var(--fg-3); }
+
+    /* ================= STICKY ================= */
+    .sticky {
+      position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+      max-width: 460px; margin: 0 auto; padding: 8px 8px 8px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      border-radius: 999px; border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      transform: translateY(150%); transition: transform .6s var(--ease);
+    }
+    .sticky.visible { transform: none; animation: sticky-in .8s var(--ease) .6s both; }
+    @keyframes sticky-in { from { transform: translateY(150%); } to { transform: none; } }
+    .sticky__info { line-height: 1.2; }
+    .sticky__info span { display: block; font-size: 13px; color: var(--fg-2); }
+    .sticky__info b { font-weight: 600; }
+    .sticky .btn { width: auto; min-height: 46px; padding: 0 22px; font-size: 15px; }
+
+    /* ================= SHEET (exit offer) ================= */
+    .sheet {
+      width: 100%; max-width: 480px; margin: auto auto 0; border: 0; padding: 10px 22px calc(24px + env(safe-area-inset-bottom, 0px));
+      border-radius: 28px 28px 0 0; background: var(--raised); color: var(--fg);
+    }
+    .sheet[open] { animation: sheet-in .55s var(--ease); }
+    .sheet::backdrop { background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+    @keyframes sheet-in { from { transform: translateY(100%); } to { transform: none; } }
+    .sheet__grip { display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--fg-3); margin: 0 auto 16px; }
+    .sheet__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 46px; line-height: .9; margin-bottom: 10px; }
+    .sheet__text { color: var(--fg-2); margin-bottom: 20px; }
+    .sheet__close { display: block; width: 100%; padding: 14px; margin-top: 6px; border: 0; background: none; color: var(--fg-2); font-size: 14.5px; }
+    @media (min-width: 640px) { .sheet { margin: auto; border-radius: 28px; } }
+
+    /* ================= PAY SHEET ================= */
+    .paysheet { max-height: 94svh; overflow-y: auto; padding-top: 10px; }
+    .paysheet__x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; display: grid; place-items: center; }
+    .paysheet__x svg { width: 16px; height: 16px; stroke: var(--fg); stroke-width: 1.8; fill: none; }
+    .paysheet__head { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 6px 0 16px; margin-right: 44px; border-bottom: 1px solid var(--line); }
+    .paysheet__img { width: 56px; height: 72px; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid var(--line); }
+    .paysheet__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 22px; line-height: .95; }
+    .paysheet__sub { font-size: 12.5px; color: var(--fg-2); margin-top: 4px; }
+    .paysheet__price { text-align: right; line-height: 1; }
+    .paysheet__price b { display: block; font-stretch: 72%; font-weight: 700; font-size: 30px; }
+    .paysheet__price span { font-size: 11px; color: var(--fg-3); }
+    .checkout-container { min-height: 460px; margin-top: 10px; }
+    .paydone { padding: 26px 0 8px; text-align: center; }
+    .paydone__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 54px; line-height: .9; margin: 4px 0 12px; }
+    .paydone__text { color: var(--fg-2); margin-bottom: 20px; }
+    .paysheet__fine { font-size: 12px; color: var(--fg-3); text-align: center; padding: 6px 8px 0; }
+    .paysheet__fine a { color: var(--fg-2); }
+
+    /* ================= REVEAL ON SCROLL ================= */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="main-bg" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="topbar">
+  <span class="topbar__mark">Hybrid Athlete</span>
+  <button class="theme-toggle" type="button" aria-label="Switch theme">
+    <span class="theme-toggle__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z"/></svg></span>
+    <span class="theme-toggle__label">Ink</span>
+  </button>
+</header>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <img class="img--dark" src="assets/hero.webp" alt="Hybrid Athlete System" fetchpriority="high">
+    <img class="img--light" src="assets/hero-light.webp" alt="Hybrid Athlete System" loading="lazy" onerror="this.remove()">
+    <div class="hero__shade"></div>
+    <div class="hero__text">
+      <h1 class="hero__title"><span>Hybrid athlete</span><span>system</span></h1>
+      <p class="hero__sub">A hardcore system to become a top-tier athlete</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="pad sec reveal">
+    <p class="intro__q">This is not just a program.</p>
+    <p class="intro__text">It is a discipline that will turn you into a hybrid warrior. No excuses. No pity. Only heavy iron, relentless endurance, and mental transformation.</p>
+  </section>
+
+  <!-- TRUST STRIP (only true statements) -->
+  <section class="sec reveal" aria-label="What you get">
+    <div class="strip">
+      <div><b>10</b>weeks</div>
+      <div><b>5</b>phases</div>
+      <div><b>63</b>page PDF</div>
+    </div>
+  </section>
+
+  <!-- FREE GUIDE -->
+  <section class="pad sec reveal" id="free">
+    <div class="card card--accent">
+      <span class="tag">Start for free</span>
+      <h2 class="card__title">Supplement truth</h2>
+      <p class="card__text">26 supplements, broken down: what works, what’s a waste of money, and exactly how to take the ones that work. Free, one tap.</p>
+      <a class="btn" href="#" data-free download>
+        Download for free
+        <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee sec" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__item">Hybrid athlete system <i></i> No excuses <i></i> Heavy iron <i></i> Relentless endurance <i></i> Discipline <i></i></div>
+      <div class="marquee__item">Hybrid athlete system <i></i> No excuses <i></i> Heavy iron <i></i> Relentless endurance <i></i> Discipline <i></i></div>
+    </div>
+  </div>
+
+  <!-- PROTOCOL -->
+  <section class="sec" aria-labelledby="protocol-title">
+    <div class="head reveal">
+      <p class="kicker">The protocol</p>
+      <h2 class="display" id="protocol-title">5 steps to absolute power</h2>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-1.jpg" alt="Phase 1" loading="lazy">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 1, Weeks 1–2</span><span class="phase__num">01</span></div>
+          <div class="phase__body"><h3 class="phase__title">Discipline and testosterone</h3><p class="phase__text">Build the base and the habits. Heavy compound lifts, easy running, and the sleep that makes both work.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-2.jpg" alt="Phase 2" loading="lazy">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 2, Weeks 3–4</span><span class="phase__num">02</span></div>
+          <div class="phase__body"><h3 class="phase__title">Running and arms</h3><p class="phase__text">Running volume goes up, leg volume comes down a notch, and arms get their own work every session.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-3.jpg" alt="Phase 3" loading="lazy">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 3, Weeks 5–6</span><span class="phase__num">03</span></div>
+          <div class="phase__body"><h3 class="phase__title">The dark zone and deadlift</h3><p class="phase__text">The hardest two weeks. Heavy deadlifts, strict sleep, strict food. This is where discipline gets tested.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-4.jpg" alt="Phase 4" loading="lazy">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 4, Weeks 7–8</span><span class="phase__num">04</span></div>
+          <div class="phase__body"><h3 class="phase__title">Hybrid conditioning</h3><p class="phase__text">Strength stays heavy, rests get shorter and every session ends with a conditioning finisher.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-5.jpg" alt="Phase 5" loading="lazy">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 5, Weeks 9–10</span><span class="phase__num">05</span></div>
+          <div class="phase__body"><h3 class="phase__title">The top athlete</h3><p class="phase__text">Week 9 peaks your strength. Week 10 tests every lift and your 5K against the numbers from Week 1.</p></div>
+        </div></article>
+      </div>
+      <div class="slider__nav"><div class="dots"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+  </section>
+
+
+  <!-- LOOK INSIDE: real pages from the PDF -->
+  <section class="sec" aria-labelledby="inside-title">
+    <div class="head reveal">
+      <p class="kicker">Look inside</p>
+      <h2 class="display" id="inside-title">This is what you get</h2>
+      <p class="lead">Real pages from the PDF. Built for your phone: no zooming, open it between sets.</p>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide slide--page"><img src="assets/inside-1.jpg" alt="Cover" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-2.jpg" alt="Phase 1, Gym A" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-3.jpg" alt="Ten-week running plan" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-4.jpg" alt="Calorie calculator" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-5.jpg" alt="Meal plan, 2,700 calories" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-6.jpg" alt="Food list" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-7.jpg" alt="Supplements: worth it" loading="lazy"></article>
+      </div>
+      <div class="slider__nav"><div class="dots"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- RESULTS: clients of my previous programs, shown with their permission -->
+  <section class="sec" aria-labelledby="results-title">
+    <div class="head reveal">
+      <p class="kicker">Real clients</p>
+      <h2 class="display" id="results-title">Those who walked the path</h2>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before1.webp" alt="John M., before" loading="lazy">
+            <img src="assets/after1.webp" alt="John M., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">John M. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Dropped 6 kg in 4 weeks</p>
+            <p class="ba__review">“This protocol turned me into a warrior. No fluff, just exact sets and reps to get that aesthetic look. This is a part of my life now.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before6.webp" alt="James R., before" loading="lazy">
+            <img src="assets/after6.webp" alt="James R., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">James R. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Shredded &amp; strong</p>
+            <p class="ba__review">“Loved the training cycles. Months of discipline and the results speak for themselves. Best investment.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before7.webp" alt="William Y., before" loading="lazy">
+            <img src="assets/after7.webp" alt="William Y., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">William Y. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Broke my plateau</p>
+            <p class="ba__review">“Exactly what I needed to break my plateau. The heavy definition is finally showing without losing size.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before8.webp" alt="Joseph B., before" loading="lazy">
+            <img src="assets/after8.webp" alt="Joseph B., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Joseph B. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">V-taper revealed</p>
+            <p class="ba__review">“Trust the process. By the 3rd week, the mirror doesn&#x27;t lie. Incredible protocol for aesthetic goals.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before9.webp" alt="John N., before" loading="lazy">
+            <img src="assets/after9.webp" alt="John N., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">John N. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Completely recomposed</p>
+            <p class="ba__review">“The process is addictive. The system is so well structured that success is basically guaranteed.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before10.webp" alt="Michael T., before" loading="lazy">
+            <img src="assets/after10.webp" alt="Michael T., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Michael T. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Lost 15 lbs of fat</p>
+            <p class="ba__review">“Simple, brutal, and effective. The supplement guide alone saved me hours of research.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before11.webp" alt="David W., before" loading="lazy">
+            <img src="assets/after11.webp" alt="David W., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">David W. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Lean and vascular</p>
+            <p class="ba__review">“Finally achieved the vascularity I&#x27;ve been chasing. The nutrition protocol makes it incredibly simple to stick to.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before12.webp" alt="Mason F., before" loading="lazy">
+            <img src="assets/after12.webp" alt="Mason F., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Mason F. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Total transformation</p>
+            <p class="ba__review">“From skinny-fat to completely shredded. The progression is an absolute game changer. Highly recommend.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before2.webp" alt="Faisal A., before" loading="lazy">
+            <img src="assets/after2.webp" alt="Faisal A., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Faisal A. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Achieved 10% body fat</p>
+            <p class="ba__review">“Followed the nutrition guide and the workout cycle. Finally found a routine I actually enjoy. The transformation is real.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before3.webp" alt="Omar K., before" loading="lazy">
+            <img src="assets/after3.webp" alt="Omar K., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Omar K. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Visible abs in 4 weeks</p>
+            <p class="ba__review">“Intense but sustainable. Best I&#x27;ve felt in years after finishing. The definition comes naturally.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before4.webp" alt="Zaid H., before" loading="lazy">
+            <img src="assets/after4.webp" alt="Zaid H., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Zaid H. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Gained dense muscle</p>
+            <p class="ba__review">“Not a quick fix, but a real blueprint. The training blocks are perfectly structured for progressive overload.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before5.webp" alt="Khalid S., before" loading="lazy">
+            <img src="assets/after5.webp" alt="Khalid S., after" loading="lazy">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Khalid S. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Removed stubborn fat</p>
+            <p class="ba__review">“The macros breakdown is so precise. My physique changed entirely. Dropped the stubborn fat completely.”</p>
+          </div>
+        </article>
+      </div>
+      <div class="slider__nav"><div class="dots dots--many"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+    <p class="results-note">Individual results from clients of my previous programs. Results vary with your starting point, consistency and nutrition.</p>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pad sec" id="pricing" aria-labelledby="pricing-title">
+    <div class="reveal">
+      <h2 class="display" id="pricing-title" style="margin-bottom:20px">Choose your weapon</h2>
+
+      <!-- Shows only when CONFIG.offerEndsAt is set to a real date -->
+      <div class="deadline" id="deadline" hidden>
+        <p>Launch price ends in</p>
+        <b id="countdown">00:00:00</b>
+      </div>
+
+      <div class="card card--accent">
+        <h3 class="card__title">Hybrid athlete system</h3>
+        <p class="card__text">Ten weeks, five phases. Three gym days and two runs a week, plus everything around the training.</p>
+        <div class="price">
+          <span class="price__cur">$</span><span class="price__amt" data-price>27</span>
+          <span class="price__note">One payment.<br>Lifetime access.</span>
+        </div>
+        <ul class="includes">
+          <li>15 gym sessions, every set, rep and rest written out</li>
+          <li>10-week running plan with a 5K test at the start and end</li>
+          <li>Calorie calculator and 4 meal plans, 2,200 to 3,800</li>
+          <li>Sleep protocol and the full supplement guide</li>
+        </ul>
+        <button class="btn" type="button" data-buy>Get full access</button>
+        <p class="secure"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure payment with Apple Pay, Google Pay or card</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="pad sec" id="calculator" aria-labelledby="calc-title">
+    <div class="reveal">
+      <p class="kicker">For men</p>
+      <h2 class="display" id="calc-title" style="margin-bottom:20px">Calculate your calories</h2>
+      <div class="card">
+        <div class="calc-row">
+          <div class="calc-head"><span>Age</span><b id="ageVal">30</b></div>
+          <input type="range" id="ageRange" class="range" min="15" max="80" value="30" aria-label="Age">
+        </div>
+        <div class="calc-row">
+          <div class="calc-head"><span>Height</span><b id="heightVal">175 cm</b></div>
+          <input type="range" id="heightRange" class="range" min="150" max="220" value="175" aria-label="Height in centimeters">
+        </div>
+        <div class="calc-row">
+          <div class="calc-head"><span>Weight</span><b id="weightVal">75 kg</b></div>
+          <input type="range" id="weightRange" class="range" min="50" max="150" value="75" aria-label="Weight in kilograms">
+        </div>
+        <p class="calc-head" style="margin-bottom:10px"><span>Activity</span></p>
+        <div class="seg" role="group" aria-label="Activity level">
+          <button type="button" class="active" data-mult="1.2">Minimal</button>
+          <button type="button" data-mult="1.375">Light<br>1–3 workouts</button>
+          <button type="button" data-mult="1.55">Moderate<br>3–5 workouts</button>
+          <button type="button" data-mult="1.725">High<br>daily</button>
+        </div>
+        <div class="results" aria-live="polite">
+          <div><span>Maintenance</span><b id="maintRes">2400</b><small>kcal</small></div>
+          <div><span>Cut, −15%</span><b id="defRes">2040</b><small>kcal</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="pad sec faq" id="faq" aria-labelledby="faq-title">
+    <h2 class="display reveal" id="faq-title" style="margin-bottom:20px">FAQ</h2>
+    <details><summary>Do I need a gym or any equipment?</summary><p>Yes, standard gym equipment is required. The protocol relies on cables, machines and free weights to keep constant tension on the muscle.</p></details>
+    <details><summary>What if it doesn’t work for me?</summary><p>Follow the sets, reps and nutrition consistently and you will see progress. The system is built on the same principles that work for every lifter: progressive overload, enough protein, enough sleep.</p></details>
+    <details><summary>What if I don’t know what to do in the gym?</summary><p>The guide tells you exactly what to do. Every session has prescribed sets, reps and rest times, so there is no guesswork.</p></details>
+    <details><summary>Do I need to follow a strict diet?</summary><p>You get the full nutrition matrix. Food choices are flexible, but tracking your calories and protein is what gets you to your goal.</p></details>
+    <details><summary>What if an exercise feels too hard?</summary><p>Every exercise scales. Adjust the weight to your current strength while keeping the prescribed rep range.</p></details>
+  </section>
+
+</div>
+
+<footer>
+  <div class="policy">
+    <h3>Refund policy</h3>
+    <p>Digital files are delivered immediately after payment. Payments are processed securely by Whop. For any order question or refund request, email support below.</p>
+    <p>Support: <a href="mailto:hybridathletehq@gmail.com">hybridathletehq@gmail.com</a></p>
+  </div>
+  <p class="copy">© <span id="year">2026</span> Hybrid Athlete Project. All rights reserved.</p>
+</footer>
+
+<div class="sticky visible" id="sticky">
+  <div class="sticky__info"><span>Hybrid Athlete System</span><b data-price-label>$27</b></div>
+  <button class="btn" type="button" data-buy>Get access</button>
+</div>
+
+<dialog class="sheet paysheet" id="paySheet" aria-labelledby="pay-title">
+  <span class="sheet__grip" aria-hidden="true"></span>
+  <button class="paysheet__x" type="button" aria-label="Close checkout" data-pay-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="paysheet__head" tabindex="-1" autofocus style="outline:none">
+    <img class="paysheet__img" src="assets/inside-1.jpg" alt="">
+    <div>
+      <h3 class="paysheet__title" id="pay-title">Hybrid Athlete System</h3>
+      <p class="paysheet__sub">Lifetime access, PDF. One payment.</p>
+    </div>
+    <p class="paysheet__price"><b data-price-label>$27</b><span>USD</span></p>
+  </div>
+  <div class="checkout-container">
+    <div id="whop-embedded-checkout" data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-theme="dark"
+      data-whop-checkout-return-url="https://inkedfit.vercel.app/success.html?via=whop"
+      data-whop-checkout-skip-redirect="true" data-whop-checkout-on-complete="onWhopComplete"></div>
+    <script>document.getElementById('whop-embedded-checkout').setAttribute('data-whop-checkout-theme', document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');</script>
+  </div>
+  <div class="paydone" hidden>
+    <p class="kicker">Payment confirmed</p>
+    <h3 class="paydone__title">You’re in</h3>
+    <p class="paydone__text">Your program is ready. Download it now and save it to your phone. A copy is also in your Whop account.</p>
+    <a class="btn" id="payDownload" href="assets/guide/Hybrid-Athlete-System.pdf" download>Download the PDF <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+  </div>
+  <p class="paysheet__fine">Instant download after payment. Secure checkout by Whop.</p>
+</dialog>
+
+<dialog class="sheet" id="exitSheet" aria-labelledby="exit-title">
+  <span class="sheet__grip" aria-hidden="true"></span>
+  <h3 class="sheet__title" id="exit-title">Before you go</h3>
+  <p class="sheet__text">Take the free supplement guide with you. Or start the full system today.</p>
+  <button class="btn" type="button" data-scroll-pricing>Get full access</button>
+  <button class="btn btn--ghost" type="button" data-scroll-free style="margin-top:10px">Get the free guide</button>
+  <button class="sheet__close" type="button" data-close>Not now</button>
+</dialog>
+
+<script>
+  /* ================= CONFIG ================= */
+  const CONFIG = {
+    price: 27,
+    // Whop embedded checkout (opens in the bottom sheet, no redirect)
+    whopPlanId: 'plan_mAkmG309DbNgZ',
+    // Free guide: hosted on your own site, downloads instantly.
+    freeUrl: 'assets/guide/Hybrid-Athlete-Supplement-Truth-FREE.pdf',
+    // Real end of the launch price, e.g. '2026-11-01T00:00:00'. Leave empty to hide the countdown.
+    offerEndsAt: '',
+  };
+
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* prices + year */
+  $$('[data-price]').forEach(el => el.textContent = CONFIG.price);
+  $$('[data-price-label]').forEach(el => el.textContent = '$' + CONFIG.price);
+  $('#year').textContent = new Date().getFullYear();
+
+  /* ================= THEME ================= */
+  (function () {
+    const btn = $('.theme-toggle'), glyph = $('.theme-toggle__glyph'), label = $('.theme-toggle__label');
+    const meta = $('meta[name="theme-color"]');
+    const paint = t => {
+      const ink = t === 'dark';
+      label.textContent = ink ? 'Ink' : 'Paper';
+      btn.setAttribute('aria-label', ink ? 'Switch to paper theme' : 'Switch to ink theme');
+      meta.setAttribute('content', ink ? '#000000' : '#E3E0D8');
+    };
+    paint(document.documentElement.dataset.theme);
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      const apply = () => { document.documentElement.dataset.theme = next; paint(next); };
+      try { localStorage.setItem('ha-theme', next); } catch (e) {}
+      if (document.startViewTransition && !reduceMotion) {
+        const r = btn.getBoundingClientRect();
+        document.documentElement.style.setProperty('--vt-x', (r.left + r.width / 2) + 'px');
+        document.documentElement.style.setProperty('--vt-y', (r.top + r.height / 2) + 'px');
+        document.startViewTransition(apply);
+      } else apply();
+    });
+  })();
+
+  /* ================= TOP BAR ================= */
+  (function () {
+    const topbar = $('.topbar'), hero = $('.hero');
+    new IntersectionObserver(([en]) => topbar.classList.toggle('is-solid', !en.isIntersecting), { rootMargin: '-70px 0px 0px 0px' }).observe(hero);
+  })();
+
+  /* ================= REVEAL ================= */
+  (function () {
+    const els = $$('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+
+  /* ================= SLIDERS ================= */
+  $$('[data-slider]').forEach(slider => {
+    const track = $('.track', slider), slides = $$('.slide', track), dots = $('.dots', slider);
+    const prev = $('[data-dir="-1"]', slider), next = $('[data-dir="1"]', slider);
+    let index = 0;
+    slides.forEach((s, i) => {
+      const d = document.createElement('button');
+      d.type = 'button'; d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dots.appendChild(d);
+    });
+    const go = i => {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft - 22, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+    const mark = i => {
+      index = i;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      $$('button', dots).forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+      prev.disabled = i === 0; next.disabled = i === slides.length - 1;
+    };
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) mark(slides.indexOf(e.target)); }), { root: track, threshold: .6 });
+    slides.forEach(s => io.observe(s));
+    prev.addEventListener('click', () => go(index - 1));
+    next.addEventListener('click', () => go(index + 1));
+    mark(0);
+  });
+
+  /* ================= HONEST COUNTDOWN ================= */
+  (function () {
+    if (!CONFIG.offerEndsAt) return;
+    const end = new Date(CONFIG.offerEndsAt).getTime();
+    const box = $('#deadline'), out = $('#countdown');
+    const tick = () => {
+      const ms = end - Date.now();
+      if (ms <= 0) { box.hidden = true; return; }
+      box.hidden = false;
+      const h = Math.floor(ms / 3600000), m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+      out.textContent = (h > 99 ? Math.floor(h / 24) + 'd ' + String(h % 24).padStart(2, '0') : String(h).padStart(2, '0')) + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+      setTimeout(tick, 1000);
+    };
+    tick();
+  })();
+
+  /* ================= CALCULATOR (men, Mifflin-St Jeor) ================= */
+  (function () {
+    const age = $('#ageRange'), height = $('#heightRange'), weight = $('#weightRange');
+    let mult = 1.2;
+    const fill = r => r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
+    const update = () => {
+      [age, height, weight].forEach(fill);
+      $('#ageVal').textContent = age.value;
+      $('#heightVal').textContent = height.value + ' cm';
+      $('#weightVal').textContent = weight.value + ' kg';
+      const bmr = 10 * +weight.value + 6.25 * +height.value - 5 * +age.value + 5;
+      const tdee = Math.round(bmr * mult);
+      $('#maintRes').textContent = tdee.toLocaleString('en-US');
+      $('#defRes').textContent = Math.round(tdee * .85).toLocaleString('en-US');
+    };
+    [age, height, weight].forEach(r => r.addEventListener('input', update));
+    $$('.seg button').forEach(b => b.addEventListener('click', () => {
+      $$('.seg button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active'); mult = parseFloat(b.dataset.mult); update();
+    }));
+    update();
+  })();
+
+  /* ================= CHECKOUT (Whop embedded, inside the bottom sheet) ================= */
+  let purchased = false;
+  window.onWhopComplete = function () {
+    if (purchased) return; purchased = true;
+    const id = [...arguments].map(String).find(x => /^(pay|rcpt|receipt|mem|R-|plan_)/i.test(x) || x.length > 12) || '';
+    if (typeof fbq === 'function') fbq('track', 'Purchase', { value: CONFIG.price, currency: 'USD' }, id ? { eventID: id } : undefined);
+    if (typeof snaptr === 'function') snaptr('track', 'PURCHASE', { price: CONFIG.price, currency: 'USD' });
+    try { localStorage.setItem('ha-purchase-tracked', String(Date.now())); } catch (e) {}
+    const sheet = $('#paySheet');
+    $('.checkout-container', sheet).hidden = true;
+    $('.paydone', sheet).hidden = false;
+    if (!sheet.open) sheet.showModal();
+  };
+  function openCheckout() {
+    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+    if (typeof snaptr === 'function') snaptr('track', 'START_CHECKOUT');
+    const sheet = $('#paySheet');
+    if ($('#exitSheet').open) $('#exitSheet').close();
+    if (!sheet.open) sheet.showModal();
+  }
+  $$('[data-buy]').forEach(b => b.addEventListener('click', openCheckout));
+  (function () {
+    const sheet = $('#paySheet');
+    $('[data-pay-close]').addEventListener('click', () => sheet.close());
+    sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
+  })();
+  const toPricing = () => { $('#exitSheet').open && $('#exitSheet').close(); $('#pricing').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
+  $$('[data-scroll-pricing]').forEach(b => b.addEventListener('click', toPricing));
+  $$('[data-scroll-free]').forEach(b => b.addEventListener('click', () => { $('#exitSheet').close(); $('#free').scrollIntoView({ behavior: 'smooth' }); }));
+
+  /* ================= FREE GUIDE ================= */
+  $$('[data-free]').forEach(a => {
+    a.href = CONFIG.freeUrl;
+    a.addEventListener('click', () => {
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+      if (typeof snaptr === 'function') snaptr('track', 'SIGN_UP');
+    });
+  });
+
+  /* ================= EXIT OFFER (desktop only, once) =================
+     Shown when the cursor leaves the top of the window. No back-button trapping. */
+  (function () {
+    const sheet = $('#exitSheet');
+    $('[data-close]', sheet).addEventListener('click', () => sheet.close());
+    sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    let shown = false;
+    document.addEventListener('mouseout', e => {
+      if (shown || e.relatedTarget || e.clientY > 10 || window.scrollY < 600) return;
+      shown = true; sheet.showModal();
+    });
+  })();
+</script>
+<script defer src="https://js.whop.com/static/checkout/loader.js"></script>
+</body>
+</html>
