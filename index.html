@@ -12,13 +12,14 @@
       var t; try { t = localStorage.getItem('ha-theme'); } catch (e) {}
       if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
+      var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.setAttribute('fetchpriority', 'high');
+      l.href = t === 'light' ? 'assets/hero-light.webp' : 'assets/hero.webp'; document.head.appendChild(l);
     })();
   </script>
   <meta name="theme-color" content="#000000">
 
   <link rel="preconnect" href="https://js.whop.com">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/hero.webp" fetchpriority="high">
 
   <!-- Meta Pixel -->
   <script>
@@ -181,7 +182,9 @@
     .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 
     /* ================= HERO ================= */
-    .hero { position: relative; width: 100%; aspect-ratio: 4 / 5.4; margin-bottom: 40px; overflow: hidden; }
+    .hero { position: relative; width: 100%; aspect-ratio: 4 / 5.4; margin-bottom: 40px; overflow: hidden;
+      background: #111 url("data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBQCdASoYACAAPulgpU2pJaOiMAwBIB0JaQAAWsfQDfHBZmdSKMZTfQF7x5zca7hpYu9gAAD+9W/WvqSPEvwPNzP0BVOUlBYE6oZsxjB8jpCK5TD3jh/YhoyIEnfOlaoy/iesazE3RH6aZeEuTx+MjXiyYWqlxrixQDueiIQVbOi/0aTJ2LBQSfmc4g4AAAA=") center / cover no-repeat; }
+    :root[data-theme="light"] .hero { background-image: url("data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAQBQCdASoYACAAPuFaqU2opSQiMAwBEBwJaQAAUVjRnq7v4Dl4X0vl+YUalAuDdy6QAP7zd05jADT1XV46MdcBcxcPqEifPNQvdHDmK8F/O93ejU2eGwxkP71tTSNki7js+oj7ajJNDSupSfDbB6ld17YxnOXIqHmnEQqp1KZY/uuh54AfpiZCr8RqrbW9s2VfPvCdSGioMgtpILTCX16dfZYhqG8iIXmCbYtAAAA="); background-color: #ddd; }
     .hero img {
       width: 100%; height: 100%; object-fit: cover;
       filter: contrast(1.08) brightness(.85);
@@ -492,8 +495,21 @@
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <img class="img--dark" src="assets/hero.webp" width="1080" height="1458" alt="Hybrid Athlete System" fetchpriority="high" decoding="async">
-    <img class="img--light" src="assets/hero-light.webp" alt="Hybrid Athlete System" loading="lazy" onerror="this.remove()">
+    <img class="img--dark" id="heroDark" width="1080" height="1458" alt="Hybrid Athlete System" fetchpriority="high">
+    <img class="img--light" id="heroLight" width="1080" height="1458" alt="Hybrid Athlete System" onerror="this.remove();var d=document.getElementById('heroDark');if(!d.getAttribute('src'))d.src='assets/hero.webp'">
+    <script>
+      (function () {
+        var light = document.documentElement.dataset.theme === 'light';
+        var a = document.getElementById(light ? 'heroLight' : 'heroDark');
+        a.src = light ? 'assets/hero-light.webp' : 'assets/hero.webp';
+        window.__heroRest = function () {
+          var d = document.getElementById('heroDark'), l = document.getElementById('heroLight');
+          if (d && !d.getAttribute('src')) d.src = 'assets/hero.webp';
+          if (l && !l.getAttribute('src')) l.src = 'assets/hero-light.webp';
+        };
+        addEventListener('load', window.__heroRest);
+      })();
+    </script>
     <div class="hero__shade"></div>
     <div class="hero__text">
       <h1 class="hero__title"><span>Hybrid athlete</span><span>system</span></h1>
@@ -930,6 +946,7 @@
     paint(document.documentElement.dataset.theme);
     btn.addEventListener('click', () => {
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      if (window.__heroRest) window.__heroRest();
       const apply = () => { document.documentElement.dataset.theme = next; paint(next); };
       try { localStorage.setItem('ha-theme', next); } catch (e) {}
       if (document.startViewTransition && !reduceMotion) {
