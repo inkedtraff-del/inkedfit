@@ -888,7 +888,7 @@
     <p class="paysheet__price"><b data-price-label>$27</b><span>USD</span></p>
   </div>
   <div class="checkout-container">
-    <div id="whop-embedded-checkout" data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-theme="dark"
+    <div id="whop-embedded-checkout" data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-session="ch_Bg5LXNLGnypDpXf" data-whop-checkout-theme="dark"
       data-whop-checkout-return-url="https://inkedfit.vercel.app/success.html?via=whop"
       data-whop-checkout-skip-redirect="true" data-whop-checkout-on-complete="onWhopComplete"></div>
     <script>document.getElementById('whop-embedded-checkout').setAttribute('data-whop-checkout-theme', document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');</script>
@@ -918,6 +918,10 @@
     price: 27,
     // Whop embedded checkout (opens in the bottom sheet, no redirect)
     whopPlanId: 'plan_mAkmG309DbNgZ',
+    // 'link'  = buttons open the Whop checkout page (works everywhere)
+    // 'embed' = checkout opens in the bottom sheet on this site (needs inkedfit.vercel.app in Whop > Payment domains)
+    checkoutMode: 'embed',
+    whopLink: 'https://whop.com/checkout/ch_Bg5LXNLGnypDpXf/',
     // Free guide: hosted on your own site, downloads instantly.
     freeUrl: 'assets/guide/Hybrid-Athlete-Supplement-Truth-FREE.pdf',
     // Real end of the launch price, e.g. '2026-11-01T00:00:00'. Leave empty to hide the countdown.
@@ -1048,9 +1052,9 @@
     const sc = document.createElement('script'); sc.src = 'https://js.whop.com/static/checkout/loader.js'; sc.async = true;
     document.body.appendChild(sc);
   }
-  addEventListener('load', () => setTimeout(loadWhop, 6000));
-  addEventListener('scroll', function onS() { if (scrollY > 900) { loadWhop(); removeEventListener('scroll', onS); } }, { passive: true });
-  ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => { if (e.target.closest && e.target.closest('[data-buy]')) loadWhop(); }, { passive: true }));
+  addEventListener('load', () => { if (CONFIG.checkoutMode !== 'link') setTimeout(loadWhop, 6000); });
+  addEventListener('scroll', function onS() { if (CONFIG.checkoutMode !== 'link' && scrollY > 900) { loadWhop(); removeEventListener('scroll', onS); } }, { passive: true });
+  ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => { if (CONFIG.checkoutMode !== 'link' && e.target.closest && e.target.closest('[data-buy]')) loadWhop(); }, { passive: true }));
   let purchased = false;
   window.onWhopComplete = function () {
     if (purchased) return; purchased = true;
@@ -1071,6 +1075,12 @@
     if (open) setTimeout(() => $('.paysheet__x').focus({ preventScroll: true }), 300);
   }
   function openCheckout() {
+    if (CONFIG.checkoutMode === 'link') {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+      const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      setTimeout(() => { location.href = CONFIG.whopLink + '?theme=' + theme; }, 250);
+      return;
+    }
     loadWhop();
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
     if ($('#exitSheet').open) $('#exitSheet').close();
