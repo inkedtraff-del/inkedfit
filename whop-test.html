@@ -20,6 +20,14 @@
   <h2>Test B: plan + new checkout session</h2>
   <div class="box"><div data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-session="ch_Bg5LXNLGnypDpXf"></div></div>
 
+  <h2>Test C: NEW Whop Elements checkout (recommended by Whop support)</h2>
+  <div class="box"><div id="checkout-c"></div></div>
+
   <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+  <script src="https://cdn.whop.com/elements/amber/elements.js" data-whop-elements></script>
+  <script type="module">
+    const h = window.WhopElements().checkout.create({ plan: "plan_mAkmG309DbNgZ", returnUrl: "https://inkedfit.vercel.app/success.html?via=whop" });
+    h.create("checkout").mount("#checkout-c");
+  </script>
 </body>
 </html>
