@@ -40,7 +40,8 @@
   fbq('track', 'PageView');
   // Purchase normally fires in the checkout sheet. This catches payments that came back via a redirect (PayPal etc.).
   (function () {
-    var via = /[?&]via=whop/.test(location.search), last = 0;
+    var q = new URLSearchParams(location.search), st = q.get('status');
+    var via = q.get('via') === 'whop' && (!st || st === 'succeeded'), last = 0;
     try { last = +localStorage.getItem('ha-purchase-tracked') || 0; } catch (e) {}
     if (via && Date.now() - last > 30 * 60 * 1000) {
       fbq('track', 'Purchase', { value: SUCCESS.value, currency: SUCCESS.currency });
@@ -221,7 +222,20 @@
   </ol>
 
   <p class="help">Trouble downloading? Email <a href="#" data-support>support</a> and we’ll send the file again.</p>
+  <section id="payFail" hidden style="margin-top:30px">
+    <p class="kicker">Payment not completed</p>
+    <p class="help" style="font-size:16px">No money was taken. <a href="/#pricing">Go back and try again</a>.</p>
+  </section>
 </main>
+<script>
+  (function () {
+    var st = new URLSearchParams(location.search).get('status');
+    if (st === 'failed' || st === 'canceled') {
+      document.querySelectorAll('main > *:not(#payFail)').forEach(function (el) { el.style.display = 'none'; });
+      document.getElementById('payFail').hidden = false;
+    }
+  })();
+</script>
 
 <script>
   const $ = (s, el = document) => el.querySelector(s);
