@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Whop embed test</title>
+  <style>
+    body { margin: 0; padding: 20px; background: #111; color: #eee; font-family: system-ui, sans-serif; }
+    h2 { font-size: 16px; margin: 28px 0 10px; }
+    .box { background: #1b1b1b; border-radius: 16px; padding: 12px; min-height: 120px; }
+  </style>
+</head>
+<body>
+  <h1 style="font-size:20px">Whop embed test</h1>
+
+  <h2>Test A: plan only (exactly as in Whop docs)</h2>
+  <div class="box"><div data-whop-checkout-plan-id="plan_mAkmG309DbNgZ"></div></div>
+
+  <h2>Test B: plan + new checkout session</h2>
+  <div class="box"><div data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-session="ch_Bg5LXNLGnypDpXf"></div></div>
+
+  <script async defer src="https://js.whop.com/static/checkout/loader.js"></script>
+</body>
+</html>
