@@ -18,7 +18,7 @@
   </script>
   <meta name="theme-color" content="#000000">
 
-  <link rel="preconnect" href="https://js.whop.com">
+  <link rel="preconnect" href="https://cdn.whop.com">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
 
   <!-- Meta Pixel -->
@@ -884,10 +884,7 @@
     <p class="paysheet__price"><b data-price-label>$27</b><span>USD</span></p>
   </div>
   <div class="checkout-container">
-    <div id="whop-embedded-checkout" data-whop-checkout-plan-id="plan_HvtSoVl16TKMD" data-whop-checkout-theme="dark"
-      data-whop-checkout-return-url="https://inkedfit.vercel.app/success.html?via=whop"
-      data-whop-checkout-skip-redirect="true" data-whop-checkout-on-complete="onWhopComplete"></div>
-    <script>document.getElementById('whop-embedded-checkout').setAttribute('data-whop-checkout-theme', document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');</script>
+    <div id="whop-embedded-checkout"></div>
   </div>
   <div class="paydone" hidden>
     <p class="kicker">Payment confirmed</p>
@@ -916,6 +913,8 @@
     // 'link'  = buttons open the Whop checkout page (works everywhere)
     // 'embed' = checkout opens in the bottom sheet on this site (needs inkedfit.vercel.app in Whop > Payment domains)
     checkoutMode: 'embed',
+    // Where Whop sends the buyer after payment (same address as before)
+    returnUrl: 'https://inkedfit.vercel.app/success.html?via=whop',
     whopLink: 'https://whop.com/checkout/plan_HvtSoVl16TKMD',
     // Real end of the launch price, e.g. '2026-11-01T00:00:00'. Leave empty to hide the countdown.
     offerEndsAt: '',
@@ -1068,10 +1067,29 @@
   /* ================= CHECKOUT (Whop embedded, inside the bottom sheet) ================= */
   // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
   // scrolls to the protocol, touches a buy button, or after 6 s on the page.
-  let whopLoaded = false;
+  // Whop Elements (current Whop embed). Replaces the old js.whop.com checkout loader.
+  let whopLoaded = false, whopMounted = false, whopReady = false;
+  function mountWhop() {
+    if (whopMounted || typeof window.WhopElements !== 'function') return;
+    whopMounted = true;
+    try {
+      const checkout = window.WhopElements().checkout.create({
+        plan: CONFIG.whopPlanId,
+        returnUrl: CONFIG.returnUrl,
+        onLoadingChange: loading => { if (!loading) whopReady = true; },
+        onComplete: c => { if (c && c.result === 'payment') window.onWhopComplete(c.paymentId || c.sessionId || ''); },
+      });
+      checkout.create('checkout').mount('#whop-embedded-checkout');
+    } catch (e) { console.error('Whop checkout failed to mount', e); }
+  }
   function loadWhop() {
-    if (whopLoaded) return; whopLoaded = true;
-    const sc = document.createElement('script'); sc.src = 'https://js.whop.com/static/checkout/loader.js'; sc.async = true;
+    if (whopLoaded) { mountWhop(); return; }
+    whopLoaded = true;
+    const sc = document.createElement('script');
+    sc.src = 'https://cdn.whop.com/elements/amber/elements.js';
+    sc.setAttribute('data-whop-elements', '');
+    sc.async = true;
+    sc.onload = mountWhop;
     document.body.appendChild(sc);
   }
   addEventListener('load', () => { if (CONFIG.checkoutMode !== 'link') setTimeout(loadWhop, 6000); });
@@ -1112,7 +1130,7 @@
     clearTimeout(window.__whopFallback);
     window.__whopFallback = setTimeout(() => {
       const open = $('#payWrap').classList.contains('is-open');
-      if (open && !purchased && !$('#whop-embedded-checkout iframe')) location.href = whopPageUrl();
+      if (open && !purchased && !whopReady && !$('#whop-embedded-checkout iframe')) location.href = whopPageUrl();
     }, 8000);
   }
   function whopPageUrl() {
