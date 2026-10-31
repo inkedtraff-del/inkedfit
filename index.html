@@ -895,7 +895,7 @@
     <p class="paydone__text">Your program is ready. Download it now and save it to your phone. A copy is also in your Whop account.</p>
     <a class="btn" id="payDownload" href="assets/guide/Hybrid-Athlete-System.pdf" download>Download the PDF <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
   </div>
-  <p class="paysheet__fine">Instant download after payment. Secure checkout by Whop.</p>
+  <p class="paysheet__fine">Instant download after payment. Secure checkout by Whop.<br>Checkout not loading? <a href="#" data-whop-link>Open it on Whop</a></p>
 </div>
 </div>
 
@@ -1107,9 +1107,21 @@
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
     if ($('#exitSheet').open) $('#exitSheet').close();
     paySheet(true);
+    // Safety net: if the embedded checkout hasn't rendered in 8 s (domain not allowed,
+    // blocker, in-app browser), send the buyer to the same Whop checkout page.
+    clearTimeout(window.__whopFallback);
+    window.__whopFallback = setTimeout(() => {
+      const open = $('#payWrap').classList.contains('is-open');
+      if (open && !purchased && !$('#whop-embedded-checkout iframe')) location.href = whopPageUrl();
+    }, 8000);
   }
+  function whopPageUrl() {
+    const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    return CONFIG.whopLink + '?theme=' + theme;
+  }
+  $$('[data-whop-link]').forEach(a => { a.href = whopPageUrl(); });
   $$('[data-buy]').forEach(b => b.addEventListener('click', openCheckout));
-  $$('[data-pay-close]').forEach(b => b.addEventListener('click', () => paySheet(false)));
+  $$('[data-pay-close]').forEach(b => b.addEventListener('click', () => { clearTimeout(window.__whopFallback); paySheet(false); }));
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#payWrap').classList.contains('is-open')) paySheet(false); });
   const toPricing = () => { $('#exitSheet').open && $('#exitSheet').close(); $('#pricing').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
   $$('[data-scroll-pricing]').forEach(b => b.addEventListener('click', toPricing));
