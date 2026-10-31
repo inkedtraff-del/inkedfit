@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Hybrid Athlete System | Hybrid Athlete Project</title>
+  <title>Hybrid Athlete System: 10-week strength and running program</title>
   <meta name="description" content="A 10-week hybrid training system: 3 gym days and 2 runs a week, every set written out, meal plans and a calorie calculator. One payment, instant PDF.">
 
   <!-- Theme before first paint: no flash -->
@@ -18,7 +18,7 @@
   </script>
   <meta name="theme-color" content="#000000">
 
-  <link rel="preconnect" href="https://cdn.whop.com">
+  <link rel="preconnect" href="https://js.whop.com">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
 
   <!-- Meta Pixel -->
@@ -247,19 +247,6 @@
     .card__title { font-stretch: 72%; font-weight: 680; text-transform: uppercase; font-size: 34px; line-height: .92; margin-bottom: 12px; }
     .card__text { color: var(--fg-2); font-size: 15px; margin-bottom: 20px; }
 
-    /* free guide form */
-    .field {
-      width: 100%; min-height: 56px; padding: 0 20px; margin-bottom: 10px;
-      border-radius: 999px; border: 1px solid var(--line); background: var(--surface);
-      font: inherit; font-size: 16px; color: var(--fg); -webkit-appearance: none;
-    }
-    .field:focus { outline: none; border-color: var(--fg); }
-    .field::placeholder { color: var(--fg-3); }
-    .field[aria-invalid="true"] { border-color: #C0574A; }
-    .fine { margin-top: 10px; font-size: 12.5px; color: var(--fg-3); text-align: center; }
-    .status { margin-top: 10px; font-size: 14.5px; text-align: center; min-height: 1.2em; }
-    .status[data-tone="error"] { color: #C0574A; }
-    .form.is-done .field, .form.is-done button[type="submit"], .form.is-done .fine { display: none; }
     .form.is-done .status { margin: 0 0 10px; }
     .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
@@ -372,6 +359,14 @@
     }
     .range:active::-webkit-slider-thumb { transform: scale(1.15); }
     .range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg); }
+    .units { display: inline-flex; padding: 3px; margin-bottom: 22px; border-radius: 999px; border: 1px solid var(--line); }
+    .units button {
+      min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent;
+      font: inherit; font-size: 13.5px; font-weight: 500; color: var(--fg-2); cursor: pointer;
+      transition: background .35s var(--ease), color .35s;
+    }
+    .units button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+    .units button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
     .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 22px; }
     .seg button {
       min-height: 52px; padding: 8px 12px; border-radius: 16px; border: 1px solid var(--line);
@@ -513,14 +508,14 @@
     <div class="hero__shade"></div>
     <div class="hero__text">
       <h1 class="hero__title"><span>Hybrid athlete</span><span>system</span></h1>
-      <p class="hero__sub">A hardcore system to become a top-tier athlete</p>
+      <p class="hero__sub">Lift heavier and run a faster 5K in 10 weeks</p>
     </div>
   </section>
 
   <!-- INTRO -->
   <section class="pad sec reveal">
-    <p class="intro__q">This is not just a program.</p>
-    <p class="intro__text">It is a discipline that will turn you into a hybrid warrior. No excuses. No pity. Only heavy iron, relentless endurance, and mental transformation.</p>
+    <p class="intro__q">3 gym days. 2 runs. 10 weeks.</p>
+    <p class="intro__text">Every set, rep and rest is written out, along with a running plan, meal plans and a calorie calculator. You test your lifts and your 5K in week 1, then beat those numbers in week 10. No guesswork, no excuses.</p>
   </section>
 
   <!-- TRUST STRIP (only true statements) -->
@@ -532,16 +527,13 @@
     </div>
   </section>
 
-  <!-- FREE GUIDE -->
-  <section class="pad sec reveal" id="free">
+  <!-- EARLY OFFER -->
+  <section class="pad sec reveal" id="start">
     <div class="card card--accent">
-      <span class="tag">Start for free</span>
-      <h2 class="card__title">Supplement truth</h2>
-      <p class="card__text">26 supplements, broken down: what works, what’s a waste of money, and exactly how to take the ones that work. Free, one tap.</p>
-      <a class="btn" href="#" data-free download>
-        Download for free
-        <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg>
-      </a>
+      <span class="tag">One payment</span>
+      <h2 class="card__title">The full system, $<span data-price>27</span></h2>
+      <p class="card__text">Three gym days and two runs a week for ten weeks. Every set, rep and rest written out, plus meal plans and a calorie calculator. Instant PDF.</p>
+      <button class="btn" type="button" data-buy>Get full access</button>
     </div>
   </section>
 
@@ -556,8 +548,8 @@
   <!-- PROTOCOL -->
   <section class="sec" aria-labelledby="protocol-title">
     <div class="head reveal">
-      <p class="kicker">The protocol</p>
-      <h2 class="display" id="protocol-title">5 steps to absolute power</h2>
+      <p class="kicker">The plan</p>
+      <h2 class="display" id="protocol-title">10 weeks, 5 phases</h2>
     </div>
     <div class="slider" data-slider>
       <div class="track">
@@ -565,7 +557,7 @@
           <img src="assets/phase-1.webp" width="820" height="1100" alt="Phase 1" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 1, Weeks 1–2</span><span class="phase__num">01</span></div>
-          <div class="phase__body"><h3 class="phase__title">Discipline and testosterone</h3><p class="phase__text">Build the base and the habits. Heavy compound lifts, easy running, and the sleep that makes both work.</p></div>
+          <div class="phase__body"><h3 class="phase__title">Base and habits</h3><p class="phase__text">Build the base and the habits. Heavy compound lifts, easy running, and the sleep that makes both work.</p></div>
         </div></article>
         <article class="slide"><div class="phase">
           <img src="assets/phase-2.webp" width="820" height="1100" alt="Phase 2" loading="lazy" decoding="async">
@@ -589,7 +581,7 @@
           <img src="assets/phase-5.webp" width="820" height="1100" alt="Phase 5" loading="lazy" decoding="async">
           <div class="phase__shade"></div>
           <div class="phase__top"><span class="phase__tag">Phase 5, Weeks 9–10</span><span class="phase__num">05</span></div>
-          <div class="phase__body"><h3 class="phase__title">The top athlete</h3><p class="phase__text">Week 9 peaks your strength. Week 10 tests every lift and your 5K against the numbers from Week 1.</p></div>
+          <div class="phase__body"><h3 class="phase__title">Peak and test</h3><p class="phase__text">Week 9 peaks your strength. Week 10 tests every lift and your 5K against the numbers from Week 1.</p></div>
         </div></article>
       </div>
       <div class="slider__nav"><div class="dots"></div><div class="arrows">
@@ -604,7 +596,7 @@
   <section class="sec" aria-labelledby="inside-title">
     <div class="head reveal">
       <p class="kicker">Look inside</p>
-      <h2 class="display" id="inside-title">This is what you get</h2>
+      <h2 class="display" id="inside-title">63 pages, ready for the gym</h2>
       <p class="lead">Real pages from the PDF. Built for your phone: no zooming, open it between sets.</p>
     </div>
     <div class="slider" data-slider>
@@ -627,8 +619,8 @@
   <!-- RESULTS: clients of my previous programs, shown with their permission -->
   <section class="sec" aria-labelledby="results-title">
     <div class="head reveal">
-      <p class="kicker">Real clients</p>
-      <h2 class="display" id="results-title">Those who walked the path</h2>
+      <p class="kicker">Client results</p>
+      <h2 class="display" id="results-title">What clients changed</h2>
     </div>
     <div class="slider" data-slider>
       <div class="track">
@@ -640,7 +632,7 @@
           </div>
           <div class="ba__info">
             <p class="ba__name">John M. <span class="ba__verified">Verified client</span></p>
-            <p class="ba__result">Dropped 6 kg in 4 weeks</p>
+            <p class="ba__result">Dropped 13 lbs in 4 weeks</p>
             <p class="ba__review">“This protocol turned me into a warrior. No fluff, just exact sets and reps to get that aesthetic look. This is a part of my life now.”</p>
           </div>
         </article>
@@ -788,7 +780,7 @@
   <!-- PRICING -->
   <section class="pad sec" id="pricing" aria-labelledby="pricing-title">
     <div class="reveal">
-      <h2 class="display" id="pricing-title" style="margin-bottom:20px">Choose your weapon</h2>
+      <h2 class="display" id="pricing-title" style="margin-bottom:20px">Get the full system</h2>
 
       <!-- Shows only when CONFIG.offerEndsAt is set to a real date -->
       <div class="deadline" id="deadline" hidden>
@@ -819,22 +811,26 @@
   <section class="pad sec" id="calculator" aria-labelledby="calc-title">
     <div class="reveal">
       <p class="kicker">For men</p>
-      <h2 class="display" id="calc-title" style="margin-bottom:20px">Calculate your calories</h2>
+      <h2 class="display" id="calc-title" style="margin-bottom:20px">Find your daily calories</h2>
       <div class="card">
+        <div class="units" role="group" aria-label="Units">
+          <button type="button" data-units="us" aria-pressed="true">lbs / ft</button>
+          <button type="button" data-units="metric" aria-pressed="false">kg / cm</button>
+        </div>
         <div class="calc-row">
           <div class="calc-head"><span>Age</span><b id="ageVal">30</b></div>
           <input type="range" id="ageRange" class="range" min="15" max="80" value="30" aria-label="Age">
         </div>
         <div class="calc-row">
-          <div class="calc-head"><span>Height</span><b id="heightVal">175 cm</b></div>
-          <input type="range" id="heightRange" class="range" min="150" max="220" value="175" aria-label="Height in centimeters">
+          <div class="calc-head"><span>Height</span><b id="heightVal">5′9″</b></div>
+          <input type="range" id="heightRange" class="range" min="59" max="87" value="69" aria-label="Height in inches">
         </div>
         <div class="calc-row">
-          <div class="calc-head"><span>Weight</span><b id="weightVal">75 kg</b></div>
-          <input type="range" id="weightRange" class="range" min="50" max="150" value="75" aria-label="Weight in kilograms">
+          <div class="calc-head"><span>Weight</span><b id="weightVal">165 lbs</b></div>
+          <input type="range" id="weightRange" class="range" min="100" max="330" value="165" aria-label="Weight in pounds">
         </div>
         <p class="calc-head" style="margin-bottom:10px"><span>Activity</span></p>
-        <div class="seg" role="group" aria-label="Activity level">
+        <div class="seg" id="actSeg" role="group" aria-label="Activity level">
           <button type="button" class="active" data-mult="1.2">Minimal</button>
           <button type="button" data-mult="1.375">Light<br>1–3 workouts</button>
           <button type="button" data-mult="1.55">Moderate<br>3–5 workouts</button>
@@ -888,7 +884,10 @@
     <p class="paysheet__price"><b data-price-label>$27</b><span>USD</span></p>
   </div>
   <div class="checkout-container">
-    <div id="whop-embedded-checkout"></div>
+    <div id="whop-embedded-checkout" data-whop-checkout-plan-id="plan_mAkmG309DbNgZ" data-whop-checkout-session="ch_Bg5LXNLGnypDpXf" data-whop-checkout-theme="dark"
+      data-whop-checkout-return-url="https://inkedfit.vercel.app/success.html?via=whop"
+      data-whop-checkout-skip-redirect="true" data-whop-checkout-on-complete="onWhopComplete"></div>
+    <script>document.getElementById('whop-embedded-checkout').setAttribute('data-whop-checkout-theme', document.documentElement.dataset.theme === 'light' ? 'light' : 'dark');</script>
   </div>
   <div class="paydone" hidden>
     <p class="kicker">Payment confirmed</p>
@@ -903,9 +902,8 @@
 <dialog class="sheet" id="exitSheet" aria-labelledby="exit-title">
   <span class="sheet__grip" aria-hidden="true"></span>
   <h3 class="sheet__title" id="exit-title">Before you go</h3>
-  <p class="sheet__text">Take the free supplement guide with you. Or start the full system today.</p>
+  <p class="sheet__text">Ten weeks, every set written out. One payment, instant PDF.</p>
   <button class="btn" type="button" data-scroll-pricing>Get full access</button>
-  <button class="btn btn--ghost" type="button" data-scroll-free style="margin-top:10px">Get the free guide</button>
   <button class="sheet__close" type="button" data-close>Not now</button>
 </dialog>
 
@@ -918,9 +916,7 @@
     // 'link'  = buttons open the Whop checkout page (works everywhere)
     // 'embed' = checkout opens in the bottom sheet on this site (needs inkedfit.vercel.app in Whop > Payment domains)
     checkoutMode: 'embed',
-    whopLink: 'https://whop.com/checkout/plan_mAkmG309DbNgZ',
-    // Free guide: hosted on your own site, downloads instantly.
-    freeUrl: 'assets/guide/Hybrid-Athlete-Supplement-Truth-FREE.pdf',
+    whopLink: 'https://whop.com/checkout/ch_Bg5LXNLGnypDpXf/',
     // Real end of the launch price, e.g. '2026-11-01T00:00:00'. Leave empty to hide the countdown.
     offerEndsAt: '',
   };
@@ -1017,24 +1013,53 @@
     tick();
   })();
 
-  /* ================= CALCULATOR (men, Mifflin-St Jeor) ================= */
+  /* ================= CALCULATOR (men, Mifflin-St Jeor) =================
+     US units by default (lbs, feet/inches); kg/cm switch. Formula runs in metric. */
   (function () {
     const age = $('#ageRange'), height = $('#heightRange'), weight = $('#weightRange');
-    let mult = 1.2;
+    const LB = 0.45359237, IN = 2.54;
+    const RANGES = {
+      us:     { h: [59, 87, 'Height in inches'],     w: [100, 330, 'Weight in pounds'] },
+      metric: { h: [150, 220, 'Height in centimeters'], w: [45, 150, 'Weight in kilograms'] },
+    };
+    let units = 'us', mult = 1.2;
     const fill = r => r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
+    const setRange = (r, [min, max, label], val) => {
+      r.min = min; r.max = max; r.setAttribute('aria-label', label);
+      r.value = Math.min(max, Math.max(min, Math.round(val)));
+    };
     const update = () => {
       [age, height, weight].forEach(fill);
+      const cm = units === 'us' ? +height.value * IN : +height.value;
+      const kg = units === 'us' ? +weight.value * LB : +weight.value;
       $('#ageVal').textContent = age.value;
-      $('#heightVal').textContent = height.value + ' cm';
-      $('#weightVal').textContent = weight.value + ' kg';
-      const bmr = 10 * +weight.value + 6.25 * +height.value - 5 * +age.value + 5;
+      if (units === 'us') {
+        const inch = +height.value;
+        $('#heightVal').textContent = Math.floor(inch / 12) + '′' + (inch % 12) + '″';
+        $('#weightVal').textContent = weight.value + ' lbs';
+      } else {
+        $('#heightVal').textContent = height.value + ' cm';
+        $('#weightVal').textContent = weight.value + ' kg';
+      }
+      const bmr = 10 * kg + 6.25 * cm - 5 * +age.value + 5;
       const tdee = Math.round(bmr * mult);
       $('#maintRes').textContent = tdee.toLocaleString('en-US');
       $('#defRes').textContent = Math.round(tdee * .85).toLocaleString('en-US');
     };
+    const setUnits = next => {
+      if (next === units) return;
+      const cm = units === 'us' ? +height.value * IN : +height.value;
+      const kg = units === 'us' ? +weight.value * LB : +weight.value;
+      units = next;
+      setRange(height, RANGES[units].h, units === 'us' ? cm / IN : cm);
+      setRange(weight, RANGES[units].w, units === 'us' ? kg / LB : kg);
+      $$('[data-units]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.units === units)));
+      update();
+    };
+    $$('[data-units]').forEach(b => b.addEventListener('click', () => setUnits(b.dataset.units)));
     [age, height, weight].forEach(r => r.addEventListener('input', update));
-    $$('.seg button').forEach(b => b.addEventListener('click', () => {
-      $$('.seg button').forEach(x => x.classList.remove('active'));
+    $$('#actSeg button').forEach(b => b.addEventListener('click', () => {
+      $$('#actSeg button').forEach(x => x.classList.remove('active'));
       b.classList.add('active'); mult = parseFloat(b.dataset.mult); update();
     }));
     update();
@@ -1044,23 +1069,10 @@
   // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
   // scrolls to the protocol, touches a buy button, or after 6 s on the page.
   let whopLoaded = false;
-  function mountWhop() {
-    try {
-      const handle = window.WhopElements().checkout.create({
-        plan: CONFIG.whopPlanId,
-        returnUrl: 'https://inkedfit.vercel.app/success.html?via=whop',
-        onComplete: (c) => { if (c && c.result === 'payment') window.onWhopComplete(c.paymentId || ''); },
-      });
-      handle.create('checkout').mount('#whop-embedded-checkout');
-    } catch (e) { console.error('Whop Elements mount failed', e); }
-  }
   function loadWhop() {
     if (whopLoaded) return; whopLoaded = true;
-    const sc = document.createElement('script');
-    sc.src = 'https://cdn.whop.com/elements/amber/elements.js';
-    sc.setAttribute('data-whop-elements', '');
-    sc.onload = mountWhop;
-    document.head.appendChild(sc);
+    const sc = document.createElement('script'); sc.src = 'https://js.whop.com/static/checkout/loader.js'; sc.async = true;
+    document.body.appendChild(sc);
   }
   addEventListener('load', () => { if (CONFIG.checkoutMode !== 'link') setTimeout(loadWhop, 6000); });
   addEventListener('scroll', function onS() { if (CONFIG.checkoutMode !== 'link' && scrollY > 900) { loadWhop(); removeEventListener('scroll', onS); } }, { passive: true });
@@ -1101,15 +1113,6 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#payWrap').classList.contains('is-open')) paySheet(false); });
   const toPricing = () => { $('#exitSheet').open && $('#exitSheet').close(); $('#pricing').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
   $$('[data-scroll-pricing]').forEach(b => b.addEventListener('click', toPricing));
-  $$('[data-scroll-free]').forEach(b => b.addEventListener('click', () => { $('#exitSheet').close(); $('#free').scrollIntoView({ behavior: 'smooth' }); }));
-
-  /* ================= FREE GUIDE ================= */
-  $$('[data-free]').forEach(a => {
-    a.href = CONFIG.freeUrl;
-    a.addEventListener('click', () => {
-      if (typeof fbq === 'function') fbq('track', 'Lead');
-    });
-  });
 
   /* ================= EXIT OFFER (desktop only, once) =================
      Shown when the cursor leaves the top of the window. No back-button trapping. */
