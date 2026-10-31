@@ -1068,13 +1068,19 @@
   // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
   // scrolls to the protocol, touches a buy button, or after 6 s on the page.
   // Whop Elements (current Whop embed). Replaces the old js.whop.com checkout loader.
-  let whopLoaded = false, whopMounted = false, whopReady = false;
+  let whopLoaded = false, whopMounted = false, whopReady = false, whopCheckout = null;
+  // Match the checkout to the site theme (dark by default, light when the site toggle is on light).
+  const whopAppearance = () => ({ theme: { appearance: document.documentElement.dataset.theme === 'light' ? 'light' : 'dark' } });
+  new MutationObserver(() => {
+    try { whopCheckout && whopCheckout.update({ appearance: whopAppearance() }); } catch (e) {}
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   function mountWhop() {
     if (whopMounted || typeof window.WhopElements !== 'function') return;
     whopMounted = true;
     try {
-      const checkout = window.WhopElements().checkout.create({
+      const checkout = whopCheckout = window.WhopElements().checkout.create({
         plan: CONFIG.whopPlanId,
+        appearance: whopAppearance(),
         returnUrl: CONFIG.returnUrl,
         onLoadingChange: loading => { if (!loading) whopReady = true; },
         onComplete: c => { if (c && c.result === 'payment') window.onWhopComplete(c.paymentId || c.sessionId || ''); },
