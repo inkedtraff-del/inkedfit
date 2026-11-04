@@ -26,7 +26,23 @@
 
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
 
-  <!-- Meta Pixel: PageView only -->
+  <!-- Snap Pixel Code -->
+  <script>
+  window.SNAP_PIXEL_ID = 'bcef7795-561e-4549-a4ed-342b5f6af620'; // paste the Snap Pixel ID here (same ID as in index.html)
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+  {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];
+  if(/INSERT/.test(e.SNAP_PIXEL_ID))return; // no ID yet: calls are queued, nothing is sent
+  var s='script';var r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  u.parentNode.insertBefore(r,u);})(window,document,
+  'https://sc-static.net/scevent.min.js');
+  snaptr('init', window.SNAP_PIXEL_ID);
+  snaptr('track', 'PAGE_VIEW');
+  </script>
+  <!-- End Snap Pixel Code -->
+
+  <!-- Meta Pixel: PageView + Purchase fallback (Snap PURCHASE fires in the same check) -->
   <script>
   !function(f,b,e,v,n,t,s)
   {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -40,11 +56,15 @@
   fbq('track', 'PageView');
   // Purchase normally fires in the checkout sheet. This catches payments that came back via a redirect (PayPal etc.).
   (function () {
-    var q = new URLSearchParams(location.search), st = q.get('status');
-    var via = q.get('via') === 'whop' && (!st || st === 'succeeded'), last = 0;
+    var via = /[?&]via=whop/.test(location.search), last = 0;
     try { last = +localStorage.getItem('ha-purchase-tracked') || 0; } catch (e) {}
     if (via && Date.now() - last > 30 * 60 * 1000) {
       fbq('track', 'Purchase', { value: SUCCESS.value, currency: SUCCESS.currency });
+      var q = new URLSearchParams(location.search);
+      var txn = q.get('payment_id') || q.get('receipt_id') || q.get('checkout_id') || q.get('session_id') || '';
+      var sp = { price: SUCCESS.value, currency: SUCCESS.currency, number_items: 1, item_ids: ['hybrid-athlete-system'], item_category: 'Digital program' };
+      if (txn) sp.transaction_id = txn;
+      snaptr('track', 'PURCHASE', sp);
       try { localStorage.setItem('ha-purchase-tracked', String(Date.now())); } catch (e) {}
     }
   })();
@@ -222,20 +242,7 @@
   </ol>
 
   <p class="help">Trouble downloading? Email <a href="#" data-support>support</a> and we’ll send the file again.</p>
-  <section id="payFail" hidden style="margin-top:30px">
-    <p class="kicker">Payment not completed</p>
-    <p class="help" style="font-size:16px">No money was taken. <a href="/#pricing">Go back and try again</a>.</p>
-  </section>
 </main>
-<script>
-  (function () {
-    var st = new URLSearchParams(location.search).get('status');
-    if (st === 'failed' || st === 'canceled') {
-      document.querySelectorAll('main > *:not(#payFail)').forEach(function (el) { el.style.display = 'none'; });
-      document.getElementById('payFail').hidden = false;
-    }
-  })();
-</script>
 
 <script>
   const $ = (s, el = document) => el.querySelector(s);

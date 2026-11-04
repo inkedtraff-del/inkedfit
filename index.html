@@ -55,6 +55,23 @@
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1663042858575283&ev=PageView&noscript=1"/></noscript>
 
+  <!-- Snap Pixel Code -->
+  <script>
+  window.SNAP_PIXEL_ID = 'bcef7795-561e-4549-a4ed-342b5f6af620'; // paste the Snap Pixel ID here (same ID in success.html)
+  (function(e,t,n){if(e.snaptr)return;var a=e.snaptr=function()
+  {a.handleRequest?a.handleRequest.apply(a,arguments):a.queue.push(arguments)};
+  a.queue=[];
+  if(/INSERT/.test(e.SNAP_PIXEL_ID))return; // no ID yet: calls are queued, nothing is sent
+  var s='script';var r=t.createElement(s);r.async=!0;
+  r.src=n;var u=t.getElementsByTagName(s)[0];
+  var go=function(){u.parentNode.insertBefore(r,u)};
+  if(t.readyState==='complete')setTimeout(go,1200);else e.addEventListener('load',function(){setTimeout(go,1200)});
+  })(window,document,'https://sc-static.net/scevent.min.js');
+  snaptr('init', window.SNAP_PIXEL_ID);
+  snaptr('track', 'PAGE_VIEW');
+  </script>
+  <!-- End Snap Pixel Code -->
+
 
   <style>
     @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
@@ -1082,6 +1099,24 @@
     update();
   })();
 
+  /* ================= SNAP PIXEL EVENTS ================= */
+  const SNAP_ITEM = { item_ids: ['hybrid-athlete-system'], item_category: 'Digital program' };
+  function snap(event, data) {
+    try { if (typeof snaptr === 'function') snaptr('track', event, Object.assign({}, SNAP_ITEM, data)); } catch (e) {}
+  }
+  // VIEW_CONTENT: once, when the price block comes into view
+  (function () {
+    const el = $('#pricing');
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(es => {
+      if (es.some(e => e.isIntersecting)) {
+        io.disconnect();
+        snap('VIEW_CONTENT', { price: CONFIG.price, currency: 'USD' });
+      }
+    }, { threshold: .3 });
+    io.observe(el);
+  })();
+
   /* ================= CHECKOUT (Whop embedded, inside the bottom sheet) ================= */
   // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
   // scrolls to the protocol, touches a buy button, or after 6 s on the page.
@@ -1124,6 +1159,7 @@
     if (purchased) return; purchased = true;
     const id = [...arguments].map(String).find(x => /^(pay|rcpt|receipt|mem|R-|plan_)/i.test(x) || x.length > 12) || '';
     if (typeof fbq === 'function') fbq('track', 'Purchase', { value: CONFIG.price, currency: 'USD' }, id ? { eventID: id } : undefined);
+    snap('PURCHASE', Object.assign({ price: CONFIG.price, currency: 'USD', number_items: 1 }, id ? { transaction_id: id } : {}));
     try { localStorage.setItem('ha-purchase-tracked', String(Date.now())); } catch (e) {}
     const sheet = $('#paySheet');
     $('.checkout-container', sheet).hidden = true;
@@ -1141,12 +1177,14 @@
   function openCheckout() {
     if (CONFIG.checkoutMode === 'link') {
       if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+      snap('START_CHECKOUT', { price: CONFIG.price, currency: 'USD', number_items: 1 });
       const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
       setTimeout(() => { location.href = CONFIG.whopLink + '?theme=' + theme; }, 250);
       return;
     }
     loadWhop();
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+    snap('START_CHECKOUT', { price: CONFIG.price, currency: 'USD', number_items: 1 });
     if ($('#exitSheet').open) $('#exitSheet').close();
     paySheet(true);
     // Safety net: if the embedded checkout hasn't rendered in 8 s (domain not allowed,
