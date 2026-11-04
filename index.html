@@ -27,8 +27,9 @@
   <!-- Theme before first paint: no flash -->
   <script>
     (function () {
-      var t; try { t = localStorage.getItem('ha-theme'); } catch (e) {}
-      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      // Always opens in the dark theme. The toggle switches it only until the page is reloaded.
+      var t = 'dark';
+      try { localStorage.removeItem('ha-theme'); } catch (e) {}
       document.documentElement.setAttribute('data-theme', t);
       var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.setAttribute('fetchpriority', 'high');
       l.href = t === 'light' ? 'assets/hero-light.webp' : 'assets/hero.webp'; document.head.appendChild(l);
@@ -979,7 +980,6 @@
       const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
       if (window.__heroRest) window.__heroRest();
       const apply = () => { document.documentElement.dataset.theme = next; paint(next); };
-      try { localStorage.setItem('ha-theme', next); } catch (e) {}
       if (document.startViewTransition && !reduceMotion) {
         const r = btn.getBoundingClientRect();
         document.documentElement.style.setProperty('--vt-x', (r.left + r.width / 2) + 'px');
