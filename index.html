@@ -1178,6 +1178,7 @@
     if (CONFIG.checkoutMode === 'link') {
       if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
       snap('START_CHECKOUT', { price: CONFIG.price, currency: 'USD', number_items: 1 });
+      snap('ADD_CART', { price: CONFIG.price, currency: 'USD', number_items: 1 }); // Snap lists Add To Cart as an optimization event, Start Checkout is not
       const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
       setTimeout(() => { location.href = CONFIG.whopLink + '?theme=' + theme; }, 250);
       return;
@@ -1185,6 +1186,7 @@
     loadWhop();
     if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
     snap('START_CHECKOUT', { price: CONFIG.price, currency: 'USD', number_items: 1 });
+    snap('ADD_CART', { price: CONFIG.price, currency: 'USD', number_items: 1 }); // Snap lists Add To Cart as an optimization event, Start Checkout is not
     if ($('#exitSheet').open) $('#exitSheet').close();
     paySheet(true);
     // Safety net: if the embedded checkout hasn't rendered in 8 s (domain not allowed,
