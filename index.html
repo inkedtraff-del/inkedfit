@@ -1,902 +1,1186 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FFFFFF">
-<title>Sofa, Carpet & Rug Cleaning in Miami | D&A Touch</title>
-<meta name="description" content="Professional upholstery, carpet, rug and mattress cleaning at your home in Miami. Pet-safe, dry in hours, prices from $65. Get a free quote on WhatsApp in minutes.">
-<meta property="og:title" content="D&A Touch — Upholstery & Carpet Cleaning in Miami">
-<meta property="og:image" content="assets/hero.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Hybrid Athlete System: 10-week strength and running program</title>
+  <meta name="description" content="A 10-week hybrid training system: 3 gym days and 2 runs a week, every set written out, meal plans and a calorie calculator. One payment, instant PDF.">
 
-<!-- =====================================================================
-     CONFIG — заполнить перед запуском рекламы
-     ===================================================================== -->
-<script>
-window.LANDING_CONFIG = {
-  PIXEL_ID: 'YOUR_PIXEL_ID',
-  WHATSAPP_NUMBER: '17869682782',        // wa.me: 1 + номер, без + и пробелов
-  SMS_NUMBER: '+17869682782',
-  PHONE: '+17869682782',
-  PHONE_DISPLAY: '(786) 968-2782',
-  SPANISH: false,                        // true — показать «Hablamos español», если команда говорит по-испански
+  <!-- Link previews: Instagram, Threads, Facebook, WhatsApp, Telegram, X, iMessage -->
+  <link rel="canonical" href="https://inkedfit.vercel.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Hybrid Athlete Project">
+  <meta property="og:url" content="https://inkedfit.vercel.app/">
+  <meta property="og:title" content="Hybrid Athlete System: lift heavier and run a faster 5K in 10 weeks">
+  <meta property="og:description" content="3 gym days and 2 runs a week, every set written out, meal plans and a calorie calculator. One payment, instant PDF.">
+  <meta property="og:image" content="https://inkedfit.vercel.app/og.jpg">
+  <meta property="og:image:secure_url" content="https://inkedfit.vercel.app/og.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Hybrid Athlete System, a 10-week strength and running program, $27">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Hybrid Athlete System: lift heavier and run a faster 5K in 10 weeks">
+  <meta name="twitter:description" content="3 gym days and 2 runs a week, every set written out. One payment, instant PDF.">
+  <meta name="twitter:image" content="https://inkedfit.vercel.app/og.jpg">
 
-  // Рейтинг Google: оставьте null, пока нет реальных цифр — блок не покажется
-  GOOGLE_RATING: null,                   // например 4.9
-  GOOGLE_REVIEWS_COUNT: null,            // например 87
-  GOOGLE_REVIEWS_URL: '',                // ссылка на профиль в Google
+  <!-- Theme before first paint: no flash -->
+  <script>
+    (function () {
+      var t; try { t = localStorage.getItem('ha-theme'); } catch (e) {}
+      if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      var l = document.createElement('link'); l.rel = 'preload'; l.as = 'image'; l.setAttribute('fetchpriority', 'high');
+      l.href = t === 'light' ? 'assets/hero-light.webp' : 'assets/hero.webp'; document.head.appendChild(l);
+    })();
+  </script>
+  <meta name="theme-color" content="#000000">
 
-  // Стартовые цены (из прайса клиента).
-  ITEMS: [
-    { name:'Sofa', nameEs:'Sofá', note:'3 to 7 seats', noteEs:'3 a 7 asientos', icon:'sofa',
-      sizes:[ ['3 seats',175], ['4 seats',190], ['5 seats',200], ['6 seats',230], ['7 seats',250] ],
-      sizesEs:[ ['3 asientos',175], ['4 asientos',190], ['5 asientos',200], ['6 asientos',230], ['7 asientos',250] ] },
-    { name:'Sectional', nameEs:'Seccional', note:'L- or U-shape · 8–10 sections', noteEs:'Forma de L o U · 8–10 secciones', from:375, icon:'sectional' },
-    { name:'Area rug', nameEs:'Tapete', note:'Wool or synthetic', noteEs:'Lana o sintético', icon:'rug',
-      sizes:[ ['5 × 7 ft',70], ['8 × 10 ft',100], ['9 × 12 ft',115], ['12 × 14 ft',129] ],
-      sizesEs:[ ['5 × 7 pies',70], ['8 × 10 pies',100], ['9 × 12 pies',115], ['12 × 14 pies',129] ] },
-    { name:'Mattress', nameEs:'Colchón', note:'Queen size', noteEs:'Tamaño Queen', from:80,  icon:'mattress' },
-    { name:'Armchair', nameEs:'Sillón', note:'Per piece', noteEs:'Por pieza', from:65,  icon:'chair' },
-    { name:'Dining chairs', nameEs:'Sillas de comedor', note:'Set of 6 · package price', noteEs:'Juego de 6 · precio por paquete', from:200, icon:'chair' },
-    { name:'Staircase', nameEs:'Escalera', note:'Priced from a photo', noteEs:'Precio basado en foto', from:null, icon:'stairs' }
-  ],
+  <link rel="preconnect" href="https://cdn.whop.com">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-var.woff2" crossorigin>
 
-  // Реальные отзывы клиентов
-  REVIEWS: []
-};
-</script>
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  var go=function(){s.parentNode.insertBefore(t,s)};
+  if(document.readyState==='complete')setTimeout(go,1200);else addEventListener('load',function(){setTimeout(go,1200)})}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1663042858575283');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1663042858575283&ev=PageView&noscript=1"/></noscript>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', window.LANDING_CONFIG.PIXEL_ID);
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none" alt="" src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&ev=PageView&noscript=1"></noscript>
-<!-- End Meta Pixel Code -->
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face { font-family: "Archivo"; src: url("assets/fonts/archivo-var.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+    @font-face { font-family: "Cormorant Garamond"; src: url("assets/fonts/cormorant-italic.woff2") format("woff2"); font-style: italic; font-weight: 400; font-display: swap; }
+    /* ================= TOKENS ================= */
+    :root {
+      --bg: #000000;
+      --raised: #121212;
+      --fg: #ECE8E1;
+      --fg-2: rgba(236,232,225,.66);
+      --fg-3: rgba(236,232,225,.38);
+      --line: rgba(236,232,225,.14);
+      --surface: rgba(236,232,225,.05);
+      --accent: #A8433A;           /* oxblood, from the Ronin palette */
+      --on-accent: #F3EFE8;
+      --hero-fg: #F3EFE8;
+      --bg-photo-opacity: .32;
+      --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+      --serif: "Cormorant Garamond", Georgia, serif;
+      --ease: cubic-bezier(.2,.7,0,1);
+      --ease-io: cubic-bezier(.65,0,.35,1);
+      --r: 24px;
+      color-scheme: dark;
+    }
+    :root[data-theme="light"] {
+      --bg: #E3E0D8;
+      --raised: #EDEBE5;
+      --fg: #0A0A0A;
+      --fg-2: rgba(10,10,10,.66);
+      --fg-3: rgba(10,10,10,.4);
+      --line: rgba(10,10,10,.14);
+      --surface: rgba(10,10,10,.045);
+      --hero-fg: #0A0A0A;
+      --bg-photo-opacity: .07;
+      color-scheme: light;
+    }
 
-<style>
-:root{
-  --cream:#FFFFFF; --surface:#FFFFFF; --sand:#F3F6FA; --sand-2:#D9E3EF; --line:#E5EBF2;
-  --ink:#0B1B33; --ink-2:#33465F; --muted:#5A6B82;
-  --teal:#1757D4; --teal-2:#2D6FF0; --teal-soft:#EBF2FF;
-  --coral:#0C7FA3; --coral-soft:#DDF5FB; --gold:#F5A623; --wa:#25D366;
-  --r-md:14px; --r-lg:22px; --r-xl:30px; --pill:999px;
-  --sh-1:0 1px 2px rgba(20,33,31,.05),0 6px 16px rgba(20,33,31,.06);
-  --sh-2:0 18px 40px rgba(20,33,31,.14);
-  --g:20px; --maxw:560px;
-  --serif:'Manrope','Inter',-apple-system,sans-serif;
-  --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before{animation:none!important;transition:none!important}}
-body{font-family:var(--sans);font-size:17px;line-height:1.55;color:var(--ink);background:var(--cream);-webkit-font-smoothing:antialiased;padding-bottom:calc(92px + env(safe-area-inset-bottom))}
-a{color:inherit;text-decoration:none}
-button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-img{display:block;max-width:100%}
-svg{display:block;flex:none}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--g)}
-[hidden]{display:none!important}
+    /* ================= BASE ================= */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      transition: background-color .5s var(--ease);
+    }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
-/* type */
-.display{font-family:var(--serif);font-weight:800;font-size:40px;line-height:1.08;letter-spacing:-.035em}
-.display em,.h2 em{font-style:normal;color:var(--teal-2);background:linear-gradient(transparent 62%,var(--coral-soft) 62%);padding:0 .06em;border-radius:4px}
-.guar .h2 em,.final-card .h2 em{background:none;padding:0}
-.h2{font-family:var(--serif);font-weight:800;font-size:29px;line-height:1.15;letter-spacing:-.03em}
-.h3{font-size:18px;line-height:1.35;font-weight:600;letter-spacing:-.01em}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--coral)}
-.eyebrow::before{content:'';width:18px;height:2px;background:currentColor;border-radius:2px}
-.lead{font-size:18px;line-height:1.55;color:var(--ink-2)}
-.muted{color:var(--muted)}
-.small{font-size:15px;line-height:1.45}
-.xs{font-size:13px;line-height:1.4}
-.center{text-align:center}
+    .main-bg {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background: url('assets/background.webp') center / cover no-repeat;
+      opacity: var(--bg-photo-opacity);
+      filter: grayscale(1);
+      transition: opacity .6s var(--ease);
+    }
+    :root[data-theme="light"] .main-bg {
+      background-image: url('assets/background-light.webp'), url('assets/background.webp');
+      background-size: cover, cover; background-position: center, center;
+    }
+    /* film grain */
+    .grain {
+      position: fixed; inset: -50%; z-index: 1; pointer-events: none; opacity: .09; mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .5  0 0 0 0 .5  0 0 0 0 .5  0 0 0 .6 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
 
-/* buttons */
-.btn{display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;padding:0 24px;border-radius:var(--pill);font-weight:600;font-size:17px;width:100%;-webkit-tap-highlight-color:transparent;transition:transform .12s,background .2s,box-shadow .2s;position:relative;overflow:hidden}
-.btn:active{transform:scale(.985)}
-.btn--main{background:var(--teal);color:#fff;box-shadow:0 10px 24px rgba(23,87,212,.28)}
-.btn--main:hover{background:var(--teal-2)}
-.btn--main::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);animation:shine 4.5s ease-in-out 1.5s infinite}
-@keyframes shine{0%,70%{left:-60%}100%{left:130%}}
-.wa-dot{width:30px;height:30px;border-radius:50%;background:var(--wa);display:grid;place-items:center}
-.wa-dot svg{width:17px;height:17px;color:#fff}
-.link{font-weight:600;color:var(--teal);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px;display:inline-flex;align-items:center;min-height:44px}
+    .container { position: relative; z-index: 2; width: 100%; max-width: 480px; margin: 0 auto; }
+    .pad { padding: 0 22px; }
+    .sec { margin-bottom: 64px; }
 
-/* ribbon */
-.ribbon{background:#0B1B33;color:#DCE7F5;font-size:13px;font-weight:500;overflow:hidden;white-space:nowrap;height:34px;display:flex;align-items:center}
-.ribbon-track{display:inline-flex;gap:28px;padding-left:28px;animation:marq 38s linear infinite}
-.ribbon-track span{display:inline-flex;align-items:center;gap:28px}
-.ribbon-track span::after{content:'✦';color:#4FD1EE;font-size:11px}
-@keyframes marq{to{transform:translateX(-50%)}}
+    .kicker { font-size: 13px; font-weight: 600; color: var(--accent); margin-bottom: 8px; }
+    .display {
+      font-stretch: 72%; font-weight: 680; text-transform: uppercase;
+      font-size: clamp(40px, 12vw, 52px); line-height: .9; letter-spacing: -.005em;
+    }
+    .lead { color: var(--fg-2); margin-top: 14px; }
 
-/* header */
-.hdr{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.9);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid transparent;transition:border-color .2s}
-.hdr.scrolled{border-color:var(--line)}
-.hdr .wrap{height:64px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:10px}
-.mark{width:38px;height:38px;border-radius:12px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:16px;letter-spacing:-.02em;position:relative}
-.mark::after{content:'';position:absolute;right:-3px;top:-3px;width:11px;height:11px;border-radius:50%;background:var(--coral);border:2px solid var(--cream)}
-.brand-name{font-family:var(--serif);font-weight:800;font-size:20px;letter-spacing:-.02em;line-height:1}
-.brand-name small{display:block;font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.12em;color:var(--muted);margin-top:3px}
-.hdr-call{display:flex;align-items:center;gap:8px;height:44px;padding:0 16px;border-radius:var(--pill);background:var(--surface);border:1.5px solid var(--line);font-weight:600;font-size:15px}
-.hdr-call svg{width:18px;height:18px;color:var(--teal)}
-.d-only{display:none}
+    /* ================= TOP BAR + THEME ================= */
+    .topbar {
+      position: fixed; inset: 0 0 auto; z-index: 50;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: calc(14px + env(safe-area-inset-top, 0px)) 20px 14px;
+      --tb: #F3EFE8; color: var(--tb);
+      transition: background-color .4s var(--ease), color .4s;
+    }
+    .topbar.is-solid {
+      --tb: var(--fg);
+      background: color-mix(in srgb, var(--bg) 78%, transparent);
+      -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+    }
+    .topbar__mark { font-stretch: 125%; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; opacity: 0; transition: opacity .4s; }
+    .topbar.is-solid .topbar__mark { opacity: 1; }
+    .theme-toggle {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 6px 14px 6px 6px; border-radius: 999px; background: transparent;
+      border: 1px solid color-mix(in srgb, currentColor 30%, transparent); font-size: 14px;
+    }
+    .theme-toggle__glyph {
+      display: grid; place-items: center; width: 30px; height: 30px; border-radius: 50%;
+      background: var(--tb); color: var(--bg);
+      transition: transform .6s var(--ease);
+    }
+    .theme-toggle__glyph svg { width: 18px; height: 18px; }
+    .theme-toggle__glyph circle { fill: none; stroke: currentColor; stroke-width: 1.6; }
+    .theme-toggle__glyph path { fill: currentColor; }
+    :root[data-theme="light"] .theme-toggle__glyph svg { transform: rotate(180deg); }
+    .topbar:not(.is-solid) .theme-toggle__glyph { color: #0A0A0A; }
+    .theme-toggle:active .theme-toggle__glyph { transform: rotate(-90deg) scale(.9); }
 
-/* hero */
-.hero{padding:22px 0 44px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,var(--coral-soft) 0%,rgba(252,230,221,0) 70%);top:-160px;right:-180px;z-index:-1}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:var(--pill);background:var(--surface);border:1px solid var(--line);font-size:13px;font-weight:600;color:var(--ink-2)}
-.badge svg{width:15px;height:15px;color:var(--teal)}
-.badge .stars svg{color:var(--gold);width:13px;height:13px}
-.stars{display:flex;gap:2px;color:var(--gold)}
-.stars svg{width:14px;height:14px}
-.hero .lead{margin-top:14px}
-.hero-cta{margin-top:24px;display:flex;flex-direction:column;gap:10px}
-.micro{display:flex;justify-content:center;gap:6px;align-items:center;font-size:14px;color:var(--muted)}
-.micro svg{width:16px;height:16px;color:var(--teal-2)}
-.alt{display:flex;justify-content:center;gap:4px;align-items:center;font-size:15px;color:var(--muted);flex-wrap:wrap}
-.hero-media{position:relative;margin-top:36px}
-.hero-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-2);aspect-ratio:4/3;background:var(--sand)}
-.hero-img img{width:100%;height:100%;object-fit:cover}
-.float{position:absolute;display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:16px;padding:10px 14px;box-shadow:var(--sh-2);font-size:13px;line-height:1.25;animation:bob 5s ease-in-out infinite}
-.float b{display:block;font-size:15px}
-.float .ic{width:36px;height:36px;border-radius:11px;display:grid;place-items:center}
-.float .ic svg{width:20px;height:20px}
-.f1{left:-6px;top:-18px}.f1 .ic{background:var(--teal-soft);color:var(--teal)}
-.f2{right:-6px;bottom:-20px;animation-delay:-2.5s}.f2 .ic{background:var(--coral-soft);color:var(--coral)}
-@keyframes bob{50%{transform:translateY(-6px)}}
+    ::view-transition-old(root), ::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+    ::view-transition-new(root) { animation: reveal .8s var(--ease-io); }
+    @keyframes reveal {
+      from { clip-path: circle(0 at var(--vt-x, 90%) var(--vt-y, 5%)); }
+      to   { clip-path: circle(150% at var(--vt-x, 90%) var(--vt-y, 5%)); }
+    }
 
-/* trust */
-.trust{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:44px}
-.trust div{display:flex;gap:10px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:13px 12px;font-size:14px;line-height:1.3;font-weight:600}
-.trust svg{width:22px;height:22px;color:var(--teal)}
+    /* ================= BUTTONS ================= */
+    .btn {
+      position: relative; isolation: isolate; overflow: hidden;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; min-height: 60px; padding: 0 26px;
+      border-radius: 999px; border: 1px solid var(--fg);
+      background: var(--fg); color: var(--bg);
+      font-size: 17px; font-weight: 600; letter-spacing: .01em; text-decoration: none;
+      transition: transform .3s var(--ease), color .45s var(--ease);
+    }
+    .btn::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      background: color-mix(in srgb, var(--bg) 14%, transparent);
+      transform: translateY(101%); transition: transform .55s var(--ease);
+    }
+    .btn:active { transform: scale(.975); }
+    @media (hover: hover) { .btn:hover::before { transform: none; } }
+    .btn--ghost { background: transparent; color: var(--fg); border-color: var(--line); }
+    .btn--ghost::before { background: var(--surface); }
+    .btn svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; }
 
-/* sections */
-section{padding:60px 0;scroll-margin-top:64px}
-.sec-head{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
-.bg-white{background:var(--surface)}
-.bg-sand{background:var(--sand)}
+    /* ================= HERO ================= */
+    .hero { position: relative; width: 100%; aspect-ratio: 4 / 5.4; margin-bottom: 40px; overflow: hidden;
+      background: #111 url("data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBQCdASoYACAAPulgpU2pJaOiMAwBIB0JaQAAWsfQDfHBZmdSKMZTfQF7x5zca7hpYu9gAAD+9W/WvqSPEvwPNzP0BVOUlBYE6oZsxjB8jpCK5TD3jh/YhoyIEnfOlaoy/iesazE3RH6aZeEuTx+MjXiyYWqlxrixQDueiIQVbOi/0aTJ2LBQSfmc4g4AAAA=") center / cover no-repeat; }
+    :root[data-theme="light"] .hero { background-image: url("data:image/webp;base64,UklGRroAAABXRUJQVlA4IK4AAAAQBQCdASoYACAAPuFaqU2opSQiMAwBEBwJaQAAUVjRnq7v4Dl4X0vl+YUalAuDdy6QAP7zd05jADT1XV46MdcBcxcPqEifPNQvdHDmK8F/O93ejU2eGwxkP71tTSNki7js+oj7ajJNDSupSfDbB6ld17YxnOXIqHmnEQqp1KZY/uuh54AfpiZCr8RqrbW9s2VfPvCdSGioMgtpILTCX16dfZYhqG8iIXmCbYtAAAA="); background-color: #ddd; }
+    .hero img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: contrast(1.08) brightness(.85);
+      animation: settle 9s var(--ease) both;
+    }
+    /* dark photo in Ink, light photo in Paper. No light file yet: the dark one stays. */
+    .img--light { display: none; }
+    :root[data-theme="light"] .img--light { display: block; }
+    :root[data-theme="light"] :is(.hero, .phase):has(.img--light) .img--dark { display: none; }
+    @keyframes settle { from { transform: scale(1.08); } to { transform: none; } }
+    .hero__shade {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,.35) 0%, transparent 18%, transparent 45%, color-mix(in srgb, var(--bg) 70%, transparent) 72%, var(--bg) 100%);
+    }
+    :root[data-theme="light"] .hero:has(.img--light) .hero__shade {
+      background: linear-gradient(to bottom, rgba(227,224,216,.5) 0%, transparent 18%, transparent 45%, color-mix(in srgb, var(--bg) 70%, transparent) 72%, var(--bg) 100%);
+    }
+    :root[data-theme="light"]:has(.hero .img--light) .topbar:not(.is-solid) { --tb: #0A0A0A; }
+    :root[data-theme="light"]:has(.hero .img--light) .topbar:not(.is-solid) .theme-toggle__glyph { color: #E3E0D8; }
+    .hero__text { position: absolute; left: 22px; right: 22px; bottom: 6px; color: var(--hero-fg); }
+    :root[data-theme="dark"] .hero__text { color: #F3EFE8; }
+    .hero__title {
+      font-stretch: 72%; font-weight: 700; text-transform: uppercase;
+      font-size: clamp(54px, 16vw, 72px); line-height: .86; letter-spacing: -.01em;
+    }
+    .hero__title span { display: block; animation: rise 1.2s var(--ease) both; }
+    .hero__title span:nth-child(2) { animation-delay: .12s; }
+    .hero__sub {
+      display: inline-block; margin-top: 16px; padding: 6px 14px; border-radius: 999px;
+      background: var(--accent); color: var(--on-accent);
+      font-size: 13px; font-weight: 600; animation: rise 1.2s var(--ease) .3s both;
+    }
+    @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
 
-/* prices */
-.plist{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);box-shadow:var(--sh-1);overflow:hidden}
-.plist > * + *{border-top:1px solid var(--line)}
-.prow{display:flex;align-items:center;gap:14px;padding:15px 18px}
-.pico{width:46px;height:46px;border-radius:14px;background:var(--teal-soft);display:grid;place-items:center}
-.pico svg{width:24px;height:24px;color:var(--teal)}
-.ptxt{flex:1;min-width:0}
-.pname{font-weight:600;font-size:16px;line-height:1.3}
-.pnote{font-size:14px;color:var(--muted)}
-.pprice{display:flex;flex-direction:column;align-items:flex-end;line-height:1.1}
-.pprice span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
-.pprice b{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--teal)}
-.pprice b.q{font-family:var(--sans);font-size:15px;font-weight:700;padding-top:2px}
-.chev{width:26px;height:26px;border-radius:50%;background:var(--sand);display:grid;place-items:center;flex:none;transition:transform .25s,background .2s;color:var(--ink-2)}
-.chev svg{width:14px;height:14px}
-.chev--sp{background:none}
-.pd summary{list-style:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
-.pd summary::-webkit-details-marker{display:none}
-.pd summary:hover .chev{background:var(--teal-soft);color:var(--teal)}
-.pd[open] .chev{transform:rotate(180deg);background:var(--teal-soft);color:var(--teal)}
-.pd[open] summary{background:#FAFCFF}
-.psizes{list-style:none;margin:0 18px 0 78px;padding:0 0 12px}
-.psizes li{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:9px 0;border-top:1px dashed var(--line);font-size:15px;color:var(--ink-2)}
-.psizes li:first-child{border-top:0}
-.psizes b{font-family:var(--serif);font-weight:700;font-size:17px;color:var(--ink)}
-.pfoot{padding:20px 18px;background:linear-gradient(135deg,var(--teal-soft),#F1F6F4);display:flex;flex-direction:column;gap:12px}
+    /* ================= INTRO (quote) ================= */
+    .intro__q {
+      font-family: var(--serif); font-style: italic;
+      font-size: clamp(28px, 8vw, 36px); line-height: 1.12; margin-bottom: 16px;
+    }
+    .intro__text { color: var(--fg-2); }
 
-/* before / after */
-.ba{position:relative;border-radius:var(--r-xl);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--sh-2);user-select:none;touch-action:pan-y;background:var(--sand)}
-.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
-.ba .after{clip-path:inset(0 0 0 var(--pos,50%))}
-.ba-tag{position:absolute;top:12px;padding:6px 12px;border-radius:var(--pill);font-size:12px;font-weight:700;letter-spacing:.08em;z-index:2}
-.t-before{left:12px;background:rgba(20,33,31,.86);color:#fff}
-.t-after{right:12px;background:#fff;color:var(--ink)}
-.ba-handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:#fff;transform:translateX(-1.5px);pointer-events:none;z-index:2;box-shadow:0 0 12px rgba(0,0,0,.2)}
-.ba-handle span{position:absolute;top:50%;left:50%;width:48px;height:48px;border-radius:50%;background:#fff;box-shadow:var(--sh-2);transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--teal)}
-.ba-handle svg{width:22px;height:22px}
-.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:3}
-.ba-hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:2;background:rgba(20,33,31,.78);color:#fff;font-size:12px;font-weight:600;padding:6px 12px;border-radius:var(--pill);transition:opacity .3s}
-.ba.touched .ba-hint{opacity:0}
-.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:16px;background:var(--surface);border:1px solid var(--line);border-radius:var(--pill);padding:5px}
-.tabs button{height:44px;border-radius:var(--pill);font-size:14px;font-weight:600;color:var(--muted)}
-.tabs button[aria-selected="true"]{background:var(--ink);color:#fff}
-.ba-cap{margin-top:12px;font-size:14px;color:var(--muted);text-align:center}
+    /* ================= TRUST STRIP ================= */
+    .strip { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .strip div { padding: 14px 6px; text-align: center; font-size: 12.5px; color: var(--fg-2); line-height: 1.3; }
+    .strip div + div { border-left: 1px solid var(--line); }
+    .strip b { display: block; font-stretch: 72%; font-weight: 680; font-size: 22px; color: var(--fg); text-transform: uppercase; }
 
-/* steps */
-.steps{display:flex;flex-direction:column}
-.st{display:grid;grid-template-columns:48px 1fr;gap:16px;padding-bottom:26px;position:relative}
-.st:not(:last-child)::before{content:'';position:absolute;left:23px;top:52px;bottom:4px;width:2px;background:repeating-linear-gradient(var(--sand-2) 0 6px,transparent 6px 12px)}
-.st-n{width:48px;height:48px;border-radius:16px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--serif);font-weight:800;font-size:20px;transform:rotate(-4deg)}
-.st:nth-child(2) .st-n{background:var(--coral);transform:rotate(3deg)}
-.st:nth-child(3) .st-n{background:var(--ink)}
+    /* ================= CARDS ================= */
+    .card {
+      position: relative; border-radius: var(--r); border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--raised) 86%, transparent);
+      -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+      padding: 28px 22px 22px; overflow: hidden;
+    }
+    .card--accent::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 3px; background: var(--accent); }
+    .tag {
+      display: inline-block; padding: 5px 12px; border-radius: 999px; margin-bottom: 14px;
+      background: var(--accent); color: var(--on-accent); font-size: 12.5px; font-weight: 600;
+    }
+    .card__title { font-stretch: 72%; font-weight: 680; text-transform: uppercase; font-size: 34px; line-height: .92; margin-bottom: 12px; }
+    .card__text { color: var(--fg-2); font-size: 15px; margin-bottom: 20px; }
 
-/* included */
-.inc{list-style:none;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-xl);padding:6px 18px}
-.inc li{display:flex;gap:14px;padding:15px 0;border-top:1px solid var(--line)}
-.inc li:first-child{border-top:0}
-.inc .ck{flex:none;width:26px;height:26px;border-radius:50%;background:var(--teal-soft);display:grid;place-items:center;margin-top:1px}
-.inc .ck svg{width:15px;height:15px;color:var(--teal)}
+    .form.is-done .status { margin: 0 0 10px; }
+    .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
 
-/* reviews */
-.rev-top{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:16px 18px;margin-bottom:16px}
-.rev-score{font-family:var(--serif);font-size:42px;font-weight:600;line-height:1;letter-spacing:-.02em}
-.revs{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 calc(var(--g)*-1);padding:4px var(--g) 10px;scrollbar-width:none}
-.revs::-webkit-scrollbar{display:none}
-.rev{flex:0 0 85%;scroll-snap-align:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;gap:12px}
-.rev p{font-size:16px;line-height:1.55;color:var(--ink-2);flex:1}
-.rev-who{display:flex;align-items:center;gap:10px;font-size:14px}
-.av{width:38px;height:38px;border-radius:50%;background:var(--coral-soft);color:var(--coral);display:grid;place-items:center;font-weight:700}
+    /* ================= MARQUEE ================= */
+    .marquee { overflow: hidden; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 14px 0; }
+    .marquee__track { display: flex; width: max-content; animation: marquee 22s linear infinite; }
+    .marquee__item {
+      display: flex; align-items: center; gap: 22px; padding-right: 22px;
+      font-stretch: 72%; font-weight: 680; font-size: 24px; text-transform: uppercase; white-space: nowrap;
+    }
+    .marquee__item i { flex: none; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--accent); }
+    @keyframes marquee { to { transform: translateX(-50%); } }
 
-/* guarantee */
-.guar{background:var(--teal);color:#fff;border-radius:var(--r-xl);padding:30px 24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
-.guar::after{content:'';position:absolute;width:260px;height:260px;right:-90px;bottom:-110px;border-radius:50%;border:40px solid rgba(255,255,255,.06)}
-.guar .h2{color:#fff}
-.guar .h2 em{color:#7FE0F5}
-.guar p{color:rgba(255,255,255,.84)}
-.seal{width:58px;height:58px;border-radius:18px;background:rgba(255,255,255,.1);display:grid;place-items:center}
-.seal svg{width:30px;height:30px;color:#7FE0F5}
+    /* ================= SECTION HEAD ================= */
+    .head { padding: 0 22px 22px; }
 
-.area{display:flex;flex-wrap:wrap;gap:8px}
-.area span{padding:9px 14px;border-radius:var(--pill);background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:500}
+    /* ================= SLIDERS ================= */
+    .slider { position: relative; }
+    .track {
+      display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+      padding: 4px 22px 18px; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+      scroll-padding-inline: 22px;
+    }
+    .track::-webkit-scrollbar { display: none; }
+    .slide {
+      flex: 0 0 86%; scroll-snap-align: start;
+      border-radius: var(--r); border: 1px solid var(--line); overflow: hidden;
+      background: var(--raised); position: relative;
+      transform: scale(.965); opacity: .55;
+      transition: transform .6s var(--ease), opacity .6s var(--ease), border-color .6s;
+    }
+    .slide.is-active { transform: none; opacity: 1; border-color: color-mix(in srgb, var(--fg) 30%, transparent); }
 
-/* faq */
-.faq{display:flex;flex-direction:column;gap:10px}
-.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:0 18px}
-.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;padding:14px 0;font-weight:600;font-size:16px;cursor:pointer}
-.faq summary::-webkit-details-marker{display:none}
-.pm{width:30px;height:30px;border-radius:50%;background:var(--sand);display:grid;place-items:center;flex:none;transition:transform .25s,background .2s}
-.pm svg{width:14px;height:14px}
-.faq details[open] .pm{transform:rotate(45deg);background:var(--coral-soft);color:var(--coral)}
-.faq details p{padding:0 0 18px;color:var(--ink-2);font-size:16px}
+    .slider__nav { display: flex; align-items: center; justify-content: space-between; padding: 0 22px; }
+    .dots { display: flex; gap: 6px; }
+    .dots button { width: 7px; height: 7px; border-radius: 99px; border: 0; background: var(--fg-3); transition: width .4s var(--ease), background .4s; }
+    .dots button[aria-current="true"] { width: 24px; background: var(--fg); }
+    .arrows { display: flex; gap: 8px; }
+    .arrows button {
+      width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: transparent;
+      display: grid; place-items: center; transition: border-color .3s, opacity .3s;
+    }
+    .arrows button:disabled { opacity: .3; }
+    .arrows svg { width: 18px; height: 18px; fill: none; stroke: var(--fg); stroke-width: 1.6; }
 
-/* final */
-.final-card{background:linear-gradient(160deg,#12305C,#0B1B33);color:#fff;border-radius:var(--r-xl);padding:36px 24px;display:flex;flex-direction:column;gap:16px;text-align:center;position:relative;overflow:hidden}
-.final-card::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(79,209,238,.35),rgba(79,209,238,0) 70%);top:-140px;left:-100px}
-.final-card > *{position:relative}
-.final-card .h2{color:#fff}
-.final-card .h2 em{color:#7FE0F5}
-.final-card .muted,.final-card .alt{color:rgba(255,255,255,.72)}
-.final-card .link{color:#fff}
-.final-card .eyebrow{justify-content:center}
-.final-card .btn--main{background:#fff;color:var(--ink);box-shadow:none}
+    /* phase slides */
+    .phase { height: 500px; }
+    .phase img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: contrast(1.08) grayscale(.15); transition: transform 1.2s var(--ease); }
+    .slide.is-active .phase img { transform: scale(1.04); }
+    .phase__shade { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.6) 38%, transparent 70%); }
+    .phase__top { position: absolute; top: 16px; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: center; }
+    .phase__tag { padding: 5px 12px; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid rgba(243,239,232,.25); color: #F3EFE8; font-size: 12.5px; font-weight: 600; -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+    .phase__num {
+      width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center;
+      background: var(--accent); color: #F3EFE8; font-stretch: 72%; font-weight: 700; font-size: 18px;
+    }
+    .phase__body { position: absolute; left: 20px; right: 20px; bottom: 20px; color: #F3EFE8; }
+    .phase__title { font-stretch: 72%; font-weight: 680; text-transform: uppercase; font-size: 30px; line-height: .95; margin-bottom: 10px; }
+    .phase__text { font-size: 14.5px; line-height: 1.5; color: rgba(243,239,232,.78); }
 
-footer{padding:32px 0 28px;font-size:14px;color:var(--muted)}
-footer .wrap{display:flex;flex-direction:column;gap:10px}
-.flink{font-size:14px;color:var(--ink-2);text-decoration:underline;text-underline-offset:3px;padding:6px 0}
-.flink:hover{color:var(--teal)}
+    .slide--page { flex-basis: 64%; border-radius: 26px; }
+    .slide--page img { width: 100%; height: auto; display: block; }
+    /* review slides (only for real clients) */
+    .ba { display: grid; grid-template-columns: 1fr 1fr; height: 300px; position: relative; }
+    .ba img { width: 100%; height: 100%; object-fit: cover; }
+    .ba__tag { position: absolute; bottom: 12px; padding: 4px 11px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+    .ba__tag--before { left: 12px; background: rgba(0,0,0,.6); color: #F3EFE8; }
+    .ba__tag--after { right: 12px; background: var(--accent); color: #F3EFE8; }
+    .ba__info { padding: 20px; }
+    .ba__verified { display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--line); font-size: 11px; font-weight: 500; color: var(--fg-2); vertical-align: 1px; }
+    .dots--many button { width: 6px; height: 6px; }
+    .dots--many button[aria-current="true"] { width: 18px; }
+    .results-note { padding: 14px 22px 0; font-size: 12.5px; color: var(--fg-3); }
+    .ba__name { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+    .ba__result { font-stretch: 72%; font-weight: 680; font-size: 26px; line-height: 1; text-transform: uppercase; margin-bottom: 10px; }
+    .ba img { filter: grayscale(.4) sepia(.18) contrast(.94) brightness(1.02); }
+    .ba__review { font-family: var(--serif); font-style: italic; font-size: 19px; line-height: 1.3; color: var(--fg-2); }
 
-/* modal */
-html:has(dialog[open]){overflow:hidden}
-.modal{border:0;padding:0;margin:auto;width:calc(100% - 32px);max-width:560px;max-height:82vh;border-radius:var(--r-xl);background:var(--surface);color:var(--ink);box-shadow:var(--sh-2)}
-.modal[open]{display:flex;flex-direction:column;animation:mIn .25s cubic-bezier(.2,.8,.2,1)}
-.modal::backdrop{background:rgba(11,27,51,.55);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
-@keyframes mIn{from{opacity:0;transform:translateY(16px)}}
-.m-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 20px 14px;border-bottom:1px solid var(--line)}
-.m-head h2{font-family:var(--serif);font-weight:800;font-size:21px;letter-spacing:-.02em}
-.m-x{width:40px;height:40px;border-radius:50%;background:var(--sand);display:grid;place-items:center;flex:none}
-.m-x svg{width:16px;height:16px;transform:rotate(45deg)}
-.m-body{overflow-y:auto;padding:6px 20px 22px;-webkit-overflow-scrolling:touch}
-.m-body h3{font-size:15px;font-weight:700;margin-top:16px}
-.m-body p{font-size:15px;line-height:1.55;color:var(--ink-2);margin-top:4px}
-.m-body .upd{font-size:13px;color:var(--muted);margin-top:18px}
-@media (max-width:899px){
-  .modal{width:100%;max-width:100%;margin:auto 0 0;border-radius:22px 22px 0 0;max-height:88vh;padding-bottom:env(safe-area-inset-bottom)}
-  @keyframes mIn{from{transform:translateY(100%)}}
-}
+    /* ================= PRICING ================= */
+    .deadline {
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 14px 18px; margin-bottom: 12px; border-radius: 18px; border: 1px solid var(--line);
+    }
+    .deadline p { font-size: 13.5px; color: var(--fg-2); }
+    .deadline b { font-stretch: 72%; font-weight: 680; font-size: 28px; letter-spacing: .02em; font-variant-numeric: tabular-nums; }
+    .price { display: flex; align-items: flex-start; gap: 4px; margin: 6px 0 20px; }
+    .price__cur { font-stretch: 72%; font-weight: 680; font-size: 34px; line-height: 1.1; }
+    .price__amt { font-stretch: 72%; font-weight: 700; font-size: 92px; line-height: .85; letter-spacing: -.01em; }
+    .price__note { align-self: flex-end; margin: 0 0 6px 10px; font-size: 13px; color: var(--fg-2); line-height: 1.35; }
+    .includes { list-style: none; margin: 0 0 22px; border-top: 1px solid var(--line); }
+    .includes li { display: flex; gap: 12px; align-items: baseline; padding: 11px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+    .includes li::before { content: ""; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); transform: translateY(-1px); }
+    .secure { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 14px; font-size: 12.5px; color: var(--fg-3); }
+    .secure svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2; }
 
-/* sticky bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px var(--g) calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line);transform:translateY(110%);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
-.bar.show{transform:none}
-.bar .in{max-width:var(--maxw);margin:0 auto;display:flex;gap:10px;align-items:center}
-.bar .call{width:58px;height:58px;flex:none;border-radius:50%;border:1.5px solid var(--line);display:grid;place-items:center;background:#fff}
-.bar .call svg{width:22px;height:22px;color:var(--teal)}
+    /* ================= CALCULATOR ================= */
+    .calc-row { margin-bottom: 26px; }
+    .calc-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; }
+    .calc-head span { font-size: 14px; color: var(--fg-2); }
+    .calc-head b { font-stretch: 72%; font-weight: 680; font-size: 26px; font-variant-numeric: tabular-nums; }
+    .range {
+      --p: 50%;
+      width: 100%; height: 6px; border-radius: 99px; -webkit-appearance: none; appearance: none; outline: none;
+      background: linear-gradient(to right, var(--fg) 0 var(--p), var(--line) var(--p) 100%);
+    }
+    .range::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 28px; height: 28px; border-radius: 50%;
+      background: var(--bg); border: 2px solid var(--fg); box-shadow: 0 0 0 5px color-mix(in srgb, var(--fg) 10%, transparent);
+      transition: transform .3s var(--ease);
+    }
+    .range:active::-webkit-slider-thumb { transform: scale(1.15); }
+    .range::-moz-range-thumb { width: 26px; height: 26px; border-radius: 50%; background: var(--bg); border: 2px solid var(--fg); }
+    .units { display: inline-flex; padding: 3px; margin-bottom: 22px; border-radius: 999px; border: 1px solid var(--line); }
+    .units button {
+      min-height: 36px; padding: 0 16px; border: 0; border-radius: 999px; background: transparent;
+      font: inherit; font-size: 13.5px; font-weight: 500; color: var(--fg-2); cursor: pointer;
+      transition: background .35s var(--ease), color .35s;
+    }
+    .units button[aria-pressed="true"] { background: var(--fg); color: var(--bg); }
+    .units button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+    .seg { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 22px; }
+    .seg button {
+      min-height: 52px; padding: 8px 12px; border-radius: 16px; border: 1px solid var(--line);
+      background: transparent; font-size: 13.5px; font-weight: 500; color: var(--fg-2); line-height: 1.25;
+      transition: background .35s var(--ease), color .35s, border-color .35s;
+    }
+    .seg button.active { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+    .results { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--line); }
+    .results div { padding: 16px 4px 4px; }
+    .results div + div { border-left: 1px solid var(--line); padding-left: 16px; }
+    .results span { display: block; font-size: 13px; color: var(--fg-2); margin-bottom: 4px; }
+    .results b { font-stretch: 72%; font-weight: 700; font-size: 38px; line-height: 1; font-variant-numeric: tabular-nums; }
+    .results small { font-size: 13px; color: var(--fg-3); margin-left: 4px; }
+    .results div:last-child b { color: var(--accent); }
 
-/* reveal on scroll */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
-.rv.in{opacity:1;transform:none}
+    /* ================= FAQ ================= */
+    .faq details { border-top: 1px solid var(--line); }
+    .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+    .faq summary {
+      position: relative; list-style: none; padding: 20px 44px 20px 0;
+      font-size: 17px; font-weight: 600; line-height: 1.35; cursor: pointer;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::before, .faq summary::after {
+      content: ""; position: absolute; right: 6px; top: 50%; width: 14px; height: 1.5px; background: var(--fg);
+      transition: transform .4s var(--ease);
+    }
+    .faq summary::after { transform: rotate(90deg); }
+    .faq details[open] summary::after { transform: rotate(0); }
+    .faq p { padding: 0 0 20px; color: var(--fg-2); }
 
-@media (min-width:900px){
-  :root{--maxw:1100px;--g:32px}
-  body{padding-bottom:0}
-  .d-only{display:inline}.m-only{display:none}
-  .display{font-size:64px}
-  .h2{font-size:42px}
-  .hero{padding:48px 0 72px}
-  .hero .wrap{display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
-  .hero-media{margin-top:0}
-  .hero-cta{max-width:420px}
-  .micro,.alt{justify-content:flex-start}
-  .trust{grid-column:1/-1;grid-template-columns:repeat(4,1fr);margin-top:24px}
-  .split{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:start}
-  .rev{flex-basis:32%}
-  .bar{left:auto;right:24px;bottom:24px;width:420px;border-radius:var(--r-xl);border:1px solid var(--line);box-shadow:var(--sh-2)}
-}
+    /* ================= FOOTER ================= */
+    footer { position: relative; z-index: 2; max-width: 480px; margin: 0 auto; padding: 8px 22px calc(120px + env(safe-area-inset-bottom, 0px)); }
+    .policy { border-radius: var(--r); border: 1px solid var(--line); padding: 22px; margin-bottom: 22px; }
+    .policy h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
+    .policy p { color: var(--fg-2); font-size: 14.5px; }
+    .policy p + p { margin-top: 10px; }
+    .copy { font-size: 12.5px; color: var(--fg-3); }
 
-/* =======================================
-   LANGUAGE TOGGLE STYLES
-   ======================================= */
-html[lang="es"] .en-only { display: none !important; }
-html[lang="en"] .es-only { display: none !important; }
-.lang-sw { display:flex; align-items:center; background:var(--surface); border:1.5px solid var(--line); border-radius:var(--pill); padding:3px; }
-.lang-sw button { font-size:13px; font-weight:700; width:34px; height:34px; border-radius:50%; color:var(--muted); transition:all .2s; }
-.lang-sw button.active { background:var(--ink); color:#fff; }
-</style>
+    /* ================= STICKY ================= */
+    .sticky {
+      position: fixed; left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom, 0px)); z-index: 40;
+      max-width: 460px; margin: 0 auto; padding: 8px 8px 8px 20px;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      border-radius: 999px; border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 82%, transparent);
+      -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+      transform: translateY(150%); transition: transform .6s var(--ease);
+    }
+    .sticky.visible { transform: none; animation: sticky-in .8s var(--ease) .6s both; }
+    @keyframes sticky-in { from { transform: translateY(150%); } to { transform: none; } }
+    .sticky__info { line-height: 1.2; }
+    .sticky__info span { display: block; font-size: 13px; color: var(--fg-2); }
+    .sticky__info b { font-weight: 600; }
+    .sticky .btn { width: auto; min-height: 46px; padding: 0 22px; font-size: 15px; }
+
+    /* ================= SHEET (exit offer) ================= */
+    .sheet {
+      width: 100%; max-width: 480px; margin: auto auto 0; border: 0; padding: 10px 22px calc(24px + env(safe-area-inset-bottom, 0px));
+      border-radius: 28px 28px 0 0; background: var(--raised); color: var(--fg);
+    }
+    .sheet[open] { animation: sheet-in .55s var(--ease); }
+    .sheet::backdrop { background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); }
+    @keyframes sheet-in { from { transform: translateY(100%); } to { transform: none; } }
+    .sheet__grip { display: block; width: 40px; height: 4px; border-radius: 4px; background: var(--fg-3); margin: 0 auto 16px; }
+    .sheet__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 46px; line-height: .9; margin-bottom: 10px; }
+    .sheet__text { color: var(--fg-2); margin-bottom: 20px; }
+    .sheet__close { display: block; width: 100%; padding: 14px; margin-top: 6px; border: 0; background: none; color: var(--fg-2); font-size: 14.5px; }
+    @media (min-width: 640px) { .sheet { margin: auto; border-radius: 28px; } }
+
+    /* ================= PAY SHEET ================= */
+    .paywrap { position: fixed; inset: 0; z-index: 70; pointer-events: none; }
+    .paywrap__bg { position: absolute; inset: 0; background: rgba(0,0,0,.55); -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); opacity: 0; transition: opacity .4s var(--ease); }
+    .paysheet { position: absolute; left: 50%; bottom: 0; width: 100%; max-width: 480px; margin: 0; max-height: 94svh; overflow-y: auto; padding-top: 10px;
+      transform: translate(-50%, 105%); transition: transform .55s var(--ease); }
+    .paywrap.is-open { pointer-events: auto; }
+    .paywrap.is-open .paywrap__bg { opacity: 1; }
+    .paywrap.is-open .paysheet { transform: translate(-50%, 0); }
+    @media (min-width: 640px) { .paysheet { border-radius: 28px 28px 0 0; } }
+    .paysheet__x { position: absolute; top: 14px; right: 14px; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: transparent; display: grid; place-items: center; }
+    .paysheet__x svg { width: 16px; height: 16px; stroke: var(--fg); stroke-width: 1.8; fill: none; }
+    .paysheet__head { display: grid; grid-template-columns: 56px 1fr auto; gap: 14px; align-items: center; padding: 6px 0 16px; margin-right: 44px; border-bottom: 1px solid var(--line); }
+    .paysheet__img { width: 56px; height: 72px; object-fit: cover; object-position: top; border-radius: 10px; border: 1px solid var(--line); }
+    .paysheet__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 22px; line-height: .95; }
+    .paysheet__sub { font-size: 12.5px; color: var(--fg-2); margin-top: 4px; }
+    .paysheet__price { text-align: right; line-height: 1; }
+    .paysheet__price b { display: block; font-stretch: 72%; font-weight: 700; font-size: 30px; }
+    .paysheet__price span { font-size: 11px; color: var(--fg-3); }
+    .checkout-container { min-height: 460px; margin-top: 10px; }
+    .paydone { padding: 26px 0 8px; text-align: center; }
+    .paydone__title { font-stretch: 72%; font-weight: 700; text-transform: uppercase; font-size: 54px; line-height: .9; margin: 4px 0 12px; }
+    .paydone__text { color: var(--fg-2); margin-bottom: 20px; }
+    .paysheet__fine { font-size: 12px; color: var(--fg-3); text-align: center; padding: 6px 8px 0; }
+    .paysheet__fine a { color: var(--fg-2); }
+
+    /* ================= REVEAL ON SCROLL ================= */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.2A9.7 9.7 0 0 0 3.6 16.8L2.3 21.7l5-1.3A9.7 9.7 0 1 0 12 2.2Zm0 17.7c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 19.9Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.4-.6 1.6-1.2.2-.6.2-1.1.1-1.2l-.4-.2Z"/></symbol>
-  <symbol id="phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-  <symbol id="star" viewBox="0 0 20 20"><path fill="currentColor" d="m10 1.5 2.6 5.4 5.9.8-4.3 4.1 1 5.9L10 15l-5.2 2.7 1-5.9L1.5 7.7l5.9-.8L10 1.5Z"/></symbol>
-  <symbol id="clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
-  <symbol id="shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6l-8-3Z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></g></symbol>
-  <symbol id="paw" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="9" r="1.8"/><circle cx="11" cy="6" r="1.8"/><circle cx="15" cy="6" r="1.8"/><circle cx="18.5" cy="9.5" r="1.8"/><path d="M12.5 11c-3 0-5.5 4-5.5 6.5 0 1.6 1.4 2.5 3 2l2.5-.8 2.5.8c1.6.5 3-.4 3-2 0-2.5-2.5-6.5-5.5-6.5Z"/></g></symbol>
-  <symbol id="wind" viewBox="0 0 24 24"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></symbol>
-  <symbol id="redo" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></g></symbol>
-  <symbol id="pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></g></symbol>
-  <symbol id="spark" viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2 2-6Z" fill="currentColor"/></symbol>
-  <symbol id="chat" viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4V5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></symbol>
-  <symbol id="check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
-  <symbol id="arrows" viewBox="0 0 24 24"><path d="m9 6-6 6 6 6M15 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-  <symbol id="sofa" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11V8a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v3"/><path d="M2 13a2 2 0 0 1 4 0v2h12v-2a2 2 0 0 1 4 0v5H2v-5Z"/><path d="M5 18v2M19 18v2"/></g></symbol>
-  <symbol id="sectional" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8h11v5h7v6H3V8Z"/><path d="M3 15h11v4M14 13v2"/></g></symbol>
-  <symbol id="chair" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h10v9H7z"/><path d="M5 12h14v3H5z"/><path d="M7 15v6M17 15v6"/></g></symbol>
-  <symbol id="carpet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="1"/><path d="M7 10h10M7 14h10"/></g></symbol>
-  <symbol id="rug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="4" width="12" height="16" rx="1"/><rect x="9" y="8" width="6" height="8" rx="1"/><path d="M8 4V2M12 4V2M16 4V2M8 22v-2M12 22v-2M16 22v-2"/></g></symbol>
-  <symbol id="mattress" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="8" width="20" height="9" rx="2"/><path d="M2 12.5h20M5 17v2M19 17v2"/></g></symbol>
-  <symbol id="stairs" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-4h4v-4h4V8h5"/><path d="M21 8v12H3"/></g></symbol>
-  <symbol id="chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
-</svg>
+<div class="main-bg" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
 
-<div class="ribbon" aria-hidden="true">
-  <div class="ribbon-track">
-    <span><span class="en-only">Serving all of Miami-Dade</span><span class="es-only">Sirviendo a todo Miami-Dade</span></span><span>Brickell</span><span>Coral Gables</span><span>Miami Beach</span><span>Doral</span><span>Kendall</span><span>Coconut Grove</span><span>Aventura</span><span>Wynwood</span><span>Hialeah</span>
-    <span><span class="en-only">Serving all of Miami-Dade</span><span class="es-only">Sirviendo a todo Miami-Dade</span></span><span>Brickell</span><span>Coral Gables</span><span>Miami Beach</span><span>Doral</span><span>Kendall</span><span>Coconut Grove</span><span>Aventura</span><span>Wynwood</span><span>Hialeah</span>
-  </div>
-</div>
-
-<header class="hdr" id="hdr">
-  <div class="wrap">
-    <a class="brand" href="#top" aria-label="D&A Touch — home"><span class="mark">D&A</span><span class="brand-name">D&A Touch<small>MIAMI, FL</small></span></a>
-    <div style="display:flex; align-items:center; gap:12px;">
-      <div class="lang-sw">
-        <button class="js-lang active" data-l="en">EN</button>
-        <button class="js-lang" data-l="es">ES</button>
-      </div>
-      <a class="hdr-call js-call" href="#"><svg><use href="#phone"/></svg><span class="m-only"><span class="en-only">Call</span><span class="es-only">Llamar</span></span><span class="d-only js-phone">(786) 968-2782</span></a>
-    </div>
-  </div>
+<header class="topbar">
+  <span class="topbar__mark">Hybrid Athlete</span>
+  <button class="theme-toggle" type="button" aria-label="Switch theme">
+    <span class="theme-toggle__glyph" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z"/></svg></span>
+    <span class="theme-toggle__label">Ink</span>
+  </button>
 </header>
 
-<main id="top">
+<main class="container">
+
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div>
-        <div class="badges">
-          <span class="badge" id="rating-badge" hidden><span class="stars" aria-hidden="true"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><span id="rating-text"></span></span>
-          <span class="badge"><svg><use href="#pin"/></svg>Miami-Dade</span>
-          <span class="badge"><svg><use href="#shield"/></svg><span class="en-only">Licensed & insured</span><span class="es-only">Licenciado y asegurado</span></span>
-          <span class="badge" id="es-badge" hidden><svg><use href="#chat"/></svg><span class="en-only">Hablamos español</span><span class="es-only">We speak English</span></span>
+  <section class="hero" id="top">
+    <img class="img--dark" id="heroDark" width="1080" height="1458" alt="Hybrid Athlete System" fetchpriority="high">
+    <img class="img--light" id="heroLight" width="1080" height="1458" alt="Hybrid Athlete System" onerror="this.remove();var d=document.getElementById('heroDark');if(!d.getAttribute('src'))d.src='assets/hero.webp'">
+    <script>
+      (function () {
+        var light = document.documentElement.dataset.theme === 'light';
+        var a = document.getElementById(light ? 'heroLight' : 'heroDark');
+        a.src = light ? 'assets/hero-light.webp' : 'assets/hero.webp';
+        window.__heroRest = function () {
+          var d = document.getElementById('heroDark'), l = document.getElementById('heroLight');
+          if (d && !d.getAttribute('src')) d.src = 'assets/hero.webp';
+          if (l && !l.getAttribute('src')) l.src = 'assets/hero-light.webp';
+        };
+        addEventListener('load', window.__heroRest);
+      })();
+    </script>
+    <div class="hero__shade"></div>
+    <div class="hero__text">
+      <h1 class="hero__title"><span>Hybrid athlete</span><span>system</span></h1>
+      <p class="hero__sub">Lift heavier and run a faster 5K in 10 weeks</p>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="pad sec reveal">
+    <p class="intro__q">3 gym days. 2 runs. 10 weeks.</p>
+    <p class="intro__text">Every set, rep and rest is written out, along with a running plan, meal plans and a calorie calculator. You test your lifts and your 5K in week 1, then beat those numbers in week 10. No guesswork, no excuses.</p>
+  </section>
+
+  <!-- TRUST STRIP (only true statements) -->
+  <section class="sec reveal" aria-label="What you get">
+    <div class="strip">
+      <div><b>10</b>weeks</div>
+      <div><b>5</b>phases</div>
+      <div><b>63</b>page PDF</div>
+    </div>
+  </section>
+
+  <!-- EARLY OFFER -->
+  <section class="pad sec reveal" id="start">
+    <div class="card card--accent">
+      <span class="tag">One payment</span>
+      <h2 class="card__title">The full system, $<span data-price>27</span></h2>
+      <p class="card__text">Three gym days and two runs a week for ten weeks. Every set, rep and rest written out, plus meal plans and a calorie calculator. Instant PDF.</p>
+      <button class="btn" type="button" data-buy>Get full access</button>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee sec" aria-hidden="true">
+    <div class="marquee__track">
+      <div class="marquee__item">Hybrid athlete system <i></i> No excuses <i></i> Heavy iron <i></i> Relentless endurance <i></i> Discipline <i></i></div>
+      <div class="marquee__item">Hybrid athlete system <i></i> No excuses <i></i> Heavy iron <i></i> Relentless endurance <i></i> Discipline <i></i></div>
+    </div>
+  </div>
+
+  <!-- PROTOCOL -->
+  <section class="sec" aria-labelledby="protocol-title">
+    <div class="head reveal">
+      <p class="kicker">The plan</p>
+      <h2 class="display" id="protocol-title">10 weeks, 5 phases</h2>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-1.webp" width="820" height="1100" alt="Phase 1" loading="lazy" decoding="async">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 1, Weeks 1–2</span><span class="phase__num">01</span></div>
+          <div class="phase__body"><h3 class="phase__title">Base and habits</h3><p class="phase__text">Build the base and the habits. Heavy compound lifts, easy running, and the sleep that makes both work.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-2.webp" width="820" height="1100" alt="Phase 2" loading="lazy" decoding="async">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 2, Weeks 3–4</span><span class="phase__num">02</span></div>
+          <div class="phase__body"><h3 class="phase__title">Running and arms</h3><p class="phase__text">Running volume goes up, leg volume comes down a notch, and arms get their own work every session.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-3.webp" width="820" height="1100" alt="Phase 3" loading="lazy" decoding="async">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 3, Weeks 5–6</span><span class="phase__num">03</span></div>
+          <div class="phase__body"><h3 class="phase__title">The dark zone and deadlift</h3><p class="phase__text">The hardest two weeks. Heavy deadlifts, strict sleep, strict food. This is where discipline gets tested.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-4.webp" width="820" height="1100" alt="Phase 4" loading="lazy" decoding="async">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 4, Weeks 7–8</span><span class="phase__num">04</span></div>
+          <div class="phase__body"><h3 class="phase__title">Hybrid conditioning</h3><p class="phase__text">Strength stays heavy, rests get shorter and every session ends with a conditioning finisher.</p></div>
+        </div></article>
+        <article class="slide"><div class="phase">
+          <img src="assets/phase-5.webp" width="820" height="1100" alt="Phase 5" loading="lazy" decoding="async">
+          <div class="phase__shade"></div>
+          <div class="phase__top"><span class="phase__tag">Phase 5, Weeks 9–10</span><span class="phase__num">05</span></div>
+          <div class="phase__body"><h3 class="phase__title">Peak and test</h3><p class="phase__text">Week 9 peaks your strength. Week 10 tests every lift and your 5K against the numbers from Week 1.</p></div>
+        </div></article>
+      </div>
+      <div class="slider__nav"><div class="dots"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+  </section>
+
+
+  <!-- LOOK INSIDE: real pages from the PDF -->
+  <section class="sec" aria-labelledby="inside-title">
+    <div class="head reveal">
+      <p class="kicker">Look inside</p>
+      <h2 class="display" id="inside-title">63 pages, ready for the gym</h2>
+      <p class="lead">Real pages from the PDF. Built for your phone: no zooming, open it between sets.</p>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide slide--page"><img src="assets/inside-1.webp" width="620" height="1339" alt="Cover" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-2.webp" width="620" height="1339" alt="Phase 1, Gym A" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-3.webp" width="620" height="1339" alt="Ten-week running plan" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-4.webp" width="620" height="1339" alt="Calorie calculator" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-5.webp" width="620" height="1339" alt="Meal plan, 2,700 calories" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-6.webp" width="620" height="1339" alt="Food list" loading="lazy"></article>
+        <article class="slide slide--page"><img src="assets/inside-7.webp" width="620" height="1339" alt="Supplements: worth it" loading="lazy"></article>
+      </div>
+      <div class="slider__nav"><div class="dots"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- RESULTS: clients of my previous programs, shown with their permission -->
+  <section class="sec" aria-labelledby="results-title">
+    <div class="head reveal">
+      <p class="kicker">Client results</p>
+      <h2 class="display" id="results-title">What clients changed</h2>
+    </div>
+    <div class="slider" data-slider>
+      <div class="track">
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before1.webp" width="400" height="600" alt="John M., before" loading="lazy" decoding="async">
+            <img src="assets/after1.webp" width="400" height="600" alt="John M., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">John M. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Dropped 13 lbs in 4 weeks</p>
+            <p class="ba__review">“This protocol turned me into a warrior. No fluff, just exact sets and reps to get that aesthetic look. This is a part of my life now.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before6.webp" width="400" height="600" alt="James R., before" loading="lazy" decoding="async">
+            <img src="assets/after6.webp" width="400" height="600" alt="James R., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">James R. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Shredded &amp; strong</p>
+            <p class="ba__review">“Loved the training cycles. Months of discipline and the results speak for themselves. Best investment.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before7.webp" width="400" height="600" alt="William Y., before" loading="lazy" decoding="async">
+            <img src="assets/after7.webp" width="400" height="600" alt="William Y., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">William Y. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Broke my plateau</p>
+            <p class="ba__review">“Exactly what I needed to break my plateau. The heavy definition is finally showing without losing size.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before8.webp" width="400" height="600" alt="Joseph B., before" loading="lazy" decoding="async">
+            <img src="assets/after8.webp" width="400" height="600" alt="Joseph B., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Joseph B. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">V-taper revealed</p>
+            <p class="ba__review">“Trust the process. By the 3rd week, the mirror doesn&#x27;t lie. Incredible protocol for aesthetic goals.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before9.webp" width="400" height="600" alt="John N., before" loading="lazy" decoding="async">
+            <img src="assets/after9.webp" width="400" height="600" alt="John N., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">John N. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Completely recomposed</p>
+            <p class="ba__review">“The process is addictive. The system is so well structured that success is basically guaranteed.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before10.webp" width="400" height="600" alt="Michael T., before" loading="lazy" decoding="async">
+            <img src="assets/after10.webp" width="400" height="600" alt="Michael T., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Michael T. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Lost 15 lbs of fat</p>
+            <p class="ba__review">“Simple, brutal, and effective. The supplement guide alone saved me hours of research.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before11.webp" width="400" height="600" alt="David W., before" loading="lazy" decoding="async">
+            <img src="assets/after11.webp" width="400" height="600" alt="David W., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">David W. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Lean and vascular</p>
+            <p class="ba__review">“Finally achieved the vascularity I&#x27;ve been chasing. The nutrition protocol makes it incredibly simple to stick to.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before12.webp" width="400" height="600" alt="Mason F., before" loading="lazy" decoding="async">
+            <img src="assets/after12.webp" width="400" height="600" alt="Mason F., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Mason F. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Total transformation</p>
+            <p class="ba__review">“From skinny-fat to completely shredded. The progression is an absolute game changer. Highly recommend.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before2.webp" width="400" height="600" alt="Faisal A., before" loading="lazy" decoding="async">
+            <img src="assets/after2.webp" width="400" height="600" alt="Faisal A., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Faisal A. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Achieved 10% body fat</p>
+            <p class="ba__review">“Followed the nutrition guide and the workout cycle. Finally found a routine I actually enjoy. The transformation is real.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before3.webp" width="400" height="600" alt="Omar K., before" loading="lazy" decoding="async">
+            <img src="assets/after3.webp" width="400" height="600" alt="Omar K., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Omar K. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Visible abs in 4 weeks</p>
+            <p class="ba__review">“Intense but sustainable. Best I&#x27;ve felt in years after finishing. The definition comes naturally.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before4.webp" width="400" height="600" alt="Zaid H., before" loading="lazy" decoding="async">
+            <img src="assets/after4.webp" width="400" height="600" alt="Zaid H., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Zaid H. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Gained dense muscle</p>
+            <p class="ba__review">“Not a quick fix, but a real blueprint. The training blocks are perfectly structured for progressive overload.”</p>
+          </div>
+        </article>
+        <article class="slide">
+          <div class="ba">
+            <img src="assets/before5.webp" width="400" height="600" alt="Khalid S., before" loading="lazy" decoding="async">
+            <img src="assets/after5.webp" width="400" height="600" alt="Khalid S., after" loading="lazy" decoding="async">
+            <span class="ba__tag ba__tag--before">Before</span><span class="ba__tag ba__tag--after">After</span>
+          </div>
+          <div class="ba__info">
+            <p class="ba__name">Khalid S. <span class="ba__verified">Verified client</span></p>
+            <p class="ba__result">Removed stubborn fat</p>
+            <p class="ba__review">“The macros breakdown is so precise. My physique changed entirely. Dropped the stubborn fat completely.”</p>
+          </div>
+        </article>
+      </div>
+      <div class="slider__nav"><div class="dots dots--many"></div><div class="arrows">
+        <button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div></div>
+    </div>
+    <p class="results-note">Individual results from clients of my previous programs. Results vary with your starting point, consistency and nutrition.</p>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pad sec" id="pricing" aria-labelledby="pricing-title">
+    <div class="reveal">
+      <h2 class="display" id="pricing-title" style="margin-bottom:20px">Get the full system</h2>
+
+      <!-- Shows only when CONFIG.offerEndsAt is set to a real date -->
+      <div class="deadline" id="deadline" hidden>
+        <p>Launch price ends in</p>
+        <b id="countdown">00:00:00</b>
+      </div>
+
+      <div class="card card--accent">
+        <h3 class="card__title">Hybrid athlete system</h3>
+        <p class="card__text">Ten weeks, five phases. Three gym days and two runs a week, plus everything around the training.</p>
+        <div class="price">
+          <span class="price__cur">$</span><span class="price__amt" data-price>27</span>
+          <span class="price__note">One payment.<br>Lifetime access.</span>
         </div>
-        <h1 class="display">
-          <span class="en-only">Stains, pet odors & dust in your sofa? <em>Gone</em> in one visit.</span>
-          <span class="es-only">¿Manchas, olores y polvo en su sofá? <em>Eliminados</em> en una visita.</span>
-        </h1>
-        <p class="lead">
-          <span class="en-only">Professional hot-water extraction for sofas, carpets, rugs and mattresses — right at your home in Miami. Pet-safe, dry in hours.</span>
-          <span class="es-only">Extracción profesional con agua caliente para sofás, alfombras, tapetes y colchones — en su hogar en Miami. Seguro para mascotas, seca en horas.</span>
-        </p>
-        <div class="hero-cta">
-          <a class="btn btn--main js-lead" data-ch="whatsapp" data-src="hero" href="#">
-            <span class="wa-dot"><svg><use href="#wa"/></svg></span>
-            <span class="en-only">Get my free quote</span><span class="es-only">Obtener mi cotización gratis</span>
-          </a>
-          <p class="micro"><svg><use href="#clock"/></svg>
-            <span class="en-only">Replies in minutes on WhatsApp · No obligation</span>
-            <span class="es-only">Respuestas en minutos por WhatsApp · Sin compromiso</span>
-          </p>
-          <p class="alt">
-            <span class="en-only">Prefer text? <a class="link js-lead" data-ch="sms" data-src="hero" href="#">Text us instead</a></span>
-            <span class="es-only">¿Prefiere mensaje de texto? <a class="link js-lead" data-ch="sms" data-src="hero" href="#">Envíenos un texto</a></span>
-          </p>
+        <ul class="includes">
+          <li>15 gym sessions, every set, rep and rest written out</li>
+          <li>10-week running plan with a 5K test at the start and end</li>
+          <li>Calorie calculator and 4 meal plans, 2,200 to 3,800</li>
+          <li>Sleep protocol and the full supplement guide</li>
+        </ul>
+        <button class="btn" type="button" data-buy>Get full access</button>
+        <p class="secure"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Secure payment with Apple Pay, Google Pay or card</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="pad sec" id="calculator" aria-labelledby="calc-title">
+    <div class="reveal">
+      <p class="kicker">For men</p>
+      <h2 class="display" id="calc-title" style="margin-bottom:20px">Find your daily calories</h2>
+      <div class="card">
+        <div class="units" role="group" aria-label="Units">
+          <button type="button" data-units="us" aria-pressed="true">lbs / ft</button>
+          <button type="button" data-units="metric" aria-pressed="false">kg / cm</button>
         </div>
-      </div>
-      <div class="hero-media">
-        <div class="hero-img"><img src="assets/hero.png" onerror="this.onerror=null;this.src='assets/hero.jpg'" alt="D&A Touch technician deep-cleaning a sofa in a Miami apartment" width="1200" height="900" fetchpriority="high"></div>
-        <div class="float f1"><span class="ic"><svg><use href="#wind"/></svg></span><span>
-          <b class="en-only">Dry in 4–6 hrs</b><b class="es-only">Seca en 4–6 hrs</b>
-          <span class="en-only">Use it the same day</span><span class="es-only">Úselo el mismo día</span>
-        </span></div>
-        <div class="float f2"><span class="ic"><svg><use href="#paw"/></svg></span><span>
-          <b class="en-only">Pet & kid safe</b><b class="es-only">Seguro para mascotas</b>
-          <span class="en-only">Non-toxic solutions</span><span class="es-only">Soluciones no tóxicas</span>
-        </span></div>
-      </div>
-      <div class="trust">
-        <div><svg><use href="#shield"/></svg><span class="en-only">Licensed & insured</span><span class="es-only">Licenciado y asegurado</span></div>
-        <div><svg><use href="#paw"/></svg><span class="en-only">Pet & kid safe</span><span class="es-only">Seguro para mascotas</span></div>
-        <div><svg><use href="#wind"/></svg><span class="en-only">Dry in 4–6 hours</span><span class="es-only">Seca en 4–6 horas</span></div>
-        <div><svg><use href="#redo"/></svg><span class="en-only">Free re-clean guarantee</span><span class="es-only">Garantía de relavado</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PRICES -->
-  <section class="bg-white" id="prices">
-    <div class="wrap split">
-      <div class="sec-head rv">
-        <p class="eyebrow"><span class="en-only">Pricing</span><span class="es-only">Precios</span></p>
-        <h2 class="h2">
-          <span class="en-only">Simple, <em>upfront</em> pricing</span>
-          <span class="es-only">Precios simples y <em>transparentes</em></span>
-        </h2>
-        <p class="muted">
-          <span class="en-only">Starting prices below. Send a photo and we’ll confirm your exact price — no surprises on the day.</span>
-          <span class="es-only">Precios iniciales a continuación. Envíe una foto y confirmaremos su precio exacto — sin sorpresas.</span>
-        </p>
-      </div>
-      <div class="rv">
-        <div class="plist" id="plist"></div>
-        <p class="xs muted center" style="margin-top:12px">
-          <span class="en-only">No deposit to book · Pay after the job</span>
-          <span class="es-only">Sin depósito para reservar · Pague después del trabajo</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BEFORE / AFTER -->
-  <section>
-    <div class="wrap split">
-      <div class="sec-head rv">
-        <p class="eyebrow"><span class="en-only">See the difference</span><span class="es-only">Vea la diferencia</span></p>
-        <h2 class="h2">
-          <span class="en-only">Drag the slider. <em>Watch it</em> come back to life.</span>
-          <span class="es-only">Arrastre el control. <em>Véalo</em> volver a la vida.</span>
-        </h2>
-        <p class="muted">
-          <span class="en-only">Pick what you need cleaned — sofas, rugs, carpets or mattresses.</span>
-          <span class="es-only">Elija lo que necesita limpiar — sofás, tapetes, alfombras o colchones.</span>
-        </p>
-      </div>
-      <div class="rv">
-        <div class="ba" id="ba" style="--pos:50%">
-          <img class="before" src="assets/sofa-before.jpg" alt="Sofa before cleaning" width="1200" height="900" loading="lazy">
-          <img class="after" src="assets/sofa-after.jpg" alt="Sofa after cleaning" width="1200" height="900" loading="lazy">
-          <span class="ba-tag t-before"><span class="en-only">BEFORE</span><span class="es-only">ANTES</span></span>
-          <span class="ba-tag t-after"><span class="en-only">AFTER</span><span class="es-only">DESPUÉS</span></span>
-          <div class="ba-handle"><span><svg><use href="#arrows"/></svg></span></div>
-          <span class="ba-hint"><span class="en-only">← Drag to compare →</span><span class="es-only">← Arrastrar para comparar →</span></span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after">
+        <div class="calc-row">
+          <div class="calc-head"><span>Age</span><b id="ageVal">30</b></div>
+          <input type="range" id="ageRange" class="range" min="15" max="80" value="30" aria-label="Age">
         </div>
-        <div class="tabs" role="tablist" aria-label="Choose item">
-          <button role="tab" aria-selected="true" data-k="sofa" data-cap="Sofa · coffee spills, pet stains, body oils" data-cap-es="Sofá · derrames de café, manchas de mascotas, aceites"><span class="en-only">Sofa</span><span class="es-only">Sofá</span></button>
-          <button role="tab" aria-selected="false" data-k="rug" data-cap="Area rug · red wine, pet accidents, foot traffic" data-cap-es="Tapete · vino tinto, accidentes de mascotas, tráfico"><span class="en-only">Rug</span><span class="es-only">Tapete</span></button>
-          <button role="tab" aria-selected="false" data-k="carpet" data-cap="Carpet · high-traffic lanes, coffee spills" data-cap-es="Alfombra · zonas de alto tráfico, derrames de café"><span class="en-only">Carpet</span><span class="es-only">Alfombra</span></button>
-          <button role="tab" aria-selected="false" data-k="mattress" data-cap="Mattress · sweat and body-oil stains" data-cap-es="Colchón · manchas de sudor y aceites corporales"><span class="en-only">Mattress</span><span class="es-only">Colchón</span></button>
+        <div class="calc-row">
+          <div class="calc-head"><span>Height</span><b id="heightVal">5′9″</b></div>
+          <input type="range" id="heightRange" class="range" min="59" max="87" value="69" aria-label="Height in inches">
         </div>
-        <p class="ba-cap" id="ba-cap">
-          <span class="en-only">Sofa · coffee spills, pet stains, body oils</span>
-          <span class="es-only">Sofá · derrames de café, manchas de mascotas, aceites</span>
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- HOW IT WORKS -->
-  <section class="bg-white">
-    <div class="wrap split">
-      <div class="sec-head rv">
-        <p class="eyebrow"><span class="en-only">How it works</span><span class="es-only">Cómo funciona</span></p>
-        <h2 class="h2">
-          <span class="en-only">Booked in <em>a few</em> messages</span>
-          <span class="es-only">Reservado en <em>pocos</em> mensajes</span>
-        </h2>
-      </div>
-      <div class="steps rv">
-        <div class="st"><span class="st-n">1</span><div>
-          <h3 class="h3"><span class="en-only">Send a photo</span><span class="es-only">Envíe una foto</span></h3>
-          <p class="muted small"><span class="en-only">Snap the sofa, rug or carpet and send it on WhatsApp with your ZIP code.</span><span class="es-only">Tome una foto del sofá, tapete o alfombra y envíela por WhatsApp con su código postal.</span></p>
-        </div></div>
-        <div class="st"><span class="st-n">2</span><div>
-          <h3 class="h3"><span class="en-only">Get your exact price</span><span class="es-only">Obtenga su precio exacto</span></h3>
-          <p class="muted small"><span class="en-only">We confirm the price and offer the next open times — often this week.</span><span class="es-only">Confirmamos el precio y le damos opciones de horarios — a menudo esta misma semana.</span></p>
-        </div></div>
-        <div class="st"><span class="st-n">3</span><div>
-          <h3 class="h3"><span class="en-only">Relax, we handle the rest</span><span class="es-only">Relájese, nosotros nos encargamos</span></h3>
-          <p class="muted small"><span class="en-only">We bring all equipment and clean at your place. You pay after the job.</span><span class="es-only">Llevamos todo el equipo y limpiamos en su hogar. Usted paga al terminar.</span></p>
-        </div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INCLUDED -->
-  <section>
-    <div class="wrap split">
-      <div class="sec-head rv">
-        <p class="eyebrow"><span class="en-only">Included in every clean</span><span class="es-only">Incluido en cada limpieza</span></p>
-        <h2 class="h2">
-          <span class="en-only">A deep clean, <em>not</em> a quick wipe</span>
-          <span class="es-only">Una limpieza profunda, <em>no</em> solo por encima</span>
-        </h2>
-        <p class="muted">
-          <span class="en-only">The same 5-step process for every piece — no upsells at the door.</span>
-          <span class="es-only">El mismo proceso de 5 pasos para cada pieza — sin cobros extra en la puerta.</span>
-        </p>
-      </div>
-      <ul class="inc rv">
-        <li><span class="ck"><svg><use href="#check"/></svg></span><div>
-          <b><span class="en-only">Inspection & fabric test</span><span class="es-only">Inspección y prueba de tela</span></b>
-          <p class="muted small"><span class="en-only">We check the fabric code so nothing shrinks or bleeds.</span><span class="es-only">Revisamos el código de la tela para evitar encogimiento o decoloración.</span></p>
-        </div></li>
-        <li><span class="ck"><svg><use href="#check"/></svg></span><div>
-          <b><span class="en-only">Stain & odor pre-treatment</span><span class="es-only">Pre-tratamiento de manchas y olores</span></b>
-          <p class="muted small"><span class="en-only">Targeted solutions for coffee, wine, pet accidents and sweat.</span><span class="es-only">Soluciones específicas para café, vino, accidentes de mascotas y sudor.</span></p>
-        </div></li>
-        <li><span class="ck"><svg><use href="#check"/></svg></span><div>
-          <b><span class="en-only">Hot-water extraction</span><span class="es-only">Extracción con agua caliente</span></b>
-          <p class="muted small"><span class="en-only">Pulls out deep dirt, dust mites and allergens.</span><span class="es-only">Extrae suciedad profunda, ácaros y alérgenos.</span></p>
-        </div></li>
-        <li><span class="ck"><svg><use href="#check"/></svg></span><div>
-          <b><span class="en-only">Deodorize & groom</span><span class="es-only">Desodorización y cepillado</span></b>
-          <p class="muted small"><span class="en-only">Fibers brushed back to a soft, even finish.</span><span class="es-only">Las fibras se cepillan para un acabado suave y uniforme.</span></p>
-        </div></li>
-        <li><span class="ck"><svg><use href="#check"/></svg></span><div>
-          <b><span class="en-only">Fast-dry airflow</span><span class="es-only">Secado rápido</span></b>
-          <p class="muted small"><span class="en-only">Low-moisture finish — important in Miami humidity.</span><span class="es-only">Acabado de baja humedad — vital por la humedad de Miami.</span></p>
-        </div></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- REVIEWS (показывается, когда в CONFIG.REVIEWS есть реальные отзывы) -->
-  <section class="bg-white" id="reviews" hidden>
-    <div class="wrap">
-      <div class="sec-head rv">
-        <p class="eyebrow"><span class="en-only">Reviews</span><span class="es-only">Reseñas</span></p>
-        <h2 class="h2">
-          <span class="en-only">Loved by neighbors <em>across Miami</em></span>
-          <span class="es-only">Amado por vecinos en <em>todo Miami</em></span>
-        </h2>
-      </div>
-      <a class="rev-top" id="rev-top" hidden target="_blank" rel="noopener">
-        <span class="rev-score" id="rev-score"></span>
-        <div><span class="stars" aria-hidden="true"><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg><svg><use href="#star"/></svg></span><p class="small muted" id="rev-count"></p></div>
-      </a>
-      <div class="revs" id="revs"></div>
-    </div>
-  </section>
-
-  <!-- GUARANTEE + AREA -->
-  <section class="bg-sand">
-    <div class="wrap split">
-      <div class="guar rv">
-        <span class="seal"><svg><use href="#shield"/></svg></span>
-        <h2 class="h2">
-          <span class="en-only">Love it, or we <em>re-clean</em> for free</span>
-          <span class="es-only">Ámelo, o lo <em>relavamos</em> gratis</span>
-        </h2>
-        <p>
-          <span class="en-only">If anything isn’t right, tell us within 48 hours and we’ll come back at no charge.</span>
-          <span class="es-only">Si algo no está bien, avísenos dentro de las 48 horas y regresaremos sin costo.</span>
-        </p>
-      </div>
-      <div class="sec-head rv" style="margin:28px 0 0">
-        <p class="eyebrow"><span class="en-only">Service area</span><span class="es-only">Área de servicio</span></p>
-        <h3 class="h3">
-          <span class="en-only">We come to you anywhere in Miami-Dade</span>
-          <span class="es-only">Vamos a cualquier parte de Miami-Dade</span>
-        </h3>
-        <div class="area"><span>Brickell</span><span>Downtown</span><span>Miami Beach</span><span>Coral Gables</span><span>Coconut Grove</span><span>Doral</span><span>Kendall</span><span>Aventura</span><span>North Miami</span><span>Hialeah</span><span>Wynwood</span><span>Key Biscayne</span></div>
-        <p class="muted small">
-          <span class="en-only">Not sure we cover you? Send your ZIP on WhatsApp — we’ll reply in minutes.</span>
-          <span class="es-only">¿No está seguro si cubrimos su área? Envíe su código postal por WhatsApp.</span>
-        </p>
+        <div class="calc-row">
+          <div class="calc-head"><span>Weight</span><b id="weightVal">165 lbs</b></div>
+          <input type="range" id="weightRange" class="range" min="100" max="330" value="165" aria-label="Weight in pounds">
+        </div>
+        <p class="calc-head" style="margin-bottom:10px"><span>Activity</span></p>
+        <div class="seg" id="actSeg" role="group" aria-label="Activity level">
+          <button type="button" class="active" data-mult="1.2">Minimal</button>
+          <button type="button" data-mult="1.375">Light<br>1–3 workouts</button>
+          <button type="button" data-mult="1.55">Moderate<br>3–5 workouts</button>
+          <button type="button" data-mult="1.725">High<br>daily</button>
+        </div>
+        <div class="results" aria-live="polite">
+          <div><span>Maintenance</span><b id="maintRes">2400</b><small>kcal</small></div>
+          <div><span>Cut, −15%</span><b id="defRes">2040</b><small>kcal</small></div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section>
-    <div class="wrap split">
-      <div class="sec-head rv">
-        <p class="eyebrow">FAQ</p>
-        <h2 class="h2">
-          <span class="en-only">Questions, <em>answered</em></span>
-          <span class="es-only">Preguntas <em>frecuentes</em></span>
-        </h2>
-      </div>
-      <div class="faq rv">
-        <details>
-          <summary><span class="en-only">How long until I can use my sofa or carpet?</span><span class="es-only">¿Cuánto tarda en secar mi sofá o alfombra?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">Most upholstery is dry in 4–6 hours and carpets in 6–8. Running the AC or a fan speeds it up — helpful with Miami humidity.</span><span class="es-only">La mayoría de las tapicerías secan en 4–6 horas y las alfombras en 6–8. Encender el aire acondicionado o un ventilador lo acelera.</span></p>
-        </details>
-        <details>
-          <summary><span class="en-only">Is it safe for kids and pets?</span><span class="es-only">¿Es seguro para niños y mascotas?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">Yes. We use non-toxic, low-residue solutions and rinse thoroughly, so nothing harsh is left behind.</span><span class="es-only">Sí. Usamos soluciones no tóxicas, sin residuos, y enjuagamos a fondo para que no quede nada fuerte.</span></p>
-        </details>
-        <details>
-          <summary><span class="en-only">Will every stain come out?</span><span class="es-only">¿Saldrán todas las manchas?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">Most do. Some old or set-in stains can only be lightened — we’ll tell you honestly from the photo before you book.</span><span class="es-only">La mayoría sí. Algunas manchas viejas o asentadas solo pueden aclararse; se lo diremos honestamente al ver la foto antes de que reserve.</span></p>
-        </details>
-        <details>
-          <summary><span class="en-only">Can you get rid of pet urine smell?</span><span class="es-only">¿Pueden eliminar el olor a orina de mascotas?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">Yes — we treat the source with an enzyme solution that breaks down odor, not just masks it.</span><span class="es-only">Sí — tratamos la fuente con una solución enzimática que descompone el olor en lugar de solo ocultarlo.</span></p>
-        </details>
-        <details>
-          <summary><span class="en-only">Do I need to be home or move furniture?</span><span class="es-only">¿Necesito estar en casa o mover muebles?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">Someone needs to let us in (condo access is fine). Just clear small items — we move what’s needed and put it back.</span><span class="es-only">Alguien necesita darnos acceso (conserje está bien). Solo despeje artículos pequeños — nosotros movemos lo necesario.</span></p>
-        </details>
-        <details>
-          <summary><span class="en-only">How do I pay?</span><span class="es-only">¿Cómo pago?</span><span class="pm"><svg><use href="#plus"/></svg></span></summary>
-          <p><span class="en-only">After the job, by card, Apple Pay, Zelle or cash. No deposit to book.</span><span class="es-only">Después del trabajo, con tarjeta, Apple Pay, Zelle o efectivo. Sin depósito para reservar.</span></p>
-        </details>
-      </div>
-    </div>
+  <section class="pad sec faq" id="faq" aria-labelledby="faq-title">
+    <h2 class="display reveal" id="faq-title" style="margin-bottom:20px">FAQ</h2>
+    <details><summary>Do I need a gym or any equipment?</summary><p>Yes, standard gym equipment is required. The protocol relies on cables, machines and free weights to keep constant tension on the muscle.</p></details>
+    <details><summary>What if it doesn’t work for me?</summary><p>Follow the sets, reps and nutrition consistently and you will see progress. The system is built on the same principles that work for every lifter: progressive overload, enough protein, enough sleep.</p></details>
+    <details><summary>What if I don’t know what to do in the gym?</summary><p>The guide tells you exactly what to do. Every session has prescribed sets, reps and rest times, so there is no guesswork.</p></details>
+    <details><summary>Do I need to follow a strict diet?</summary><p>You get the full nutrition matrix. Food choices are flexible, but tracking your calories and protein is what gets you to your goal.</p></details>
+    <details><summary>What if an exercise feels too hard?</summary><p>Every exercise scales. Adjust the weight to your current strength while keeping the prescribed rep range.</p></details>
   </section>
 
-  <!-- FINAL CTA -->
-  <section style="padding-top:8px">
-    <div class="wrap">
-      <div class="final-card rv">
-        <p class="eyebrow">
-          <span class="en-only">Free quote · No obligation</span>
-          <span class="es-only">Cotización gratis · Sin compromiso</span>
-        </p>
-        <h2 class="h2">
-          <span class="en-only">Ready for a <em>fresh</em>, clean home?</span>
-          <span class="es-only">¿Listo para un hogar <em>fresco</em> y limpio?</span>
-        </h2>
-        <p class="muted">
-          <span class="en-only">Send a photo — get your exact price in minutes.</span>
-          <span class="es-only">Envíe una foto — obtenga su precio exacto en minutos.</span>
-        </p>
-        <a class="btn btn--main js-lead" data-ch="whatsapp" data-src="final" href="#">
-          <span class="wa-dot"><svg><use href="#wa"/></svg></span>
-          <span class="en-only">Get my free quote</span><span class="es-only">Obtener mi cotización gratis</span>
-        </a>
-        <p class="alt">
-          <span class="en-only">or <a class="link js-lead" data-ch="sms" data-src="final" href="#">text us</a> · <a class="link js-call" href="#">call</a></span>
-          <span class="es-only">o <a class="link js-lead" data-ch="sms" data-src="final" href="#">envíenos un texto</a> · <a class="link js-call" href="#">llame</a></span>
-        </p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>
-  <div class="wrap">
-    <a class="brand" href="#top"><span class="mark">D&A</span><span class="brand-name">D&A Touch<small>MIAMI, FL</small></span></a>
-    <span><a class="js-call" href="#"><b class="js-phone">(786) 968-2782</b></a></span>
-    <span>
-      <button class="flink" type="button" data-modal="m-privacy"><span class="en-only">Privacy policy</span><span class="es-only">Política de privacidad</span></button> · 
-      <button class="flink" type="button" data-modal="m-terms"><span class="en-only">Terms of service</span><span class="es-only">Términos de servicio</span></button> · © 2026 D&A Touch
-    </span>
+  <div class="policy">
+    <h3>Refund policy</h3>
+    <p>Digital files are delivered immediately after payment. Payments are processed securely by Whop. For any order question or refund request, email support below.</p>
+    <p>Support: <a href="mailto:inkedtraff@gmail.com">inkedtraff@gmail.com</a></p>
   </div>
+  <p class="copy">© <span id="year">2026</span> Hybrid Athlete Project. All rights reserved.</p>
 </footer>
 
-<div class="bar" id="bar" aria-hidden="true">
-  <div class="in">
-    <a class="call js-call" href="#" aria-label="Call us"><svg><use href="#phone"/></svg></a>
-    <a class="btn btn--main js-lead" data-ch="whatsapp" data-src="sticky" href="#">
-      <span class="wa-dot"><svg><use href="#wa"/></svg></span>
-      <span class="en-only">Get my free quote</span><span class="es-only">Obtener cotización</span>
-    </a>
-  </div>
+<div class="sticky visible" id="sticky">
+  <div class="sticky__info"><span>Hybrid Athlete System</span><b data-price-label>$27</b></div>
+  <button class="btn" type="button" data-buy>Get access</button>
 </div>
 
-<dialog class="modal" id="m-privacy" aria-labelledby="m-privacy-t">
-  <div class="m-head">
-    <h2 id="m-privacy-t"><span class="en-only">Privacy policy</span><span class="es-only">Política de privacidad</span></h2>
-    <form method="dialog"><button class="m-x" aria-label="Close"><svg><use href="#plus"/></svg></button></form>
+<div class="paywrap" id="payWrap" aria-hidden="true" inert>
+  <div class="paywrap__bg" data-pay-close></div>
+  <div class="sheet paysheet" id="paySheet" role="dialog" aria-modal="true" aria-labelledby="pay-title">
+  <span class="sheet__grip" aria-hidden="true"></span>
+  <button class="paysheet__x" type="button" aria-label="Close checkout" data-pay-close><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  <div class="paysheet__head" tabindex="-1" autofocus style="outline:none">
+    <img class="paysheet__img" src="assets/inside-1.webp" width="620" height="1339" alt="">
+    <div>
+      <h3 class="paysheet__title" id="pay-title">Hybrid Athlete System</h3>
+      <p class="paysheet__sub">Lifetime access, PDF. One payment.</p>
+    </div>
+    <p class="paysheet__price"><b data-price-label>$27</b><span>USD</span></p>
   </div>
-  <div class="m-body">
-    <h3><span class="en-only">What we collect</span><span class="es-only">Lo que recopilamos</span></h3>
-    <p><span class="en-only">Only what you send us to get a quote or book: your name, phone number, ZIP code or address, and photos of the items to be cleaned.</span><span class="es-only">Solo lo que nos envía para obtener una cotización o reservar: su nombre, número de teléfono, código postal o dirección, y fotos de los artículos.</span></p>
-    
-    <h3><span class="en-only">How we use it</span><span class="es-only">Cómo lo usamos</span></h3>
-    <p><span class="en-only">To prepare your price, schedule the visit, do the job and follow up on it. We don’t send marketing messages unless you ask for them.</span><span class="es-only">Para preparar su precio, programar la visita, hacer el trabajo y dar seguimiento. No enviamos mensajes de marketing a menos que lo pida.</span></p>
-    
-    <h3><span class="en-only">Ads & cookies</span><span class="es-only">Anuncios y cookies</span></h3>
-    <p><span class="en-only">This site uses the Meta Pixel to measure how our ads perform. It may set cookies in your browser. You can block them in your browser settings or in your Facebook ad preferences.</span><span class="es-only">Este sitio usa el Pixel de Meta para medir el rendimiento de nuestros anuncios. Puede configurar cookies en su navegador. Puede bloquearlas en la configuración o en sus preferencias de Facebook.</span></p>
-    
-    <h3><span class="en-only">Sharing</span><span class="es-only">Compartir</span></h3>
-    <p><span class="en-only">We never sell your information. It is shared only with services we need to run the business, such as messaging and payment providers.</span><span class="es-only">Nunca vendemos su información. Solo se comparte con los servicios que necesitamos para operar, como proveedores de mensajería y pagos.</span></p>
-    
-    <h3><span class="en-only">Your choices</span><span class="es-only">Sus opciones</span></h3>
-    <p><span class="en-only">Want your information deleted? Call or text <a class="js-call" href="#"><b class="js-phone">(786) 968-2782</b></a> and we’ll remove it.</span><span class="es-only">¿Desea que se elimine su información? Llame o envíe un texto al <a class="js-call" href="#"><b class="js-phone">(786) 968-2782</b></a> y la eliminaremos.</span></p>
-    
-    <p class="upd"><span class="en-only">Last updated: October 2026</span><span class="es-only">Última actualización: Octubre 2026</span></p>
+  <div class="checkout-container">
+    <div id="whop-embedded-checkout"></div>
   </div>
-</dialog>
+  <div class="paydone" hidden>
+    <p class="kicker">Payment confirmed</p>
+    <h3 class="paydone__title">You’re in</h3>
+    <p class="paydone__text">Your program is ready. Download it now and save it to your phone. A copy is also in your Whop account.</p>
+    <a class="btn" id="payDownload" href="assets/guide/Hybrid-Athlete-System.pdf" download>Download the PDF <svg viewBox="0 0 24 24"><path d="M12 4v12M6 11l6 6 6-6M5 20h14"/></svg></a>
+  </div>
+  <p class="paysheet__fine">Instant download after payment. Secure checkout by Whop.<br>Checkout not loading? <a href="#" data-whop-link>Open it on Whop</a></p>
+</div>
+</div>
 
-<dialog class="modal" id="m-terms" aria-labelledby="m-terms-t">
-  <div class="m-head">
-    <h2 id="m-terms-t"><span class="en-only">Terms of service</span><span class="es-only">Términos de servicio</span></h2>
-    <form method="dialog"><button class="m-x" aria-label="Close"><svg><use href="#plus"/></svg></button></form>
-  </div>
-  <div class="m-body">
-    <h3><span class="en-only">Prices</span><span class="es-only">Precios</span></h3>
-    <p><span class="en-only">Prices on this site are starting prices. We confirm your exact price from photos before the visit. If the size or condition on site is different, we’ll tell you the new price before we start — never after.</span><span class="es-only">Los precios en este sitio son precios iniciales. Confirmamos su precio exacto a partir de fotos antes de la visita. Si el tamaño o la condición en el lugar son diferentes, le informaremos el nuevo precio antes de comenzar, nunca después.</span></p>
-    
-    <h3><span class="en-only">Payment</span><span class="es-only">Pago</span></h3>
-    <p><span class="en-only">No deposit. You pay after the job by card, Apple Pay, Zelle or cash.</span><span class="es-only">Sin depósito. Usted paga después del trabajo con tarjeta, Apple Pay, Zelle o efectivo.</span></p>
-    
-    <h3><span class="en-only">Results</span><span class="es-only">Resultados</span></h3>
-    <p><span class="en-only">We test every fabric first. Most stains come out, but old, set-in or dye stains may only lighten. We may decline items that can’t be cleaned safely.</span><span class="es-only">Probamos cada tela primero. La mayoría de las manchas salen, pero las manchas viejas, asentadas o de tintes pueden solo aclararse. Podemos rechazar artículos que no se puedan limpiar de forma segura.</span></p>
-    
-    <h3><span class="en-only">Re-clean guarantee</span><span class="es-only">Garantía de relavado</span></h3>
-    <p><span class="en-only">If something isn’t right, tell us within 48 hours and we’ll come back to re-clean it at no charge.</span><span class="es-only">Si algo no está bien, infórmenos dentro de las 48 horas y regresaremos para relavarlo sin costo.</span></p>
-    
-    <h3><span class="en-only">Your visit</span><span class="es-only">Su visita</span></h3>
-    <p><span class="en-only">An adult needs to give us access. Please clear small and fragile items. If you need to reschedule, let us know as early as you can — ideally 24 hours ahead.</span><span class="es-only">Un adulto debe darnos acceso. Despeje artículos pequeños y frágiles. Si necesita reprogramar, avísenos lo antes posible, idealmente con 24 horas de anticipación.</span></p>
-    
-    <p class="upd"><span class="en-only">Last updated: October 2026</span><span class="es-only">Última actualización: Octubre 2026</span></p>
-  </div>
+<dialog class="sheet" id="exitSheet" aria-labelledby="exit-title">
+  <span class="sheet__grip" aria-hidden="true"></span>
+  <h3 class="sheet__title" id="exit-title">Before you go</h3>
+  <p class="sheet__text">Ten weeks, every set written out. One payment, instant PDF.</p>
+  <button class="btn" type="button" data-scroll-pricing>Get full access</button>
+  <button class="sheet__close" type="button" data-close>Not now</button>
 </dialog>
 
 <script>
-(function(){
-  var C = window.LANDING_CONFIG;
-  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&','<':'<','>':'>','"':'"'}[c]; }); }
-  var star = '<svg><use href="#star"/></svg>';
-
-  /* ---------- Pixel ---------- */
-  var LEAD_KEY = 'da_lead_sent';
-  function store(k, v){ try { if (v === undefined) return sessionStorage.getItem(k); sessionStorage.setItem(k, v); } catch(e){ return null; } }
-  function eid(){ return 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2,8); }
-  function fire(){ if (typeof fbq === 'function') fbq.apply(null, arguments); }
-  function trackLead(channel, src){
-    var params = { content_name: channel + '_' + src, content_category: 'upholstery_carpet_cleaning' };
-    if (!store(LEAD_KEY)) { fire('track', 'Lead', params, { eventID: eid() }); store(LEAD_KEY, '1'); }
-    else { fire('trackCustom', 'LeadRepeat', params); }
-  }
-
-  /* ---------- Language & Price list ---------- */
-  var chev = '<span class="chev"><svg><use href="#chev"/></svg></span>';
-  
-  window.setLang = function(l) {
-    document.documentElement.lang = l;
-    document.querySelectorAll('.js-lang').forEach(function(b){ b.classList.toggle('active', b.dataset.l === l); });
-    renderPrices();
+  /* ================= CONFIG ================= */
+  const CONFIG = {
+    price: 27,
+    // Whop embedded checkout (opens in the bottom sheet, no redirect)
+    whopPlanId: 'plan_HvtSoVl16TKMD',
+    // 'link'  = buttons open the Whop checkout page (works everywhere)
+    // 'embed' = checkout opens in the bottom sheet on this site (needs inkedfit.vercel.app in Whop > Payment domains)
+    checkoutMode: 'embed',
+    // Where Whop sends the buyer after payment (same address as before)
+    returnUrl: 'https://inkedfit.vercel.app/success.html?via=whop',
+    whopLink: 'https://whop.com/checkout/plan_HvtSoVl16TKMD',
+    // Real end of the launch price, e.g. '2026-11-01T00:00:00'. Leave empty to hide the countdown.
+    offerEndsAt: '',
   };
 
-  document.querySelectorAll('.js-lang').forEach(function(btn){
-    btn.addEventListener('click', function(){ setLang(this.dataset.l); });
-  });
+  const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function renderPrices(){
-    var isEs = document.documentElement.lang === 'es';
-    document.getElementById('plist').innerHTML = C.ITEMS.map(function(it){
-      var sz = isEs && it.sizesEs ? it.sizesEs : it.sizes;
-      var min = sz ? Math.min.apply(null, sz.map(function(x){ return x[1]; })) : it.from;
-      var pLbl = isEs ? 'precio' : 'price';
-      var fLbl = isEs ? 'desde' : 'from';
-      var qLbl = isEs ? 'Cotización gratis' : 'Free quote';
-      
-      var price = (min != null)
-        ? '<span>'+fLbl+'</span><b>$'+esc(min)+'</b>'
-        : '<span>'+pLbl+'</span><b class="q">'+qLbl+'</b>';
-      
-      var nm = isEs && it.nameEs ? it.nameEs : it.name;
-      var nt = isEs && it.noteEs ? it.noteEs : it.note;
-      
-      var head = '<span class="pico"><svg><use href="#'+it.icon+'"/></svg></span>'+
-        '<div class="ptxt"><div class="pname">'+esc(nm)+'</div><div class="pnote">'+esc(nt)+'</div></div>'+
-        '<div class="pprice">'+price+'</div>';
-      
-      if (sz) {
-        return '<details class="pd"><summary class="prow">'+head+chev+'</summary><ul class="psizes">'+
-          sz.map(function(x){ return '<li><span>'+esc(x[0])+'</span><b>$'+esc(x[1])+'</b></li>'; }).join('')+'</ul></details>';
-      }
-      return '<div class="prow">'+head+'<span class="chev chev--sp" aria-hidden="true"></span></div>';
-    }).join('') +
-    '<div class="pfoot"><a class="btn btn--main js-lead" data-ch="whatsapp" data-src="prices" href="#"><span class="wa-dot"><svg><use href="#wa"/></svg></span><span class="en-only">Get my exact price</span><span class="es-only">Obtener mi precio exacto</span></a>'+
-    '<p class="xs muted center"><span class="en-only">Send a photo on WhatsApp — we reply in minutes.</span><span class="es-only">Envíe una foto por WhatsApp — respondemos en minutos.</span></p></div>';
-  }
-  
-  // Initial render
-  renderPrices();
+  /* prices + year */
+  $$('[data-price]').forEach(el => el.textContent = CONFIG.price);
+  $$('[data-price-label]').forEach(el => el.textContent = '$' + CONFIG.price);
+  $('#year').textContent = new Date().getFullYear();
 
-  /* ---------- Policy pop-ups ---------- */
-  document.querySelectorAll('[data-modal]').forEach(function(btn){
-    btn.addEventListener('click', function(){
-      var d = document.getElementById(btn.dataset.modal);
-      if (d && d.showModal) d.showModal(); else if (d) d.setAttribute('open', '');
+  /* ================= THEME ================= */
+  (function () {
+    const btn = $('.theme-toggle'), glyph = $('.theme-toggle__glyph'), label = $('.theme-toggle__label');
+    const meta = $('meta[name="theme-color"]');
+    const paint = t => {
+      const ink = t === 'dark';
+      label.textContent = ink ? 'Ink' : 'Paper';
+      btn.setAttribute('aria-label', ink ? 'Switch to paper theme' : 'Switch to ink theme');
+      meta.setAttribute('content', ink ? '#000000' : '#E3E0D8');
+    };
+    paint(document.documentElement.dataset.theme);
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      if (window.__heroRest) window.__heroRest();
+      const apply = () => { document.documentElement.dataset.theme = next; paint(next); };
+      try { localStorage.setItem('ha-theme', next); } catch (e) {}
+      if (document.startViewTransition && !reduceMotion) {
+        const r = btn.getBoundingClientRect();
+        document.documentElement.style.setProperty('--vt-x', (r.left + r.width / 2) + 'px');
+        document.documentElement.style.setProperty('--vt-y', (r.top + r.height / 2) + 'px');
+        document.startViewTransition(apply);
+      } else apply();
     });
-  });
-  document.querySelectorAll('dialog.modal').forEach(function(d){
-    d.addEventListener('click', function(e){ if (e.target === d) d.close(); });
+  })();
+
+  /* ================= TOP BAR ================= */
+  (function () {
+    const topbar = $('.topbar'), hero = $('.hero');
+    new IntersectionObserver(([en]) => topbar.classList.toggle('is-solid', !en.isIntersecting), { rootMargin: '-70px 0px 0px 0px' }).observe(hero);
+  })();
+
+  /* ================= REVEAL ================= */
+  (function () {
+    const els = $$('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) { els.forEach(e => e.classList.add('in')); return; }
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -12% 0px' });
+    els.forEach(e => io.observe(e));
+  })();
+
+  /* ================= SLIDERS ================= */
+  $$('[data-slider]').forEach(slider => {
+    const track = $('.track', slider), slides = $$('.slide', track), dots = $('.dots', slider);
+    const prev = $('[data-dir="-1"]', slider), next = $('[data-dir="1"]', slider);
+    let index = 0;
+    slides.forEach((s, i) => {
+      const d = document.createElement('button');
+      d.type = 'button'; d.setAttribute('aria-label', 'Slide ' + (i + 1));
+      d.addEventListener('click', () => go(i));
+      dots.appendChild(d);
+    });
+    const go = i => {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({ left: slides[i].offsetLeft - track.offsetLeft - 22, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+    const mark = i => {
+      index = i;
+      slides.forEach((s, k) => s.classList.toggle('is-active', k === i));
+      $$('button', dots).forEach((d, k) => d.setAttribute('aria-current', String(k === i)));
+      prev.disabled = i === 0; next.disabled = i === slides.length - 1;
+    };
+    const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) mark(slides.indexOf(e.target)); }), { root: track, threshold: .6 });
+    slides.forEach(s => io.observe(s));
+    prev.addEventListener('click', () => go(index - 1));
+    next.addEventListener('click', () => go(index + 1));
+    mark(0);
   });
 
-  /* ---------- Trust bits ---------- */
-  if (C.SPANISH) document.getElementById('es-badge').hidden = false;
-  if (C.GOOGLE_RATING) {
-    document.getElementById('rating-badge').hidden = false;
-    document.getElementById('rating-text').textContent = C.GOOGLE_RATING; // simplified, rating usually stands alone
-  }
-  if (C.REVIEWS && C.REVIEWS.length) {
-    document.getElementById('reviews').hidden = false;
-    document.getElementById('revs').innerHTML = C.REVIEWS.map(function(r){
-      return '<article class="rev"><span class="stars" aria-label="'+(r.stars||5)+' stars">'+star.repeat(r.stars||5)+'</span><p>'+esc(r.text)+'</p>'+
-        '<div class="rev-who"><span class="av">'+esc((r.name||'?').charAt(0))+'</span><span><b>'+esc(r.name)+'</b><br><span class="muted">'+esc([r.area, r.item].filter(Boolean).join(' · '))+'</span></span></div></article>';
-    }).join('');
-    if (C.GOOGLE_RATING) {
-      var top = document.getElementById('rev-top'); top.hidden = false;
-      if (C.GOOGLE_REVIEWS_URL) top.href = C.GOOGLE_REVIEWS_URL;
-      document.getElementById('rev-score').textContent = C.GOOGLE_RATING;
-      document.getElementById('rev-count').innerHTML = C.GOOGLE_REVIEWS_COUNT ? '<span class="en-only">Based on '+C.GOOGLE_REVIEWS_COUNT+' Google reviews</span><span class="es-only">Basado en '+C.GOOGLE_REVIEWS_COUNT+' reseñas de Google</span>' : '<span class="en-only">Google rating</span><span class="es-only">Calificación en Google</span>';
-    }
-  }
+  /* ================= HONEST COUNTDOWN ================= */
+  (function () {
+    if (!CONFIG.offerEndsAt) return;
+    const end = new Date(CONFIG.offerEndsAt).getTime();
+    const box = $('#deadline'), out = $('#countdown');
+    const tick = () => {
+      const ms = end - Date.now();
+      if (ms <= 0) { box.hidden = true; return; }
+      box.hidden = false;
+      const h = Math.floor(ms / 3600000), m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+      out.textContent = (h > 99 ? Math.floor(h / 24) + 'd ' + String(h % 24).padStart(2, '0') : String(h).padStart(2, '0')) + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+      setTimeout(tick, 1000);
+    };
+    tick();
+  })();
 
-  /* ---------- Links ---------- */
-  var MSG_EN = "Hi D&A Touch! I'd like a free quote. I'll send a photo. My ZIP is: ";
-  var MSG_ES = "¡Hola D&A Touch! Me gustaría una cotización. Enviaré una foto. Mi código postal es: ";
-  
-  function href(ch){
-    var isEs = document.documentElement.lang === 'es';
-    var m = encodeURIComponent(isEs ? MSG_ES : MSG_EN);
-    if (ch === 'sms') return 'sms:' + C.SMS_NUMBER + (/iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?') + 'body=' + m;
-    return 'https://wa.me/' + C.WHATSAPP_NUMBER + '?text=' + m;
+  /* ================= CALCULATOR (men, Mifflin-St Jeor) =================
+     US units by default (lbs, feet/inches); kg/cm switch. Formula runs in metric. */
+  (function () {
+    const age = $('#ageRange'), height = $('#heightRange'), weight = $('#weightRange');
+    const LB = 0.45359237, IN = 2.54;
+    const RANGES = {
+      us:     { h: [59, 87, 'Height in inches'],     w: [100, 330, 'Weight in pounds'] },
+      metric: { h: [150, 220, 'Height in centimeters'], w: [45, 150, 'Weight in kilograms'] },
+    };
+    let units = 'us', mult = 1.2;
+    const fill = r => r.style.setProperty('--p', ((r.value - r.min) / (r.max - r.min) * 100) + '%');
+    const setRange = (r, [min, max, label], val) => {
+      r.min = min; r.max = max; r.setAttribute('aria-label', label);
+      r.value = Math.min(max, Math.max(min, Math.round(val)));
+    };
+    const update = () => {
+      [age, height, weight].forEach(fill);
+      const cm = units === 'us' ? +height.value * IN : +height.value;
+      const kg = units === 'us' ? +weight.value * LB : +weight.value;
+      $('#ageVal').textContent = age.value;
+      if (units === 'us') {
+        const inch = +height.value;
+        $('#heightVal').textContent = Math.floor(inch / 12) + '′' + (inch % 12) + '″';
+        $('#weightVal').textContent = weight.value + ' lbs';
+      } else {
+        $('#heightVal').textContent = height.value + ' cm';
+        $('#weightVal').textContent = weight.value + ' kg';
+      }
+      const bmr = 10 * kg + 6.25 * cm - 5 * +age.value + 5;
+      const tdee = Math.round(bmr * mult);
+      $('#maintRes').textContent = tdee.toLocaleString('en-US');
+      $('#defRes').textContent = Math.round(tdee * .85).toLocaleString('en-US');
+    };
+    const setUnits = next => {
+      if (next === units) return;
+      const cm = units === 'us' ? +height.value * IN : +height.value;
+      const kg = units === 'us' ? +weight.value * LB : +weight.value;
+      units = next;
+      setRange(height, RANGES[units].h, units === 'us' ? cm / IN : cm);
+      setRange(weight, RANGES[units].w, units === 'us' ? kg / LB : kg);
+      $$('[data-units]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.units === units)));
+      update();
+    };
+    $$('[data-units]').forEach(b => b.addEventListener('click', () => setUnits(b.dataset.units)));
+    [age, height, weight].forEach(r => r.addEventListener('input', update));
+    $$('#actSeg button').forEach(b => b.addEventListener('click', () => {
+      $$('#actSeg button').forEach(x => x.classList.remove('active'));
+      b.classList.add('active'); mult = parseFloat(b.dataset.mult); update();
+    }));
+    update();
+  })();
+
+  /* ================= CHECKOUT (Whop embedded, inside the bottom sheet) ================= */
+  // The Whop checkout is heavy, so it loads in the background only once the visitor shows intent:
+  // scrolls to the protocol, touches a buy button, or after 6 s on the page.
+  // Whop Elements (current Whop embed). Replaces the old js.whop.com checkout loader.
+  let whopLoaded = false, whopMounted = false, whopReady = false, whopCheckout = null;
+  // Match the checkout to the site theme (dark by default, light when the site toggle is on light).
+  const whopAppearance = () => ({ theme: { appearance: document.documentElement.dataset.theme === 'light' ? 'light' : 'dark' } });
+  new MutationObserver(() => {
+    try { whopCheckout && whopCheckout.update({ appearance: whopAppearance() }); } catch (e) {}
+  }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  function mountWhop() {
+    if (whopMounted || typeof window.WhopElements !== 'function') return;
+    whopMounted = true;
+    try {
+      const checkout = whopCheckout = window.WhopElements().checkout.create({
+        plan: CONFIG.whopPlanId,
+        appearance: whopAppearance(),
+        returnUrl: CONFIG.returnUrl,
+        onLoadingChange: loading => { if (!loading) whopReady = true; },
+        onComplete: c => { if (c && c.result === 'payment') window.onWhopComplete(c.paymentId || c.sessionId || ''); },
+      });
+      checkout.create('checkout').mount('#whop-embedded-checkout');
+    } catch (e) { console.error('Whop checkout failed to mount', e); }
   }
-  
-  document.addEventListener('click', function(e){
-    var a = e.target.closest('.js-lead');
-    if (a){
-      e.preventDefault();
-      trackLead(a.dataset.ch, a.dataset.src);
-      var url = href(a.dataset.ch);
-      setTimeout(function(){ window.location.href = url; }, 150);
+  function loadWhop() {
+    if (whopLoaded) { mountWhop(); return; }
+    whopLoaded = true;
+    const sc = document.createElement('script');
+    sc.src = 'https://cdn.whop.com/elements/amber/elements.js';
+    sc.setAttribute('data-whop-elements', '');
+    sc.async = true;
+    sc.onload = mountWhop;
+    document.body.appendChild(sc);
+  }
+  addEventListener('load', () => { if (CONFIG.checkoutMode !== 'link') setTimeout(loadWhop, 6000); });
+  addEventListener('scroll', function onS() { if (CONFIG.checkoutMode !== 'link' && scrollY > 900) { loadWhop(); removeEventListener('scroll', onS); } }, { passive: true });
+  ['pointerdown', 'mouseover', 'focusin'].forEach(ev => document.addEventListener(ev, e => { if (CONFIG.checkoutMode !== 'link' && e.target.closest && e.target.closest('[data-buy]')) loadWhop(); }, { passive: true }));
+  let purchased = false;
+  window.onWhopComplete = function () {
+    if (purchased) return; purchased = true;
+    const id = [...arguments].map(String).find(x => /^(pay|rcpt|receipt|mem|R-|plan_)/i.test(x) || x.length > 12) || '';
+    if (typeof fbq === 'function') fbq('track', 'Purchase', { value: CONFIG.price, currency: 'USD' }, id ? { eventID: id } : undefined);
+    try { localStorage.setItem('ha-purchase-tracked', String(Date.now())); } catch (e) {}
+    const sheet = $('#paySheet');
+    $('.checkout-container', sheet).hidden = true;
+    $('.paydone', sheet).hidden = false;
+    paySheet(true);
+  };
+  function paySheet(open) {
+    const w = $('#payWrap');
+    w.classList.toggle('is-open', open);
+    w.setAttribute('aria-hidden', String(!open));
+    w.inert = !open;
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+    if (open) setTimeout(() => $('.paysheet__x').focus({ preventScroll: true }), 300);
+  }
+  function openCheckout() {
+    if (CONFIG.checkoutMode === 'link') {
+      if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+      const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+      setTimeout(() => { location.href = CONFIG.whopLink + '?theme=' + theme; }, 250);
       return;
     }
-    if (e.target.closest('.js-call')) fire('track', 'Contact', { content_name: 'phone_call' });
-  });
-  document.querySelectorAll('.js-call').forEach(function(a){ a.href = 'tel:' + C.PHONE; });
-  document.querySelectorAll('.js-phone').forEach(function(s){ s.textContent = C.PHONE_DISPLAY; });
-
-  /* ---------- Before / after ---------- */
-  var ba = document.getElementById('ba'), rng = ba.querySelector('input'), imB = ba.querySelector('.before'), imA = ba.querySelector('.after');
-  rng.addEventListener('input', function(){ ba.style.setProperty('--pos', rng.value + '%'); ba.classList.add('touched'); });
-  var tabs = document.querySelectorAll('.tabs button');
-  tabs.forEach(function(b){
-    b.addEventListener('click', function(){
-      tabs.forEach(function(x){ x.setAttribute('aria-selected', x === b); });
-      imB.src = 'assets/' + b.dataset.k + '-before.jpg'; imB.alt = b.dataset.k + ' before cleaning';
-      imA.src = 'assets/' + b.dataset.k + '-after.jpg';  imA.alt = b.dataset.k + ' after cleaning';
-      document.getElementById('ba-cap').innerHTML = '<span class="en-only">' + b.dataset.cap + '</span><span class="es-only">' + (b.dataset.capEs || b.dataset.cap) + '</span>';
-      rng.value = 50; ba.style.setProperty('--pos', '50%');
-    });
-  });
-  ['sofa','rug','carpet','mattress'].forEach(function(k){ ['before','after'].forEach(function(s){ var i = new Image(); i.src = 'assets/'+k+'-'+s+'.jpg'; }); });
-
-  /* ---------- Header, sticky bar, reveal ---------- */
-  var hdr = document.getElementById('hdr'), bar = document.getElementById('bar');
-  var heroVisible = true, finalVisible = false;
-  function syncBar(){ var show = !heroVisible && !finalVisible; bar.classList.toggle('show', show); bar.setAttribute('aria-hidden', !show); }
-  if ('IntersectionObserver' in window){
-    new IntersectionObserver(function(es){ heroVisible = es[0].isIntersecting; syncBar(); }).observe(document.querySelector('.hero-cta'));
-    new IntersectionObserver(function(es){ finalVisible = es[0].isIntersecting; syncBar(); }).observe(document.querySelector('.final-card'));
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px' });
-    document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
-  } else {
-    heroVisible = false; syncBar();
-    document.querySelectorAll('.rv').forEach(function(el){ el.classList.add('in'); });
+    loadWhop();
+    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { value: CONFIG.price, currency: 'USD' });
+    if ($('#exitSheet').open) $('#exitSheet').close();
+    paySheet(true);
+    // Safety net: if the embedded checkout hasn't rendered in 8 s (domain not allowed,
+    // blocker, in-app browser), send the buyer to the same Whop checkout page.
+    clearTimeout(window.__whopFallback);
+    window.__whopFallback = setTimeout(() => {
+      const open = $('#payWrap').classList.contains('is-open');
+      if (open && !purchased && !whopReady && !$('#whop-embedded-checkout iframe')) location.href = whopPageUrl();
+    }, 8000);
   }
-  window.addEventListener('scroll', function(){ hdr.classList.toggle('scrolled', window.scrollY > 8); }, { passive: true });
-})();
+  function whopPageUrl() {
+    const theme = document.documentElement.dataset.theme === 'light' ? 'light' : 'dark';
+    return CONFIG.whopLink + '?theme=' + theme;
+  }
+  $$('[data-whop-link]').forEach(a => { a.href = whopPageUrl(); });
+  $$('[data-buy]').forEach(b => b.addEventListener('click', openCheckout));
+  $$('[data-pay-close]').forEach(b => b.addEventListener('click', () => { clearTimeout(window.__whopFallback); paySheet(false); }));
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && $('#payWrap').classList.contains('is-open')) paySheet(false); });
+  const toPricing = () => { $('#exitSheet').open && $('#exitSheet').close(); $('#pricing').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' }); };
+  $$('[data-scroll-pricing]').forEach(b => b.addEventListener('click', toPricing));
+
+  /* ================= EXIT OFFER (desktop only, once) =================
+     Shown when the cursor leaves the top of the window. No back-button trapping. */
+  (function () {
+    const sheet = $('#exitSheet');
+    $('[data-close]', sheet).addEventListener('click', () => sheet.close());
+    sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
+    if (!matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    let shown = false;
+    document.addEventListener('mouseout', e => {
+      if (shown || e.relatedTarget || e.clientY > 10 || window.scrollY < 600) return;
+      shown = true; sheet.showModal();
+    });
+  })();
 </script>
 </body>
 </html>
